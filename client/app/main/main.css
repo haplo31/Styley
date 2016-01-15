@@ -5,20 +5,25 @@
 #banner {
   border-bottom: none;
   margin-top: -20px;
+  background-image: url("./../../assets/images/header.jpg");
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #banner h1 {
-  font-size: 60px;
-  line-height: 1;
+  font-size: 1000%;
+  line-height: 100%;
   letter-spacing: -1px;
 }
 
 .hero-unit {
   position: relative;
-  padding: 30px 15px;
+  padding: 10% 2%;
   color: #F5F5F5;
   text-align: center;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  text-shadow: -1px 0 #777, 0 2px #777, 2px 0 #777, 0 -1px #777;
   background: #4393B9;
 }
 
