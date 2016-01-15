@@ -1,9 +1,8 @@
-\documentclass[border=10pt]{standalone} 
+\documentclass[border=10pt,tikz]{standalone} 
 \usepackage{verbatim}
 \usepackage{tikz}
 \begin{document}
 \begin{tikzpicture}
-
 
 \tikzstyle{vertex}=[shape=rectangle, rounded corners,
     draw, align=center,
@@ -137,6 +136,38 @@
 \draw[very thick] (-14,-3) -- (-10,-3) -- (-10,-8.5) -- (-14,-8.5) -- (-14,-3);
 \node (DOC_explore) at (-12,-8) {components};
 
+
+
+\end{tikzpicture}
+\begin{tikzpicture}
+
+
+\tikzstyle{vertex}=[shape=circle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=red!20]
+  \Huge
+  \node[vertex] (api) at (0,0) {api};
+
+  \node[vertex] (user) at (-12,-1) {user};
+  \node[vertex] (request) at (-8,-3) {request};
+  \node[vertex] (artist) at (-4.5,-5) {artist};
+  \node[vertex] (creation) at (-0.5,-5) {creation};
+  \node[vertex] (qqartist) at (4,-3) {qqartist};
+  \node[vertex] (qqrequest) at (8,-2) {qqrequest};
+  
+  \draw[->,>=latex] (api) -- (user);
+  \draw[->,>=latex] (api) -- (artist);
+  \draw[->,>=latex] (api) -- (request);
+  \draw[->,>=latex] (api) -- (creation);
+  \draw[->,>=latex] (api) -- (qqartist);
+  \draw[->,>=latex] (api) -- (qqrequest);
+  
+  % qqsystem
+  \draw[very thick] (2,0.5) -- (10.25,0.5) -- (10.25,-6) -- (2,-6) -- (2,0.5);
+  \node (DOC_explore) at (4,-5.5) {qqsystem};  
+  % community
+  \draw[very thick] (-6,-3) -- (1.5,-3) -- (1.5,-8) -- (-6,-8) -- (-6,-3);
+  \node (DOC_explore) at (-4,-7.5) {community}; 
 
 
 \end{tikzpicture}
