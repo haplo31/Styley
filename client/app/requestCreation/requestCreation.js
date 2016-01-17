@@ -5,7 +5,7 @@ angular.module('styleyApp')
     $stateProvider
       .state('requestCreation', {
         url: '/requestCreation',
-        templateUrl: 'app/newRequest/requestCreation/requestCreation.html',
+        templateUrl: 'app/requestCreation/requestCreation.html',
         controller: 'RequestCreationCtrl'
       });
   });

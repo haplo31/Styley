@@ -24,14 +24,7 @@
       <link rel="stylesheet" href="app/explore/exploreArtists/exploreArtists.css">
       <link rel="stylesheet" href="app/explore/exploreCreations/exploreCreations.css">
       <link rel="stylesheet" href="app/main/main.css">
-      <link rel="stylesheet" href="app/newRequest/requestAddPerson/requestAddPerson.css">
-      <link rel="stylesheet" href="app/newRequest/requestCreation/requestCreation.css">
-      <link rel="stylesheet" href="app/newRequest/requestCustom/requestCustom.css">
-      <link rel="stylesheet" href="app/newRequest/requestDrawing/requestDrawing.css">
-      <link rel="stylesheet" href="app/newRequest/requestImprove/requestImprove.css">
-      <link rel="stylesheet" href="app/newRequest/requestIncrustation/requestIncrustation.css">
-      <link rel="stylesheet" href="app/newRequest/requestRemoveObject/requestRemoveObject.css">
-      <link rel="stylesheet" href="app/newRequest/requestRemovePerson/requestRemovePerson.css">
+      <link rel="stylesheet" href="app/requestCreation/requestCreation.css">
       <link rel="stylesheet" href="app/user/admin/admin.css">
       <link rel="stylesheet" href="app/user/artist/account/accountArtist/accountArtist.css">
       <link rel="stylesheet" href="app/user/artist/account/archivedWorks/archivedWorks.css">
@@ -51,6 +44,13 @@
       <link rel="stylesheet" href="components/footer/footer.css">
       <link rel="stylesheet" href="components/modal/modal.css">
       <link rel="stylesheet" href="components/oauth-buttons/oauth-buttons.css">
+      <link rel="stylesheet" href="components/requestCreation/requestAddPerson/requestAddPerson.css">
+      <link rel="stylesheet" href="components/requestCreation/requestCustom/requestCustom.css">
+      <link rel="stylesheet" href="components/requestCreation/requestDrawing/requestDrawing.css">
+      <link rel="stylesheet" href="components/requestCreation/requestImprove/requestImprove.css">
+      <link rel="stylesheet" href="components/requestCreation/requestIncrustation/requestIncrustation.css">
+      <link rel="stylesheet" href="components/requestCreation/requestRemoveObject/requestRemoveObject.css">
+      <link rel="stylesheet" href="components/requestCreation/requestRemovePerson/requestRemovePerson.css">
       <!-- endinjector -->
       <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
@@ -99,26 +99,12 @@
       <script src="app/user/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/user/artist/account/updateWork/updateWork.js"></script>
+      <script src="app/user/customer/account/currentRequests/currentRequests.controller.js"></script>
       <script src="app/explore/exploreCreations/exploreCreations.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
-      <script src="app/newRequest/requestAddPerson/requestAddPerson.controller.js"></script>
-      <script src="app/newRequest/requestAddPerson/requestAddPerson.js"></script>
-      <script src="app/newRequest/requestCreation/requestCreation.controller.js"></script>
-      <script src="app/newRequest/requestCreation/requestCreation.js"></script>
-      <script src="app/newRequest/requestCustom/requestCustom.controller.js"></script>
-      <script src="app/newRequest/requestCustom/requestCustom.js"></script>
-      <script src="app/newRequest/requestDrawing/requestDrawing.controller.js"></script>
-      <script src="app/newRequest/requestDrawing/requestDrawing.js"></script>
-      <script src="app/newRequest/requestImprove/requestImprove.controller.js"></script>
-      <script src="app/newRequest/requestImprove/requestImprove.js"></script>
-      <script src="app/newRequest/requestIncrustation/requestIncrustation.controller.js"></script>
-      <script src="app/newRequest/requestIncrustation/requestIncrustation.js"></script>
-      <script src="app/newRequest/requestRemoveObject/requestRemoveObject.controller.js"></script>
-      <script src="app/newRequest/requestRemoveObject/requestRemoveObject.js"></script>
-      <script src="app/newRequest/requestRemovePerson/requestRemovePerson.controller.js"></script>
-      <script src="app/newRequest/requestRemovePerson/requestRemovePerson.js"></script>
+      <script src="app/requestCreation/requestCreation.controller.js"></script>
+      <script src="app/requestCreation/requestCreation.js"></script>
       <script src="app/user/admin/admin.controller.js"></script>
       <script src="app/app.constant.js"></script>
       <script src="app/user/admin/admin.router.js"></script>
@@ -131,7 +117,7 @@
       <script src="app/user/artist/account/portfolio/portfolio.controller.js"></script>
       <script src="app/user/artist/account/portfolio/portfolio.js"></script>
       <script src="app/user/artist/account/updateWork/updateWork.controller.js"></script>
-      <script src="app/explore/exploreArtists/exploreArtists.controller.js"></script>
+      <script src="app/user/artist/account/updateWork/updateWork.js"></script>
       <script src="app/user/artist/createArtist/createArtist.controller.js"></script>
       <script src="app/user/artist/createArtist/createArtist.js"></script>
       <script src="app/user/artist/exploreRequests/exploreRequests.controller.js"></script>
@@ -142,7 +128,7 @@
       <script src="app/user/customer/account/accountCustomer/accountCustomer.js"></script>
       <script src="app/user/customer/account/archivedRequests/archivedRequests.controller.js"></script>
       <script src="app/user/customer/account/archivedRequests/archivedRequests.js"></script>
-      <script src="app/user/customer/account/currentRequests/currentRequests.controller.js"></script>
+      <script src="app/explore/exploreArtists/exploreArtists.controller.js"></script>
       <script src="app/user/customer/account/currentRequests/currentRequests.js"></script>
       <script src="app/user/customer/createCustomer/createCustomer.controller.js"></script>
       <script src="app/user/customer/createCustomer/createCustomer.js"></script>
@@ -164,6 +150,13 @@
       <script src="components/navbar/navbar.directive.js"></script>
       <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
       <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
+      <script src="components/requestCreation/requestAddPerson/requestAddPerson.controller.js"></script>
+      <script src="components/requestCreation/requestCustom/requestCustom.controller.js"></script>
+      <script src="components/requestCreation/requestDrawing/requestDrawing.controller.js"></script>
+      <script src="components/requestCreation/requestImprove/requestImprove.controller.js"></script>
+      <script src="components/requestCreation/requestIncrustation/requestIncrustation.controller.js"></script>
+      <script src="components/requestCreation/requestRemoveObject/requestRemoveObject.controller.js"></script>
+      <script src="components/requestCreation/requestRemovePerson/requestRemovePerson.controller.js"></script>
       <script src="components/socket/socket.service.js"></script>
       <script src="app/explore/exploreCreations/exploreCreations.controller.js"></script>
       <script src="components/util/util.service.js"></script>
