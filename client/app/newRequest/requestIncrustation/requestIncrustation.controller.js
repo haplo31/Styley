@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('styleyApp')
-  .controller('RequestAddObjectCtrl', function ($scope) {
+  .controller('RequestIncrustationCtrl', function ($scope) {
     $scope.message = 'Hello';
   });

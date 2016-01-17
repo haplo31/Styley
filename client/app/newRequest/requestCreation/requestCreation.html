@@ -1,1 +1,45 @@
-<div>This is the requestCreation view.</div>
+<navbar></navbar>
+
+<header class="hero-unit" id="bannerRC">
+    <h1>Styley</h1>
+</header>
+
+
+<div class="container actiongrid">
+  <div class="col-md-8">
+    <h2 class="title"> Chose a Generic Modification...</h2>
+    <div class="dashboard col-md-6" ng-init="imgsrc0='/assets/images/addPerson.png'" ng-mouseover="imgsrc0='/assets/images/addPerson.gif'" ng-mouseout="imgsrc0='/assets/images/addPerson.png'" ui-sref="requestAddPerson">
+      <img class="buttonimages" ng-src="{{imgsrc0}}">
+      <span class="buttontitles">Add  <br /> a Person</span>
+    </div>
+    <div class="dashboard col-md-6" ng-init="imgsrc='/assets/images/plage.png'" ng-mouseover="imgsrc='/assets/images/animated.gif'" ng-mouseout="imgsrc='/assets/images/plage.png'" ui-sref="requestRemovePerson">
+      <img class="buttonimages" ng-src="{{imgsrc}}">
+      <span class="buttontitles">Remove  <br /> a Person</span>
+    </div>
+    <div class="dashboard col-md-6" ng-init="imgsrc1='/assets/images/drawing.png'" ng-mouseover="imgsrc1='/assets/images/drawing.gif'" ng-mouseout="imgsrc1='/assets/images/drawing.png'" ui-sref="requestDrawing">
+      <img class="buttonimages" ng-src="{{imgsrc1}}">
+      <span class="buttontitles" >Drawing</span>
+    </div>
+    <div class="dashboard col-md-6" ng-init="imgsrc01='/assets/images/removeObject.png'" ng-mouseover="imgsrc01='/assets/images/removeObject.gif'" ng-mouseout="imgsrc01='/assets/images/removeObject.png'" ui-sref="requestRemoveObject">
+      <img class="buttonimages" ng-src="{{imgsrc01}}">
+      <span class="buttontitles">Remove  <br /> an Object</span>
+    </div>
+    <div class="dashboard col-md-6" ng-init="imgsrc2='/assets/images/landscapebrut.png'" ng-mouseover="imgsrc2='/assets/images/landscape.gif'" ng-mouseout="imgsrc2='/assets/images/landscapebrut.png'" ui-sref="requestImprove">
+      <img class="buttonimages" ng-src="{{imgsrc2}}">
+      <span class="buttontitles">Improvements</span>
+    </div>
+    <div class="dashboard col-md-6" ng-init="imgsrc3='/assets/images/incrustation.png'" ng-mouseover="imgsrc3='/assets/images/incrustation.gif'" ng-mouseout="imgsrc3='/assets/images/incrustation.png'" ui-sref="requestIncrustation">
+      <img class="buttonimages" ng-src="{{imgsrc3}}">
+      <span class="buttontitles">Incrustation</span>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2 class="title">... or ask for something special</h2>
+    <div class="dashboardspec col-md-12" ng-init="imgsrc4='/assets/images/creation.png'" ng-mouseover="imgsrc4='/assets/images/creation.gif'" ng-mouseout="imgsrc4='/assets/images/creation.png'" ui-sref="requestCustom">
+      <img class="buttonimages" ng-src="{{imgsrc4}}">
+      <span class="buttontitles">Creation</span>
+    </div>
+  </div>
+</div>
+
+<footer></footer>

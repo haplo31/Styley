@@ -45,21 +45,23 @@
   \draw[->,>=latex] (homeCustomer) -- (exploreCreations);
 
 
-	\node[vertex] (requestAddPerson) at (-10,-14) {requestAddPerson};
-	\node[vertex] (requestAddObject) at (-10,-15) {requestAddObject};
-	\node[vertex] (requestRemovePerson) at (-10,-16) {requestRemovePerson};
-	\node[vertex] (requestRemoveObject) at (-10,-17) {requestRemoveObject};
-	\node[vertex] (requestImprove) at (-10,-18) {requestImprove};
+	\node[vertex] (requestAddPerson) at (-10,-13) {requestAddPerson};
+	\node[vertex] (requestDrawing) at (-10,-14) {requestDrawing};
+	\node[vertex] (requestRemovePerson) at (-10,-15) {requestRemovePerson};
+	\node[vertex] (requestRemoveObject) at (-10,-16) {requestRemoveObject};
+	\node[vertex] (requestImprove) at (-10,-17) {requestImprove};
+	\node[vertex] (requestIncrustation) at (-10,-18) {requestIncrustation};
 	\node[vertex] (requestCustom) at (-10,-19) {requestCustom};
 
 	
 
 
  \draw[->,>=latex] (requestCreation) to[bend right]  (requestAddPerson);
- \draw[->,>=latex] (requestCreation)  to[bend right]  (requestAddObject);
+ \draw[->,>=latex] (requestCreation)  to[bend right]  (requestDrawing);
  \draw[->,>=latex] (requestCreation)  to[bend right]  (requestRemovePerson);
  \draw[->,>=latex] (requestCreation)  to[bend right]  (requestRemoveObject);
 \draw[->,>=latex] (requestCreation)  to[bend right]  (requestImprove);
+\draw[->,>=latex] (requestCreation)  to[bend right]  (requestIncrustation);
 \draw[->,>=latex] (requestCreation)  to[bend right]  (requestCustom);
 
 

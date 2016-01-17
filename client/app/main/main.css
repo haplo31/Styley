@@ -16,15 +16,21 @@
   font-size: 1000%;
   line-height: 100%;
   letter-spacing: -1px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  margin-bottom: 2%;
 }
 
 .hero-unit {
   position: relative;
-  padding: 10% 2%;
+  padding: 2% 2%;
   color: #F5F5F5;
   text-align: center;
-  text-shadow: -1px 0 #777, 0 2px #777, 2px 0 #777, 0 -1px #777;
   background: #4393B9;
+}
+
+.lead {
+  color: #F5F5F5;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .navbar-text {

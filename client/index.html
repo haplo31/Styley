@@ -13,8 +13,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
-      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-      <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
+      <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+      <link rel='stylesheet' href='bower_components/bootstrap-social/bootstrap-social.css' />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -24,11 +24,12 @@
       <link rel="stylesheet" href="app/explore/exploreArtists/exploreArtists.css">
       <link rel="stylesheet" href="app/explore/exploreCreations/exploreCreations.css">
       <link rel="stylesheet" href="app/main/main.css">
-      <link rel="stylesheet" href="app/newRequest/requestAddObject/requestAddObject.css">
       <link rel="stylesheet" href="app/newRequest/requestAddPerson/requestAddPerson.css">
       <link rel="stylesheet" href="app/newRequest/requestCreation/requestCreation.css">
       <link rel="stylesheet" href="app/newRequest/requestCustom/requestCustom.css">
+      <link rel="stylesheet" href="app/newRequest/requestDrawing/requestDrawing.css">
       <link rel="stylesheet" href="app/newRequest/requestImprove/requestImprove.css">
+      <link rel="stylesheet" href="app/newRequest/requestIncrustation/requestIncrustation.css">
       <link rel="stylesheet" href="app/newRequest/requestRemoveObject/requestRemoveObject.css">
       <link rel="stylesheet" href="app/newRequest/requestRemovePerson/requestRemovePerson.css">
       <link rel="stylesheet" href="app/user/admin/admin.css">
@@ -51,6 +52,7 @@
       <link rel="stylesheet" href="components/modal/modal.css">
       <link rel="stylesheet" href="components/oauth-buttons/oauth-buttons.css">
       <!-- endinjector -->
+      <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
   </head>
   <body ng-app="styleyApp">
@@ -97,20 +99,22 @@
       <script src="app/user/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/user/artist/createArtist/createArtist.controller.js"></script>
+      <script src="app/user/artist/account/updateWork/updateWork.js"></script>
       <script src="app/explore/exploreCreations/exploreCreations.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
-      <script src="app/newRequest/requestAddObject/requestAddObject.controller.js"></script>
-      <script src="app/newRequest/requestAddObject/requestAddObject.js"></script>
       <script src="app/newRequest/requestAddPerson/requestAddPerson.controller.js"></script>
       <script src="app/newRequest/requestAddPerson/requestAddPerson.js"></script>
       <script src="app/newRequest/requestCreation/requestCreation.controller.js"></script>
       <script src="app/newRequest/requestCreation/requestCreation.js"></script>
       <script src="app/newRequest/requestCustom/requestCustom.controller.js"></script>
       <script src="app/newRequest/requestCustom/requestCustom.js"></script>
+      <script src="app/newRequest/requestDrawing/requestDrawing.controller.js"></script>
+      <script src="app/newRequest/requestDrawing/requestDrawing.js"></script>
       <script src="app/newRequest/requestImprove/requestImprove.controller.js"></script>
       <script src="app/newRequest/requestImprove/requestImprove.js"></script>
+      <script src="app/newRequest/requestIncrustation/requestIncrustation.controller.js"></script>
+      <script src="app/newRequest/requestIncrustation/requestIncrustation.js"></script>
       <script src="app/newRequest/requestRemoveObject/requestRemoveObject.controller.js"></script>
       <script src="app/newRequest/requestRemoveObject/requestRemoveObject.js"></script>
       <script src="app/newRequest/requestRemovePerson/requestRemovePerson.controller.js"></script>
@@ -127,8 +131,8 @@
       <script src="app/user/artist/account/portfolio/portfolio.controller.js"></script>
       <script src="app/user/artist/account/portfolio/portfolio.js"></script>
       <script src="app/user/artist/account/updateWork/updateWork.controller.js"></script>
-      <script src="app/user/artist/account/updateWork/updateWork.js"></script>
       <script src="app/explore/exploreArtists/exploreArtists.controller.js"></script>
+      <script src="app/user/artist/createArtist/createArtist.controller.js"></script>
       <script src="app/user/artist/createArtist/createArtist.js"></script>
       <script src="app/user/artist/exploreRequests/exploreRequests.controller.js"></script>
       <script src="app/user/artist/exploreRequests/exploreRequests.js"></script>

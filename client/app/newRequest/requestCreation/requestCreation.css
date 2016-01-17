@@ -1,0 +1,53 @@
+#bannerRC {
+  border-bottom: none;
+  margin-top: -20px;
+  background-image: url("./../../../assets/images/header.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+#bannerRC h1 {
+  font-size: 1000%;
+  line-height: 100%;
+  letter-spacing: -1px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  margin-bottom: 2%;
+}
+
+.dashboard {
+  margin: 1% 0;
+  position: relative;
+}
+
+.dashboardspec {
+  margin-top: 5%;
+}
+
+.actiongrid {
+  width: 100%;
+  background-color: white;
+}
+
+.buttontitles {
+  font-size: 200%;
+  position: absolute;
+  left: 5%;
+  color: white;
+  font-weight: bold;
+  font-family: 'Arvo';
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.buttonimage {
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  font-size: 250%;
+  font-weight: bold;
+  font-family: 'Arvo';
+}

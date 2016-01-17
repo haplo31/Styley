@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: RequestAddObjectCtrl', function () {
+describe('Controller: RequestIncrustationCtrl', function () {
 
   // load the controller's module
   beforeEach(module('styleyApp'));
 
-  var RequestAddObjectCtrl, scope;
+  var RequestIncrustationCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    RequestAddObjectCtrl = $controller('RequestAddObjectCtrl', {
+    RequestIncrustationCtrl = $controller('RequestIncrustationCtrl', {
       $scope: scope
     });
   }));
