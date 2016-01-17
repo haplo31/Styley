@@ -32,7 +32,7 @@
   \draw[->,>=latex] (login) -- (homeCustomer);
   \draw[->,>=latex] (login) -- (homeArtist);
 
-  \node[vertex] (requestCreation) at (-14,-12) {requestCreation};
+  \node[vertex] (requestCreation) at (-8,-7) {requestCreation};
   \node[vertex] (exploreCreations) at (-10,1) {exploreCreations};
 
   \node[vertex] (exploreArtists) at (-9,-1) {exploreArtists};
@@ -45,24 +45,24 @@
   \draw[->,>=latex] (homeCustomer) -- (exploreCreations);
 
 
-	\node[vertex] (requestAddPerson) at (-10,-13) {requestAddPerson};
-	\node[vertex] (requestDrawing) at (-10,-14) {requestDrawing};
-	\node[vertex] (requestRemovePerson) at (-10,-15) {requestRemovePerson};
-	\node[vertex] (requestRemoveObject) at (-10,-16) {requestRemoveObject};
-	\node[vertex] (requestImprove) at (-10,-17) {requestImprove};
-	\node[vertex] (requestIncrustation) at (-10,-18) {requestIncrustation};
-	\node[vertex] (requestCustom) at (-10,-19) {requestCustom};
+	\node[vertex] (requestAddPerson) at (-12,-8) {requestAddPerson};
+	\node[vertex] (requestDrawing) at (-12,-9) {requestDrawing};
+	\node[vertex] (requestRemovePerson) at (-12,-10) {requestRemovePerson};
+	\node[vertex] (requestRemoveObject) at (-12,-11) {requestRemoveObject};
+	\node[vertex] (requestImprove) at (-12,-12) {requestImprove};
+	\node[vertex] (requestIncrustation) at (-12,-13) {requestIncrustation};
+	\node[vertex] (requestCustom) at (-12,-14) {requestCustom};
 
 	
 
 
- \draw[->,>=latex] (requestCreation) to[bend right]  (requestAddPerson);
- \draw[->,>=latex] (requestCreation)  to[bend right]  (requestDrawing);
- \draw[->,>=latex] (requestCreation)  to[bend right]  (requestRemovePerson);
- \draw[->,>=latex] (requestCreation)  to[bend right]  (requestRemoveObject);
-\draw[->,>=latex] (requestCreation)  to[bend right]  (requestImprove);
-\draw[->,>=latex] (requestCreation)  to[bend right]  (requestIncrustation);
-\draw[->,>=latex] (requestCreation)  to[bend right]  (requestCustom);
+ \draw[->,>=latex] (requestCreation) to[bend left]  (requestAddPerson);
+ \draw[->,>=latex] (requestCreation)  to[bend left]  (requestDrawing);
+ \draw[->,>=latex] (requestCreation)  to[bend left]  (requestRemovePerson);
+ \draw[->,>=latex] (requestCreation)  to[bend left]  (requestRemoveObject);
+\draw[->,>=latex] (requestCreation)  to[bend left]  (requestImprove);
+\draw[->,>=latex] (requestCreation)  to[bend left]  (requestIncrustation);
+\draw[->,>=latex] (requestCreation)  to[bend left]  (requestCustom);
 
 
 \node[vertex] (exploreRequests) at (10,-5) {exploreRequests};
@@ -98,11 +98,6 @@
 
 
 
-% newRequest
-\draw[very thick] (-16,-11.5) -- (-8,-11.5) -- (-8,-19.5) -- (-16,-19.5) -- (-16,-11.5);
-\node (DOC_newRequest) at (-14,-19) {newRequest};
-
-
 % artist
 \draw[very thick] (4,-2.5) -- (12,-2.5) -- (12,-12) -- (4,-12) -- (4,-2.5);
 \node (DOC_artist) at (5,-11.5) {artist};
@@ -135,8 +130,8 @@
 \node[vertex] (qqCustomerValidation) at (-12,-6) {qqCustomerValidation};
 \node[vertex] (completedRequest) at (-12,-7) {completedRequest};
 
-\draw[very thick] (-14,-3) -- (-10,-3) -- (-10,-8.5) -- (-14,-8.5) -- (-14,-3);
-\node (DOC_explore) at (-12,-8) {components};
+\draw[very thick] (-14,-3) -- (-10,-3) -- (-10,-15.5) -- (-14,-15.5) -- (-14,-3);
+\node (DOC_explore) at (-12,-15) {components};
 
 
 
