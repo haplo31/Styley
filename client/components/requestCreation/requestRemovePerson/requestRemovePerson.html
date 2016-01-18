@@ -1,13 +1,42 @@
-
 <div class="modal-complete">
 	<div class="modal-header">
-		hey
+		Remove a person
 	</div>
 	<div class="modal-body">
-		
-		<div class="modalInfos">
-		</div>
-	</div>
-	<div class="modal-footer">
-	</div>
+    <div ng-show="step==1">
+      <div class="imageBlock">		
+        <div class="slider col-lg-7">
+	        <div class="left image"> <img src="{{sliderSrc1}}"/> </div>
+	  	    <div class="right image"> <img src="{{sliderSrc2}}"/> </div>
+	  	  </div>
+        <div class="imageLegend col-lg-5">
+        <span>Select the separator on the left on the picture and drag it to see an example of realisation</span> 
+        </div>
+      </div>
+  		<div class="explanation">
+  			<h3 class="titleRequest">How it works</h3>
+  			<span class="explanationStage">1<br />In the next steps, you will choose what element(s) you want to remove on your picture, the desired quality and every additional information.</span>
+  			<span class="explanationStage">2<br />A price will be automatically calculated and, if you finalize the request, a graphic artist matching your criteria will be suggested.</span>
+  			<span class="explanationStage">3<br />You can refuse the suggested artist as many times as you want. In this case, an other artist will be suggested.</span>
+  			<span class="explanationStage">4<br />Once you have accepted an artist, your photo will be sent to him and you will receive the result of your request in the next 48 hours.</span>
+  			<span class="explanationFinal">In any case, nothing is sent until you finalize your request on the last step by clicking on the very distinctive button "Finalize" :)</span>
+  		</div>
+    </div>
+
+    <div ng-show="step==2">
+      step 2
+    </div>
+    
+    <div ng-show="step==3">
+      step 3
+    </div>
+
+    <div ng-show="step==4">
+      step 4
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary btn-lg" ng-click="nextStep()">Next</button>
+ 	</div>
 </div>
