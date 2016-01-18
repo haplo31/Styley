@@ -23,8 +23,27 @@
   		</div>
     </div>
 
+<!-- current work -->
     <div ng-show="step==2">
-      step 2
+      	<span class="explanation-1" ng-hide="imageAsk">First, choose the picture you want to use</span>
+			<button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*" ng-hide="imageAsk">Upload</button>
+			<div class="area" ng-class="{redpointer:redPointer}">
+				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
+				<div class="placedbuttons" ng-repeat='(index,btn) in btnPlaced'>
+				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
+				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft+8, 'top': btn.posTop+8}" ng-click="removePlaced(index)" class="noselect"/>
+				</div> 
+				<div class="symbolstodrag" ng-show="file">
+					 <input id="redbtn" type="radio" name="buttons" value="redbtn" ng-click="select(red)" ng-checked="redPointer"/>
+					 <label class="buttons redbtn" for="redbtn"></label>
+				</div>
+				<div class="explanation2" ng-show="file">
+				<span class="lgddot explanation-5">Now, you can select the red dot and put it on the person you want to remove</span>
+				<span class="expland"> And </span>
+				<span class="addinfos" >Add any additionnal information you want to provide about your desires:</span>
+				<input type="text" class="addinfostyped" ng-model="infos">
+				</div>
+			</div>
     </div>
     
     <div ng-show="step==3">

@@ -67,3 +67,9 @@ span[class^="explanationStage"]::first-letter{
 	font-weight: bold;
 	color: #008dd7;
 }
+
+.picturezone{
+  margin-top: 2%;
+  margin-left: 3%;
+	border: 2px solid black;
+}
