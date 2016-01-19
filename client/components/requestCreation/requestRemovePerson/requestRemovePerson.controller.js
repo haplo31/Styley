@@ -60,6 +60,23 @@ angular.module('styleyApp')
         $scope.completedStep=1;
       }
     };
+    $scope.qualityMessages=["A good quality for social networks or mobile wallpapers but the editing may be visible up close.",
+                            "The best quality for goodies or printing ! The editing will be very nice, and only a close examination will reveal it.",
+                            "Even a professionnal eye may have trouble to see where the editing occured! It's a quality for 4X4 meters panels or if you don't like compromises."]
+    $scope.radioModel=0;
+    //$scope.qualityMessage= $scope.qualityMessages[1]
+    $scope.quaselect=function(radio){
+      $scope.completedStep=3;
+      if(radio==="Good"){
+        $scope.qualityMessage=$scope.qualityMessages[0]
+      }
+      else if (radio==="Excellent"){
+        $scope.qualityMessage=$scope.qualityMessages[1]
+      }
+      else if (radio==="Perfect"){
+        $scope.qualityMessage=$scope.qualityMessages[2]
+      }
+    }  
     $scope.$watch('step', function (value) {
       $timeout(function(){
         if (value==3){

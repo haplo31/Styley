@@ -173,3 +173,41 @@ div.placedbuttons input {
 	width: 80%;
 	line-height: 100%;
 }
+
+.recap{
+	text-align: center;
+	padding-top: 2%;
+}
+.numbermod{
+	font-size: 180%;
+	line-height: 180%;
+	font-weight: bold;
+	color: #008dd7;
+
+}
+.quainfos{
+	margin-top: 0.5%;
+	width: 60%;
+	text-align: center;
+	margin-left: 20%;
+	background-color: #008dd7;
+	padding: 2%;
+	border-radius: 5px;
+	color:white;
+	font-size: 120%;
+	font-weight: bold;
+}
+.addinfos{
+	margin-top: 3%;
+}
+.infosblock{
+	margin-left: 10%;
+	margin-top: 0.5%;
+	width: 80%;
+	text-align: center;
+	background-color: #008dd7;
+	padding: 1%;
+	border-radius: 5px;
+	color:white;
+	font-size: 110%;
+}

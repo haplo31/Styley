@@ -33,7 +33,7 @@
 				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
 				<div class="placedbuttons" ng-repeat='(index,btn) in btnPlaced'>
 				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft+24, 'top': btn.posTop}" >
-				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft+8, 'top': btn.posTop+8}" ng-click="removePlaced(index)" class="noselect"/>
+				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft+32, 'top': btn.posTop+8}" ng-click="removePlaced(index)" class="noselect"/>
 				</div> 
 				<div class="symbolstodrag" ng-show="file">
 					 <input id="redbtn" type="radio" name="buttons" value="redbtn" ng-click="select(red)" ng-checked="redPointer"/>
@@ -56,20 +56,23 @@
          <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
         </div>
       </div> 
-      <div class="recap-1">
-        <span><br />Modifications Number : </span><span class="numbermod">{{btnPlaced.length}}</span>
-      </div>
-      <div  class="recap-2">
-        <span><br />Wanted Quality :</span>
-        <div class="btn-group" ng-click="quaselected(radioModel);">
-          <label class="btn btn-success quachoice" ng-model="radioModel" btn-radio="'Good'" uncheckable value="1">Good</label>
-          <label class="btn btn-success quachoice" ng-model="radioModel" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
-          <label class="btn btn-success quachoice" ng-model="radioModel" btn-radio="'Perfect'" uncheckable value="3">Perfect</label>
+      <div class="recap">
+        <span class="explanationStage">Modifications Number : <span class="numbermod">{{btnPlaced.length}}</span> </span>
+        <div  class="quality">
+          <span class="explanationStage">Desired Quality :</span>
+          <div class="quachoice" ng-click="quaselect(radioModel);" ng-class="{'shake shake-chunk shake-constant': radioModel == 0}">
+            <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Good'" value="1">Good</label>
+            <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Excellent'" value="2">Excellent</label>
+            <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Perfect'" value="3">Perfect</label>
+          </div>
+          <div class="quainfos" ng-show="radioModel !== 0">
+            <span >{{qualityMessage}}</span>
+          </div>
         </div>
-        <span class="quainfos">{{qualityMessage}}</span>
-      </div>
-      <div class="recap-3">
-        <span>Additionnal infos : </span><span class="addInfos">{{ addInfos || 'None'}}</span>
+        <div class="addinfos">
+          <span class="explanationStage" ng-show="infos">Additionnal infos :</span>
+          <p class="infosblock" ng-show="infos">{{ infos }}</p>
+        </div>
       </div>
     </div>
 
@@ -80,7 +83,7 @@
   </div>
   <div class="modal-footer">
     <div class="previous">
-      <button type="button" class="btn btn-primary btn-lg" ng-click="previousStep()" ng-show="step!=1">Previous</button>
+      <button type="button" class="btn btn-primary btn-lg " ng-click="previousStep()" ng-show="step!=1">Previous</button>
     </div>
     <div class="next">
       <button type="button" class="btn btn-primary btn-lg" ng-click="nextStep()" ng-show="completedStep>=step">Next</button>
