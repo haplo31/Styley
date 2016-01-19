@@ -37,8 +37,10 @@ angular.module('styleyApp')
 
     $scope.clickOnImg = function(event){
       if ($scope.redPointer === true){
-        posTop=angular.element(document.querySelector('#picturezone')).prop('offsetTop')+event.offsetY-24;
-        posLeft=angular.element(document.querySelector('#picturezone')).prop('offsetLeft')+event.offsetX-24;
+        console.log(angular.element(document.querySelector('#picturezone')).prop('offsetLeft'))
+        console.log(event.offsetX)
+        posTop=event.offsetY;
+        posLeft=event.offsetX;
         imgWidth=angular.element(document.querySelector('#picturezone')).prop('width');
         imgHeight=angular.element(document.querySelector('#picturezone')).prop('height');
         $scope.btnPlaced.push({'posTop': posTop,'posLeft': posLeft,'width': imgWidth, 'height': imgHeight});
@@ -65,9 +67,9 @@ angular.module('styleyApp')
           $scope.btnRecap = [];
           for (var i = 0; i < $scope.btnPlaced.length; i++) {
             // TODO: pbm to catch the left position...
-            posLeft = angular.element(document.querySelector('#recapdiv')).prop('margin-left') + $scope.btnPlaced[i].posLeft*ratioImg;
-            console.log( angular.element(document.querySelector('#recapdiv')).prop('margin-left') )
-            $scope.btnRecap.push( {'posTop':$scope.btnPlaced[i].posTop*ratioImg, 'posLeft':posLeft});
+            posTop=angular.element(document.querySelector('#picturerecap')).prop('offsetTop')+$scope.btnPlaced[i].posTop*ratioImg-24;
+            posLeft = angular.element(document.querySelector('#picturerecap')).prop('offsetLeft')+$scope.btnPlaced[i].posLeft*ratioImg-24;
+            $scope.btnRecap.push( {'posTop': posTop, 'posLeft':posLeft});
           };
         }}, 100);  
     });
