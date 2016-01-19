@@ -23,11 +23,13 @@
   		</div>
     </div>
 
-<!-- current work -->
-    <div ng-show="step==2">
-      	<span class="explanation-1" ng-hide="imageAsk">First, choose the picture you want to use</span>
-			<button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*" ng-hide="imageAsk">Upload</button>
-			<div class="area" ng-class="{redpointer:redPointer}">
+<!-- step 2 -->
+    <div ng-show="step==2" class="step2">
+      	<span class="explanationStage col-lg-6" ng-hide="imageAsk">First, choose the picture you want to use:</span>
+			<div class="col-lg-6">
+        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*" ng-hide="imageAsk">Upload</button>
+			</div>
+      <div class="area" ng-class="{redpointer:redPointer}">
 				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
 				<div class="placedbuttons" ng-repeat='(index,btn) in btnPlaced'>
 				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
@@ -38,16 +40,37 @@
 					 <label class="buttons redbtn" for="redbtn"></label>
 				</div>
 				<div class="explanation2" ng-show="file">
-				<span class="lgddot explanation-5">Now, you can select the red dot and put it on the person you want to remove</span>
-				<span class="expland"> And </span>
-				<span class="addinfos" >Add any additionnal information you want to provide about your desires:</span>
-				<input type="text" class="addinfostyped" ng-model="infos">
+				<span class="explanationStage">Now, you can select the red dot and put it on the person you want to remove</span>
+				<span class="explAnd"> and </span>
+				<span class="explanationStage" >Add any additionnal information you want to provide about your desires:</span>
+				<textarea class="addInfo" ng-model="infos">
+        </textarea>
 				</div>
 			</div>
     </div>
     
     <div ng-show="step==3">
-      step 3
+      <div class="recapdiv" id="recapdiv">
+        <img class="picturerecap" id="picturerecap" ngf-thumbnail="file">
+        <div class="placedbuttons" ng-repeat='(index,btn) in btnRecap'>
+         <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
+        </div>
+      </div> 
+      <div class="recap-1">
+        <span><br />Modifications Number : </span><span class="numbermod">{{btnPlaced.length}}</span>
+      </div>
+      <div  class="recap-2">
+        <span><br />Wanted Quality :</span>
+        <div class="btn-group" ng-click="quaselected(radioModel);">
+          <label class="btn btn-success quachoice" ng-model="radioModel" btn-radio="'Good'" uncheckable value="1">Good</label>
+          <label class="btn btn-success quachoice" ng-model="radioModel" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
+          <label class="btn btn-success quachoice" ng-model="radioModel" btn-radio="'Perfect'" uncheckable value="3">Perfect</label>
+        </div>
+        <span class="quainfos">{{qualityMessage}}</span>
+      </div>
+      <div class="recap-3">
+        <span>Additionnal infos : </span><span class="addInfos">{{ addInfos || 'None'}}</span>
+      </div>
     </div>
 
     <div ng-show="step==4">
@@ -56,6 +79,11 @@
 
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary btn-lg" ng-click="nextStep()">Next</button>
- 	</div>
+    <div class="previous">
+      <button type="button" class="btn btn-primary btn-lg" ng-click="previousStep()" ng-show="step!=1">Previous</button>
+    </div>
+    <div class="next">
+      <button type="button" class="btn btn-primary btn-lg" ng-click="nextStep()" ng-show="completedStep>=step">Next</button>
+ 	  </div>
+  </div>
 </div>

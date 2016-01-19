@@ -5,6 +5,20 @@
 	font-size: 300%;
 }
 
+.modal-footer{
+	text-align: left;
+}
+
+.next{
+	display: inline;
+	float: right;
+}
+
+.previous{
+	display: inline;
+	float: left;
+}
+
 .imageBlock{
 	display: inline-block;
 	width: 80%;
@@ -34,7 +48,7 @@
 
 .titleRequest{
 	font-weight: bold;
-  font-family: 'Arvo';
+  	font-family: 'Arvo';
 	font-size: 300%;
 	color: #008dd7;
 }
@@ -44,18 +58,26 @@
 }
 
 .explanationStage{
-  font-family: 'Arvo';
+  	font-family: 'Arvo';
 	font-size: 140%;
 	display: block;
 	line-height: 100%;
 	margin-bottom:2%;
 }
 
+.explAnd{
+	font-family: 'Arvo';
+	text-align: center;
+	line-height: 200%;
+	font-size: 250%;
+	color: #008dd7;
+	font-weight: bold;
+}
+
 span[class^="explanationStage"]::first-letter{
 	font-weight: bold;
 	font-size: 170%;
 	color: #008dd7;
-	
 }
 
 .explanationFinal{
@@ -68,8 +90,86 @@ span[class^="explanationStage"]::first-letter{
 	color: #008dd7;
 }
 
+.step2{
+	text-align: center;
+}
+
 .picturezone{
-  margin-top: 2%;
-  margin-left: 3%;
+	display: block;
+	margin-top: 2%;
+	margin-right: auto;
+	margin-left: auto;
 	border: 2px solid black;
+}
+.picturerecap{
+	display: block;
+	margin-top: 2%;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 100%;
+	position: relative;
+	border: 2px solid black;
+}
+.picturerecapdiv{
+	width:50%;
+	margin-left: 25%;
+}
+.redbtn{
+	background-image:url(./../../../assets/images/red_round_button.png);
+}
+.redpointer{
+	cursor: url("./../../../assets/images/red_round_button.png") 24 24, auto;
+}
+
+.dragbtn{
+	position: absolute;
+}
+
+.symbolstodrag{
+	text-align: center;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.symbolstodrag input{
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    display: none;
+}
+
+.symbolstodrag input:checked +.buttons{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+    border: 5px #008dd7 solid;
+    border-radius: 50px;
+    padding: 0px;
+}
+
+.buttons{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:56px;height:56px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+}
+
+div.placedbuttons:hover input {
+    display: block;
+}
+div.placedbuttons input {
+    position:absolute;
+    display:none;
+    outline: none;
+}
+
+.addInfo{
+	width: 80%;
+	line-height: 100%;
 }
