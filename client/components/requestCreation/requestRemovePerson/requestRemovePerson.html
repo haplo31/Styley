@@ -25,15 +25,13 @@
 
 <!-- step 2 -->
     <div ng-show="step==2" class="step2">
-      	<span class="explanationStage col-lg-6" ng-hide="imageAsk">First, choose the picture you want to use:</span>
-			<div class="col-lg-6">
+      	<span class="explanationStage" ng-hide="imageAsk">First, choose the picture you want to use:</span>
         <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*" ng-hide="imageAsk">Upload</button>
-			</div>
-      <div class="area" ng-class="{redpointer:redPointer}">
+      <div ng-class="{redpointer:redPointer}">
 				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
-				<div class="placedbuttons" ng-repeat='(index,btn) in btnPlaced'>
-				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft+24, 'top': btn.posTop}" >
-				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft+32, 'top': btn.posTop+8}" ng-click="removePlaced(index)" class="noselect"/>
+				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
+				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
+				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft-16, 'top': btn.posTop-16}" ng-click="removePlaced(index)" class="noselect"/>
 				</div> 
 				<div class="symbolstodrag" ng-show="file">
 					 <input id="redbtn" type="radio" name="buttons" value="redbtn" ng-click="select(red)" ng-checked="redPointer"/>

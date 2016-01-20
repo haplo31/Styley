@@ -28,6 +28,7 @@ angular.module('styleyApp')
 		};
 
     $scope.btnPlaced = [];
+    $scope.btnCurrent = [];
     var posTop,posLeft,imgWidth,imgHeight;
     
     $scope.select= function(color){
@@ -39,23 +40,29 @@ angular.module('styleyApp')
       if ($scope.redPointer === true){
         console.log(angular.element(document.querySelector('#picturezone')).prop('offsetLeft'))
         console.log(event.offsetX)
-        posTop=event.offsetY;
-        posLeft=event.offsetX;
-        imgWidth=angular.element(document.querySelector('#picturezone')).prop('width');
-        imgHeight=angular.element(document.querySelector('#picturezone')).prop('height');
+        posTop = event.offsetY;
+        posLeft =  event.offsetX;
+        imgWidth = angular.element(document.querySelector('#picturezone')).prop('width');
+        imgHeight = angular.element(document.querySelector('#picturezone')).prop('height');
         $scope.btnPlaced.push({'posTop': posTop,'posLeft': posLeft,'width': imgWidth, 'height': imgHeight});
+        
+        $scope.btnCurrent.push({'posTop': angular.element(document.querySelector('#picturezone')).prop('offsetTop') + posTop, 
+          'posLeft': angular.element(document.querySelector('#picturezone')).prop('offsetLeft') + posLeft});
+
         console.log(posTop);
         console.log(posLeft);
         console.log(imgWidth);
         console.log(imgHeight);
         console.log("");
         $scope.redPointer = false;
-        $scope.completedStep = 2;
+        if ($scope.completedStep<2)
+          $scope.completedStep = 2;
       }
     };
     
     $scope.removePlaced = function(index){
       $scope.btnPlaced.splice(index,1);
+      $scope.btnCurrent.splice(index,1);
       if ($scope.btnPlaced.length === 0){
         $scope.completedStep=1;
       }
@@ -84,8 +91,8 @@ angular.module('styleyApp')
           $scope.btnRecap = [];
           for (var i = 0; i < $scope.btnPlaced.length; i++) {
             // TODO: pbm to catch the left position...
-            posTop=angular.element(document.querySelector('#picturerecap')).prop('offsetTop')+$scope.btnPlaced[i].posTop*ratioImg-24;
-            posLeft = angular.element(document.querySelector('#picturerecap')).prop('offsetLeft')+$scope.btnPlaced[i].posLeft*ratioImg-24;
+            posTop = angular.element(document.querySelector('#picturerecap')).prop('offsetTop') + $scope.btnPlaced[i].posTop*ratioImg-24;
+            posLeft = angular.element(document.querySelector('#picturerecap')).prop('offsetLeft') + $scope.btnPlaced[i].posLeft*ratioImg-24;
             $scope.btnRecap.push( {'posTop': posTop, 'posLeft':posLeft});
           };
         }}, 100);  

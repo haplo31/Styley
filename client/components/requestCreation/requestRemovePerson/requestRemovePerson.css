@@ -99,17 +99,21 @@ span[class^="explanationStage"]::first-letter{
 	margin-top: 2%;
 	margin-left: auto;
 	margin-right: auto;
+	position: relative;
+	max-width: 100%;
 	border: 2px solid black;
 }
+
 .picturerecap{
 	display: block;
 	margin-top: 2%;
-	margin-right: auto;
 	margin-left: auto;
-	max-width: 50%;
+	margin-right: auto;
 	position: relative;
+	max-width: 40%;
 	border: 2px solid black;
 }
+
 .picturerecapdiv{
 	width:50%;
 	margin-left: 25%;
@@ -163,6 +167,7 @@ span[class^="explanationStage"]::first-letter{
 div.placedbuttons:hover input {
     display: block;
 }
+
 div.placedbuttons input {
     position:absolute;
     display:none;
@@ -178,6 +183,7 @@ div.placedbuttons input {
 	text-align: center;
 	padding-top: 2%;
 }
+
 .numbermod{
 	font-size: 180%;
 	line-height: 180%;
@@ -185,6 +191,7 @@ div.placedbuttons input {
 	color: #008dd7;
 
 }
+
 .quainfos{
 	margin-top: 0.5%;
 	width: 60%;
@@ -197,9 +204,11 @@ div.placedbuttons input {
 	font-size: 120%;
 	font-weight: bold;
 }
+
 .addinfos{
 	margin-top: 3%;
 }
+
 .infosblock{
 	margin-left: 10%;
 	margin-top: 0.5%;
