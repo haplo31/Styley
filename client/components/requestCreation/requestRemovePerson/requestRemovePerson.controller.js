@@ -4,7 +4,7 @@ angular.module('styleyApp')
   .controller('RequestRemovePersonCtrl', function ($scope,) {
     $scope.message = 'Hello';
   })
-  .controller('CreaInstanceCtrl', function ($scope,$timeout) {
+  .controller('CreaInstanceCtrl', function ($scope,$timeout,$http) {
 		
     $scope.step=1;
     $scope.completedStep=1;
@@ -84,6 +84,55 @@ angular.module('styleyApp')
         $scope.qualityMessage=$scope.qualityMessages[2]
       }
     }  
+
+    var basePrice;
+    var unitModPrice;
+    var quaPrice=[];
+    var reputPrice=[];
+    $http.get('/getprice/remPers').success(function(price) {
+        basePrice = price.basePrice;
+        unitModPrice = price.unitModPrice;
+        quaPrice = price.quaPrice;
+        reputPrice = price.reputPrice;
+      });   
+
+    var finalPrices = [];                         
+    $scope.estimatePrice=function(){
+      var tempPrice=basePrice;
+      console.log(tempPrice);
+      finalPrices = [];
+      tempPrice += (tempPrice*unitModPrice)*($scope.btnPlaced.length-1)
+      console.log(tempPrice);
+      if ($scope.radioModel==="Excellent"){
+        tempPrice += (tempPrice*quaPrice[1])
+      }
+      else if ($scope.radioModel==="Perfect"){
+        tempPrice += (tempPrice*quaPrice[2])
+      }
+      if ($scope.noratingSelected){
+        finalPrices.push(parseInt(tempPrice,10));
+      }
+      if ($scope.bronzeratingSelected){
+        finalPrices.push(parseInt(tempPrice + (tempPrice*reputPrice[0]),10))
+      }
+      if ($scope.silverratingSelected){
+        finalPrices.push(parseInt(tempPrice + (tempPrice*reputPrice[1]),10))
+      }
+      if ($scope.goldratingSelected){
+        finalPrices.push(parseInt(tempPrice + (tempPrice*reputPrice[2]),10))
+      }
+      if (finalPrices.length>1){
+        $scope.estimatedPrice= finalPrices[0]+"-"+finalPrices[finalPrices.length-1]+"€"
+      }
+      else{
+        $scope.estimatedPrice=finalPrices[0]+"€"
+      }
+    } 
+
+    $scope.$watchGroup(['btnPlaced', 'radioModel','btnPlaced|json'], function(newValues, oldValues, scope) {
+      $scope.estimatePrice();
+    }); 
+
     $scope.$watch('step', function (value) {
       $timeout(function(){
         if (value==3){
@@ -97,4 +146,5 @@ angular.module('styleyApp')
           };
         }}, 100);  
     });
+
   })

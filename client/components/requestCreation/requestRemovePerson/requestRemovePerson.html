@@ -75,10 +75,29 @@
     </div>
 
     <div ng-show="step==4">
-      step 4
+      <div>
+        <span class="explanationStage">Artist appreciation</span>
+        <div class="reputBlock">
+          <img  class="reput" ng-src="/assets/images/logoblack.png" ng-class="{ratingSelected: noratingSelected,norating: noratingSelected}" ng-click="noratingSelected = !noratingSelected;estimatePrice()">
+          <img  class="reput" ng-src="/assets/images/logoblack.png" ng-class="{ratingSelected: bronzeratingSelected,bronzerating: bronzeratingSelected}" ng-click="bronzeratingSelected = !bronzeratingSelected;estimatePrice()" >
+          <img  class="reput" ng-src="/assets/images/logoblack.png" ng-class="{ratingSelected: silverratingSelected,silverrating: silverratingSelected}" ng-click="silverratingSelected = !silverratingSelected;estimatePrice()" >
+          <img  class="reput" ng-src="/assets/images/logoblack.png" ng-class="{ratingSelected: goldratingSelected,goldrating: goldratingSelected}" ng-click="goldratingSelected = !goldratingSelected;estimatePrice()" >
+        </div>
+        <div>
+          <span class="explanationStage">Estimated cost:</span>
+          <div class="pricingValue">
+            <span>{{estimatedPrice}}</span>
+          </div>
+        </div>
+        <div>
+          <!-- <uib-alert template-url="alert.html" ng-hide="isLoggedIn()">You need to be logged !</uib-alert> -->
+          <button class="btn-xl btn btn-primary finalize" ng-click="submitRequest()">Finalize</button>
+        </div>
+      </div>
     </div>
 
-  </div>
+  </div> <!-- end of modal body -->
+
   <div class="modal-footer">
     <div class="previous">
       <button type="button" class="btn btn-primary btn-lg " ng-click="previousStep()" ng-show="step!=1">Previous</button>

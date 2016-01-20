@@ -220,3 +220,24 @@ div.placedbuttons input {
 	color:white;
 	font-size: 110%;
 }
+
+.reput{
+	width: 10%;
+	height: 10%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 10%;
+}
+
+.reputBlock{
+	text-align: center;
+}
+
+.ratingSelected{
+	border: 2px black solid;
+	border-radius: 100%;
+}
+
+.pricingValue{
+	text-align: center;
+}
