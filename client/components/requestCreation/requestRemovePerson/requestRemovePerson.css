@@ -234,10 +234,12 @@ div.placedbuttons input {
 }
 
 .ratingSelected{
-	border: 2px black solid;
+	border: 4px black solid;
 	border-radius: 100%;
+	box-shadow: 10px 10px 10px #888888;
 }
 
 .pricingValue{
 	text-align: center;
+
 }
