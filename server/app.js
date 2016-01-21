@@ -31,10 +31,7 @@ require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
 
-var tabprices={ remPers:{basePrice:10, unitModPrice:0.2, quaPrice: [0,0.2,0.4],reputPrice: [0.15,0.25,0.40]}}
-app.route('/getprice/:modtype').get(function (req, res) {
-   return res.status(200).json(tabprices[req.params.modtype]);
-});
+
 
 // Start server
 function startServer() {

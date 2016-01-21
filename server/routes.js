@@ -9,8 +9,10 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
-app.use('/api/things', require('./api/thing'));
+  app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
+  app.use('/api/getprice', require('./api/getprice'));
+  app.use('/api/updatefile', require('./api/updatefile'));
 
   app.use('/auth', require('./auth'));
 
@@ -19,8 +21,8 @@ app.use('/api/things', require('./api/thing'));
    .get(errors[404]);
 
   // All other routes should redirect to the index.html
-  /*app.route('/*')
+  app.route('/*')
     .get((req, res) => {
       res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
-    });*/
+    });
 }

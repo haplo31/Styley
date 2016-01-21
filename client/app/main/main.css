@@ -36,14 +36,18 @@
 .navbar-text {
   margin-left: 15px;
 }
-.navbar-brand {
+/*.navbar-background {
   background-image: url("/assets/images/logowhite.png");
   background-size: 32px 32px;
   background-repeat: no-repeat;
-  background-position: left center;
-  
+  background-position: 21.75% center;
+}*/
+.logo{
+  width: 30px;
 }
 .brand{
-  padding-left: 25%; 
-  padding-right: 5%;
+  vertical-align: middle;
+}
+.navbar-brand{
+  padding: 9px 9px;
 }

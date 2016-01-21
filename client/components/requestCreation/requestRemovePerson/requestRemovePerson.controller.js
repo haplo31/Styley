@@ -38,8 +38,6 @@ angular.module('styleyApp')
 
     $scope.clickOnImg = function(event){
       if ($scope.redPointer === true){
-        console.log(angular.element(document.querySelector('#picturezone')).prop('offsetLeft'))
-        console.log(event.offsetX)
         posTop = event.offsetY;
         posLeft =  event.offsetX;
         imgWidth = angular.element(document.querySelector('#picturezone')).prop('width');
@@ -49,11 +47,6 @@ angular.module('styleyApp')
         $scope.btnCurrent.push({'posTop': angular.element(document.querySelector('#picturezone')).prop('offsetTop') + posTop, 
           'posLeft': angular.element(document.querySelector('#picturezone')).prop('offsetLeft') + posLeft});
 
-        console.log(posTop);
-        console.log(posLeft);
-        console.log(imgWidth);
-        console.log(imgHeight);
-        console.log("");
         $scope.redPointer = false;
         if ($scope.completedStep<2)
           $scope.completedStep = 2;
@@ -89,7 +82,7 @@ angular.module('styleyApp')
     var unitModPrice;
     var quaPrice=[];
     var reputPrice=[];
-    $http.get('/getprice/remPers').success(function(price) {
+    $http.get('/api/getprice/remPers').success(function(price) {
         basePrice = price.basePrice;
         unitModPrice = price.unitModPrice;
         quaPrice = price.quaPrice;
@@ -99,10 +92,8 @@ angular.module('styleyApp')
     var finalPrices = [];                         
     $scope.estimatePrice=function(){
       var tempPrice=basePrice;
-      console.log(tempPrice);
       finalPrices = [];
       tempPrice += (tempPrice*unitModPrice)*($scope.btnPlaced.length-1)
-      console.log(tempPrice);
       if ($scope.radioModel==="Excellent"){
         tempPrice += (tempPrice*quaPrice[1])
       }
