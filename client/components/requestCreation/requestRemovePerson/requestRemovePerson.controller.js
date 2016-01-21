@@ -113,10 +113,15 @@ angular.module('styleyApp')
         finalPrices.push(parseInt(tempPrice + (tempPrice*reputPrice[2]),10))
       }
       if (finalPrices.length>1){
-        $scope.estimatedPrice= finalPrices[0]+"-"+finalPrices[finalPrices.length-1]+"€"
+        $scope.estimatedPrice= finalPrices[0]+"-"+finalPrices[finalPrices.length-1]+"€";
+        $scope.priceSelected=true;
+      }
+      else if (finalPrices.length>0){
+        $scope.estimatedPrice=finalPrices[0]+"€";
+        $scope.priceSelected=true;
       }
       else{
-        $scope.estimatedPrice=finalPrices[0]+"€"
+        $scope.priceSelected=false;
       }
     } 
 

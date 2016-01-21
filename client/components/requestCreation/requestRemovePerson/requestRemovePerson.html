@@ -76,7 +76,7 @@
 
     <div ng-show="step==4">
       <div>
-        <span class="explanationStage">Artist appreciation</span>
+        <span class="explanationStage">Choose the artist reputation:</span>
         <div class="reputBlock">
           <img  class="reput" ng-src="/assets/images/reputEmpty.png" ng-class="{ratingSelected: noratingSelected,norating: noratingSelected}" ng-click="noratingSelected = !noratingSelected;estimatePrice()">
           <img  class="reput" ng-src="/assets/images/reputBronze.png" ng-class="{ratingSelected: bronzeratingSelected,bronzerating: bronzeratingSelected}" ng-click="bronzeratingSelected = !bronzeratingSelected;estimatePrice()" >
@@ -85,17 +85,32 @@
         </div>
         <div>
           <span class="explanationStage">Estimated cost:</span>
-          <div class="pricingValue">
+          <div class="pricingValue" ng-show="priceSelected">
             <span>{{estimatedPrice}}</span>
           </div>
+          <div class="noPrice" ng-hide="priceSelected">
+            Select a quality to estimate the price
+          </div>
         </div>
-        <div>
-          <!-- <uib-alert template-url="alert.html" ng-hide="isLoggedIn()">You need to be logged !</uib-alert> -->
-          <button class="btn-xl btn btn-primary finalize" ng-click="submitRequest()">Finalize</button>
+        <div class="paymentZone" ng-show="priceSelected">
+          <div>
+            <input type="text" class="card"/>
+            Card Number
+          </div>
+            <div class="col-lg-8">
+              <input type="text" class="card"/>
+              Validity date
+            </div>
+            <div class="col-lg-4 CCV">
+              <input type="text" class="card"/>
+              CCV
+            </div>
+        </div>
+        <div class="finalize">
+          <button class="btn-lg btn btn-finalize" ng-click="submitRequest()" ng-show="priceSelected">Finalize</button>
         </div>
       </div>
     </div>
-
   </div> <!-- end of modal body -->
 
   <div class="modal-footer">
@@ -104,6 +119,5 @@
     </div>
     <div class="next">
       <button type="button" class="btn btn-primary btn-lg" ng-click="nextStep()" ng-show="completedStep>=step">Next</button>
- 	  </div>
   </div>
 </div>

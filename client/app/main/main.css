@@ -51,3 +51,7 @@
 .navbar-brand{
   padding: 9px 9px;
 }
+
+.btn-primary{
+  background-color: #008dd7;
+}
