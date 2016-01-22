@@ -6,6 +6,6 @@ angular.module('styleyApp')
       .state('requestAuth', {
         url: '/requestAuth',
         templateUrl: 'components/requestAuth/requestAuth.html',
-        controller: 'RequestAuthCtrl'
+        controller: 'LoginController'
       });
   });

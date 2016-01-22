@@ -11,6 +11,7 @@ class LoginController {
   }
 
   login(form) {
+    console.log("LoginController")
     this.submitted = true;
 
     if (form.$valid) {

@@ -289,6 +289,19 @@ div.placedbuttons input {
 	color: black;
 }
 
+.paymentTitle{
+	font-size: 300%;
+	font-family: 'Arvo';
+	font-weight: bold;
+	margin: auto;
+	margin-bottom: 0%;
+	margin-top: 0%;
+	padding-bottom: 1%;
+	border: 1px solid white;
+	border-radius: 3%;
+	width: 60%;
+
+}
 
 .paymentZone{
 	background-color: #fd9001;

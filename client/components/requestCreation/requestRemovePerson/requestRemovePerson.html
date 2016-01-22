@@ -4,7 +4,6 @@
 	</div>
 	<div class="modal-body">
     <div ng-show="step==1">
-      <div ng-include="'components/requestAuth/requestAuth.html'"></div>
       <div class="imageBlock">		
         <div class="slider col-lg-7">
 	        <div class="left image"> <img src="{{sliderSrc1}}"/> </div>
@@ -93,22 +92,26 @@
             Select a quality to estimate the price
           </div>
         </div>
-        <div class="paymentZone" ng-show="priceSelected">
-          <div>
-            <input type="text" class="card"/>
-            Card Number
+        <div ng-show="priceSelected">
+          <div ng-include="'components/requestAuth/requestAuth.html'" ng-controller="LoginController" ng-hide="isLoggedIn()"></div>
+          <div class="paymentZone" ng-show="isLoggedIn()">
+            <h1 class="paymentTitle">Payment</h1>
+            <div>
+              <input type="text" class="card"/>
+              Card Number
+            </div>
+              <div class="col-lg-8">
+                <input type="text" class="card"/>
+                Validity date
+              </div>
+              <div class="col-lg-4 CCV">
+                <input type="text" class="card"/>
+                CCV
+              </div>
           </div>
-            <div class="col-lg-8">
-              <input type="text" class="card"/>
-              Validity date
-            </div>
-            <div class="col-lg-4 CCV">
-              <input type="text" class="card"/>
-              CCV
-            </div>
-        </div>
-        <div class="finalize">
-          <button class="btn-lg btn btn-finalize" ng-click="submitRequest()" ng-show="priceSelected">Finalize</button>
+          <div class="finalize">
+            <button class="btn-lg btn btn-finalize" ng-click="submitRequest()" ng-show="isLoggedIn()">Finalize</button>
+          </div>
         </div>
       </div>
     </div>

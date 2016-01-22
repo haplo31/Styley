@@ -4,8 +4,9 @@ angular.module('styleyApp')
   .controller('RequestRemovePersonCtrl', function ($scope,) {
     $scope.message = 'Hello';
   })
-  .controller('CreaInstanceCtrl', function ($scope,$timeout,$http) {
-		
+  .controller('CreaInstanceCtrl', function ($scope,$timeout,$http,Auth) {
+    $scope.isLoggedIn = Auth.isLoggedIn
+		console.log(Auth.isLoggedIn())
     $scope.step=1;
     $scope.completedStep=1;
 		$scope.sliderSrc1 = '../../../assets/images/rem1.png';
