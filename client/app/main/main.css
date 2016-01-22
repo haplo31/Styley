@@ -50,6 +50,7 @@
 }
 .navbar-brand{
   padding: 9px 9px;
+  cursor: pointer;
 }
 
 .btn-primary{
