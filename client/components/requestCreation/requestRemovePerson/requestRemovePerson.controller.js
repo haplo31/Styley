@@ -4,7 +4,7 @@ angular.module('styleyApp')
   .controller('RequestRemovePersonCtrl', function ($scope,) {
     $scope.message = 'Hello';
   })
-  .controller('CreaInstanceCtrl', function ($scope,$timeout,$http,Auth) {
+  .controller('CreaInstanceCtrl', function ($scope,$timeout,$http,Auth,Upload,$modalInstance) {
     $scope.isLoggedIn = Auth.isLoggedIn
 		console.log(Auth.isLoggedIn())
     $scope.step=1;
@@ -129,6 +129,49 @@ angular.module('styleyApp')
     $scope.$watchGroup(['btnPlaced', 'radioModel','btnPlaced|json'], function(newValues, oldValues, scope) {
       $scope.estimatePrice();
     }); 
+
+
+    $scope.submitRequest = function(){
+      var ratingSelected = []
+      if ($scope.noratingSelected){
+        ratingSelected.push(0)
+      }
+      if ($scope.bronzeratingSelected){
+        ratingSelected.push(1)
+      }
+      if ($scope.silverratingSelected){
+        ratingSelected.push(2)
+      }
+      if ($scope.goldratingSelected){
+        ratingSelected.push(3)
+      }
+      Upload.upload({
+          url: 'api/updatefile',
+          data: {file:$scope.file}
+      }).then(function (resp) {
+          $http.post('/api/qqrequests/',{ owner:Auth.getCurrentUser().name,
+                                        artist:"",
+                                        modtype:"remPers",
+                                        vote:0,
+                                        src:resp.data.filename,
+                                        modinfos:$scope.btnPlaced,
+                                        addinfos:$scope.addInfos,
+                                        quality:$scope.radioModel,
+                                        rating:ratingSelected,
+                                        price: finalPrices,
+                                        available:"true"})
+          .success(function(){
+            $modalInstance.close();
+          });      
+      }, function (resp) {
+          console.log('Error status: ' + resp.status);
+      }, function (evt) {
+          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+          console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      });
+    }
+
+
 
     $scope.$watch('step', function (value) {
       $timeout(function(){

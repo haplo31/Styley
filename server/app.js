@@ -9,7 +9,7 @@ import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
 import config from './config/environment';
 import http from 'http';
-
+import multer from 'multer';
 // Connect to MongoDB
 mongoose.connect(config.mongo.uri, config.mongo.options);
 mongoose.connection.on('error', function(err) {
@@ -30,7 +30,6 @@ var socketio = require('socket.io')(server, {
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
-
 
 
 // Start server

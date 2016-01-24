@@ -34,6 +34,24 @@ export default function(app) {
   app.use(cookieParser());
   app.use(passport.initialize());
 
+
+
+app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "http://localhost");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+
+    /** Serving from the same express Server
+    No cors required */
+    app.use(express.static('../client'));
+    app.use(bodyParser.json());  
+
+
+
+
+
+
   // Persist sessions with mongoStore / sequelizeStore
   // We need to enable sessions for passport-twitter because it's an
   // oauth 1.0 strategy, and Lusca depends on sessions
