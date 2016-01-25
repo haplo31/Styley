@@ -1,1 +1,220 @@
-<div>This is the createArtist view.</div>
+<navbar></navbar>
+<div class="container">
+	<div class="row artistSignUpBlock" ng-controller="CreateArtistCtrl as vm">
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+	      <div ng-show="step==1" class="accountinfo">
+	        <div class="col-sm-12">
+			      <h1>Account Informations</h1>
+			    </div>
+					<div class="col-sm-6">
+		        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
+		                                            'has-error': form.name.$invalid && vm.submitted }">
+		          <label>Username</label>
+
+		          <input type="text" name="name" class="form-control" ng-model="vm.user.name"
+		                 required/>
+		          <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+		            A name is required
+		          </p>
+		        </div>
+						<div class="form-group" ng-class="{ 'has-success': form.firstname.$valid && submitted,
+						                                    'has-error': form.firstname.$invalid && submitted }">
+						  <label>First Name</label>
+						  <input type="text" name="firstname" class="form-control" ng-model="user.firstname"
+						         required/>
+						  <p class="help-block" ng-show="form.firstname.$error.required && submitted">
+						    A first name is required
+						  </p>
+						</div>
+						<div class="form-group" ng-class="{ 'has-success': form.lastname.$valid && submitted,
+						                                    'has-error': form.lastname.$invalid && submitted }">
+						  <label>Last Name</label>
+						  <input type="text" name="lastname" class="form-control" ng-model="user.lastname"
+						         required/>
+						  <p class="help-block" ng-show="form.lastname.$error.required && submitted">
+						    A last name is required
+						  </p>
+						</div>
+					</div>
+					<div class="col-sm-6">
+		        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
+		                                            'has-error': form.email.$invalid && vm.submitted }">
+		          <label>Email</label>
+
+		          <input type="email" name="email" class="form-control" ng-model="vm.user.email"
+		                 required
+		                 mongoose-error/>
+		          <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+		            Doesn't look like a valid email.
+		          </p>
+		          <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
+		            What's your email address?
+		          </p>
+		          <p class="help-block" ng-show="form.email.$error.mongoose">
+		            {{ vm.errors.email }}
+		          </p>
+		        </div>
+
+		        <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
+		                                            'has-error': form.password.$invalid && vm.submitted }">
+		          <label>Password</label>
+
+		          <input type="password" name="password" class="form-control" ng-model="vm.user.password"
+		                 ng-minlength="6"
+		                 required
+		                 mongoose-error/>
+		          <p class="help-block"
+		             ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
+		            Password must be at least 6 characters.
+		          </p>
+		          <p class="help-block" ng-show="form.password.$error.mongoose">
+		            {{ vm.errors.password }}
+		          </p>
+		        </div>
+
+		        <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
+		                                            'has-error': form.confirmPassword.$invalid && vm.submitted }">
+		          <label>Confirm Password</label>
+		          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
+		                 match="vm.user.password"
+		                 ng-minlength="6" required/>
+		          <p class="help-block"
+		             ng-show="form.confirmPassword.$error.match && vm.submitted">
+		            Passwords must match.
+		          </p>
+		        </div>
+					</div>
+
+<!-- 	        <div class="col-sm-12">
+	          <button class="btn btn-inverse btn-lg btn-register" type="submit">
+	            Sign Up
+	          </button> -->
+	       </div>
+
+
+	       <div ng-show="step==2" class="genericSkills">
+	        <div class="col-sm-12">
+			      <h1>Generic Skills</h1>
+			    </div>
+	        <span class="explan">Chose the type of work you want to do and your average output quality about it !</span>
+          <!-- Faire liste des retouches generiques, avec a coté un bouton qui ouvre une modale,avec les 3exemples de qualité et le cursor zoom -->          
+          <div class="exampleblock">
+<!--           <div class="example" image-src="/assets/images/rem1.png" data-template-url="assets/image-zoom.html" image-zoom zoom-factor="2"> -->
+            <div class="col-md-4 col-md-offset-2 compselecting" ng-class="{compselected: addPers}" ng-click="addPers = !addPers;" >
+              <div class="col-md-12 comptitle" >Adding person <i class="fa fa-question-circle"></i> </div>
+                <div class="quablock">
+                  <label class="btn btn-lg quachoice" ng-disabled="!addPers" ng-model="addpers" btn-radio="'Good'" uncheckable value="1">Good</label>
+                  <label class="btn btn-lg quachoice" ng-disabled="!addPers" ng-model="addpers" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
+                  <label class="btn btn-lg quachoice" ng-disabled="!addPers" ng-model="addpers" btn-radio="'Perfect'" uncheckable value="3">Perfect</label>
+                </div>
+            </div>            
+            <div class="col-md-4 compselecting" ng-class="{compselected: remPers}">
+              <div class="col-md-12 comptitle" ng-click="remPers = !remPers">Removing person <i class="fa fa-question-circle"></i></div>
+              <div class="quablock">
+                <label class="btn btn-lg quachoice" ng-disabled="!remPers" ng-model="rempers" btn-radio="'Good'" uncheckable value="1">Good</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!remPers" ng-model="rempers" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!remPers" ng-model="rempers" btn-radio="'Perfect'" uncheckable value="3">Perfect</label>
+              </div>
+            </div>
+            <div class="col-md-4 col-md-offset-2 compselecting" ng-class="{compselected: addObj}">
+              <div class="col-md-12 comptitle" ng-click="addObj = !addObj;">Adding object <i class="fa fa-question-circle"></i></div>
+              <div class="quablock">
+                <label class="btn btn-lg quachoice" ng-disabled="!addObj" ng-model="addobj" btn-radio="'Good'" uncheckable value="1">Good</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!addObj" ng-model="addobj" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!addObj" ng-model="addobj" btn-radio="'Perfect'" uncheckable value="3">Perfect</label>
+              </div>
+            </div>
+            <div class="col-md-4  compselecting" ng-class="{compselected: remObj}">
+              <div class="col-md-12 comptitle" ng-click="remObj = !remObj;">Removing object <i class="fa fa-question-circle"></i></div>
+              <div class="quablock">
+                <label class="btn btn-lg quachoice" ng-disabled="!remObj" ng-model="remobj" btn-radio="'Good'" uncheckable value="1">Good</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!remObj" ng-model="remobj" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!remObj" ng-model="remobj" btn-radio="'Perfect'" uncheckable value="3">Perfect</label>
+              </div>
+            </div>
+            <div class="col-md-4 col-md-offset-2 compselecting" ng-class="{compselected: enh}">
+              <div class="col-md-12 comptitle" ng-click="enh = !enh;">Photo Enhancements <i class="fa fa-question-circle"></i></div>
+              <div class="quablock">
+                <label class="btn btn-lg quachoice" ng-disabled="!enh" ng-model="enh" btn-radio="'Good'" uncheckable value="1">Good</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!enh" ng-model="enh" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!enh" ng-model="enh" btn-radio="'Perfect'" uncheckable value="3">Perfect</label>
+              </div>
+            </div>
+            <div class="col-md-4 compselecting" ng-class="{compselected: incr}">
+              <div class="col-md-12 comptitle" ng-click="incr = !incr;">Incrustation <i class="fa fa-question-circle"></i></div>
+              <div class="quablock">
+                <label class="btn btn-lg quachoice" ng-disabled="!incr" ng-model="incr" btn-radio="'Good'" uncheckable value="1">Good</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!incr" ng-model="incr" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
+                <label class="btn btn-lg quachoice" ng-disabled="!incr" ng-model="incr" btn-radio="'Perfect'" uncheckable value="3">Perfect</label>
+              </div>
+            </div>            
+          </div>
+	       </div>
+
+	       <div ng-show="step==3" class="qqExplanation">
+	       	<div class="col-sm-12">
+			      <h1>QuickQuery Explanation</h1>
+			    </div>
+          <p class="explanQQ">QuickQuery is a new system to get editing demands.<br />
+          Once logged on QQ System, requests corresponding your profile will be send to you.<br />
+          You can accept or refuse any proposal.<br />
+          If you accept a request, your profile will be send to the requester for his validation and the job will be yours.<br />
+          You have 48 hours to complete the job and send back the result.<br />
+          The editing price is automatically calculated based on market offer and demand.<br /></p>
+          <p class="explanQQPrice">Here is some actual pricing : </p>
+          <table class="pricingtable table table-hover">
+            <thead>
+              <tr tooltip="For every job, the requester can chose to give you an award. When you have enough awards, you win the corresponding badge and your QQ pricing for this type of request is reevaluated." tooltip-placement="right" tooltip-trigger="mouseenter">
+                <td></td>
+                <td></td>
+                <td><img class="ratinglegend" src="/assets/images/reputBronze.png"></td>
+                <td><img class="ratinglegend" src="/assets/images/reputSilver.png"></td>
+                <td><img class="ratinglegend" src="/assets/images/reputGold.png"></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Remove 1 person</td>
+                <td>{{remPersonPrice}}</td>
+                <td>{{remPersonPriceBronze}}</td>
+                <td>{{remPersonPriceSilver}}</td>
+                <td>{{remPersonPriceGold}}</td>
+              </tr>
+              <tr>
+                <td>Adding 1 person</td>
+                <td>{{addPersonPrice}}</td>
+                <td>{{addPersonPriceBronze}}</td>
+                <td>{{addPersonPriceSilver}}</td>
+                <td>{{addPersonPriceGold}}</td>
+              </tr>
+              <tr>
+                <td>General Improvement</td>
+                <td>{{impPrice}}</td>
+                <td>{{impPriceBronze}}</td>
+                <td>{{impPriceSilver}}</td>
+                <td>{{impPriceGold}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="/fullpricing" class="completepricing">View full list of pricing</a>
+          <div class="checkboxQQ">
+          <checkbox largest class="btn-primary" ng-model="QQAutoLogin"></checkbox>
+            <span>Join QQ System on login ?</span> 
+          </div>
+	       </div>
+      </form>
+    </div>
+    <div class="navigationBlock col-sm-12">
+    	<progress><bar ng-repeat="bar in progressBarStep track by $index" value="bar.value" type="success" class="progressBar"><span>{{bar.text}}</span></bar></progress>
+			<div class="previous">
+	      <button type="button" class="btn btn-lg " ng-click="previousStep()" ng-show="step!=1">Previous</button>
+	    </div>
+	    <div class="next">
+	      <button type="button" class="btn btn-lg" ng-click="nextStep()">Next</button>
+	  	</div>
+		</div>
+    
+ 	</div>
+</div>
+<footer></footer>
