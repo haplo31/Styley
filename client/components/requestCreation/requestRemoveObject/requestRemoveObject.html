@@ -1,1 +1,127 @@
-<div>This is the requestRemoveObject view.</div>
+<div class="modal-complete">
+	<div class="modal-header">
+		Remove a person
+	</div>
+	<div class="modal-body">
+    <div ng-show="step==1">
+      <div class="imageBlock">		
+        <div class="slider col-lg-7">
+	        <div class="left image"> <img src="{{sliderSrc1}}"/> </div>
+	  	    <div class="right image"> <img src="{{sliderSrc2}}"/> </div>
+	  	  </div>
+        <div class="imageLegend col-lg-5">
+        <span>Select the separator on the left on the picture and drag it to see an example of realisation</span> 
+        </div>
+      </div>
+  		<div class="explanation">
+  			<h3 class="titleRequest">How it works</h3>
+  			<span class="explanationStage">1<br />In the next steps, you will choose what element(s) you want to remove on your picture, the desired quality and every additional information.</span>
+  			<span class="explanationStage">2<br />A price will be automatically calculated and, if you finalize the request, a graphic artist matching your criteria will be suggested.</span>
+  			<span class="explanationStage">3<br />You can refuse the suggested artist as many times as you want. In this case, an other artist will be suggested.</span>
+  			<span class="explanationStage">4<br />Once you have accepted an artist, your photo will be sent to him and you will receive the result of your request in the next 48 hours.</span>
+  			<span class="explanationFinal">In any case, nothing is sent until you finalize your request on the last step by clicking on the very distinctive button "Finalize" :)</span>
+  		</div>
+    </div>
+
+<!-- step 2 -->
+    <div ng-show="step==2" class="step2">
+      	<span class="explanationStage" ng-hide="imageAsk">First, choose the picture you want to use:</span>
+        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*" ng-hide="imageAsk">Upload</button>
+      <div ng-class="{redpointer:redPointer}">
+				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
+				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
+				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
+				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft-16, 'top': btn.posTop-16}" ng-click="removePlaced(index)" class="noselect"/>
+				</div> 
+				<div class="symbolstodrag" ng-show="file">
+					 <input id="redbtn" type="radio" name="buttons" value="redbtn" ng-click="select(red)" ng-checked="redPointer"/>
+					 <label class="buttons redbtn" for="redbtn"></label>
+				</div>
+				<div class="explanation2" ng-show="file">
+				<span class="explanationStage">Now, you can select the red dot and put it on the person you want to remove</span>
+				<span class="explAnd"> and </span>
+				<span class="explanationStage" >Add any additionnal information you want to provide about your desires:</span>
+				<textarea class="addInfo" ng-model="infos">
+        </textarea>
+				</div>
+			</div>
+    </div>
+    
+    <div ng-show="step==3">
+      <div class="recapdiv" id="recapdiv">
+        <img class="picturerecap" id="picturerecap" ngf-thumbnail="file">
+        <div class="placedbuttons" ng-repeat='(index,btn) in btnRecap'>
+         <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
+        </div>
+      </div> 
+      <div class="recap">
+        <span class="explanationStage">Modifications Number : <span class="numbermod">{{btnPlaced.length}}</span> </span>
+        <div  class="quality">
+          <span class="explanationStage">Desired Quality :</span>
+          <div class="quachoice" ng-click="quaselect(radioModel);" ng-class="{'shake shake-chunk shake-constant': radioModel == 0}">
+            <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Good'" value="1">Good</label>
+            <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Excellent'" value="2">Excellent</label>
+            <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Perfect'" value="3">Perfect</label>
+          </div>
+          <div class="quainfos" ng-show="radioModel !== 0">
+            <span >{{qualityMessage}}</span>
+          </div>
+        </div>
+        <div class="addinfos">
+          <span class="explanationStage" ng-show="infos">Additionnal infos :</span>
+          <p class="infosblock" ng-show="infos">{{ infos }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="step==4">
+      <div>
+        <span class="explanationStage">Choose the artist reputation:</span>
+        <div class="reputBlock">
+          <img  class="reput" ng-src="/assets/images/reputEmpty.png" ng-class="{ratingSelected: noratingSelected,norating: noratingSelected}" ng-click="noratingSelected = !noratingSelected;estimatePrice()">
+          <img  class="reput" ng-src="/assets/images/reputBronze.png" ng-class="{ratingSelected: bronzeratingSelected,bronzerating: bronzeratingSelected}" ng-click="bronzeratingSelected = !bronzeratingSelected;estimatePrice()" >
+          <img  class="reput" ng-src="/assets/images/reputSilver.png" ng-class="{ratingSelected: silverratingSelected,silverrating: silverratingSelected}" ng-click="silverratingSelected = !silverratingSelected;estimatePrice()" >
+          <img  class="reput" ng-src="/assets/images/reputGold.png" ng-class="{ratingSelected: goldratingSelected,goldrating: goldratingSelected}" ng-click="goldratingSelected = !goldratingSelected;estimatePrice()" >
+        </div>
+        <div>
+          <span class="explanationStage">Estimated cost:</span>
+          <div class="pricingValue" ng-show="priceSelected">
+            <span>{{estimatedPrice}}</span>
+          </div>
+          <div class="noPrice" ng-hide="priceSelected">
+            Select a quality to estimate the price
+          </div>
+        </div>
+        <div ng-show="priceSelected">
+          <div ng-include="'components/requestAuth/requestAuth.html'" ng-controller="LoginController" ng-hide="isLoggedIn()"></div>
+          <div class="paymentZone" ng-show="isLoggedIn()">
+            <h1 class="paymentTitle">Payment</h1>
+            <div>
+              <input type="text" class="card"/>
+              Card Number
+            </div>
+              <div class="col-lg-8">
+                <input type="text" class="card"/>
+                Validity date
+              </div>
+              <div class="col-lg-4 CCV">
+                <input type="text" class="card"/>
+                CCV
+              </div>
+          </div>
+          <div class="finalize">
+            <button class="btn-lg btn btn-finalize" ng-click="submitRequest()" ng-show="isLoggedIn()">Finalize</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end of modal body -->
+
+  <div class="modal-footer">
+    <div class="previous">
+      <button type="button" class="btn btn-primary btn-lg " ng-click="previousStep()" ng-show="step!=1">Previous</button>
+    </div>
+    <div class="next">
+      <button type="button" class="btn btn-primary btn-lg" ng-click="nextStep()" ng-show="completedStep>=step">Next</button>
+  </div>
+</div>

@@ -16,4 +16,19 @@ angular.module('styleyApp')
 	  }, function () {
 	  });
     }
+
+    $scope.removeObject = function(){
+    var modalRequest = $modal.open({
+	    animation: true,
+	    templateUrl: '../../../components/requestCreation/requestRemoveObject/requestRemoveObject.html',
+	    controller: 'CreaInstanceCtrl2',
+	    size: "lg",
+	    resolve: {
+	    }
+	  });
+	  modalRequest.result.then(function (selectedItem) {
+	    $scope.selected = selectedItem;
+	  }, function () {
+	  });
+    }
   });
