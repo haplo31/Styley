@@ -79,7 +79,7 @@ export function create(req, res) {
   Qqrequest.createAsync(req.body)
     .then(function (resp){
       User.findOne({name: resp.owner}).exec(function (err, user) {
-        user.pending.push(resp._id);
+        user.pendingqqrequest.push(resp._id);
         user.save();
       })
     })

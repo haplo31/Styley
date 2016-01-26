@@ -4,6 +4,7 @@
 'use strict';
 
 import config from './environment';
+import User from './../api/user/user.model';
 
 // When the user disconnects.. perform this
 function onDisconnect(socket) {
@@ -47,6 +48,18 @@ export default function(socketio) {
     socket.log = function(...data) {
       console.log(`SocketIO ${socket.nsp.name} [${socket.address}]`, ...data);
     };
+
+    socket.on('sendSocket', function(data){
+      data.socket=socket.id
+      User.findOne({name:data.name},function(err,user){
+        user.socket=data.socket;
+        user.save();
+      })
+    });
+
+
+
+
 
     // Call onDisconnect.
     socket.on('disconnect', () => {
