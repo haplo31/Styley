@@ -12,7 +12,8 @@ angular.module('styleyApp', [
   'ui.router',
   'ui.bootstrap',
   'validation.match',
-  'ngFileUpload'
+  'ngFileUpload',
+  'ui.checkbox'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
