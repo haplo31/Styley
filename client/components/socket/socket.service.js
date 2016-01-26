@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('styleyApp')
-  .factory('socket', function(socketFactory) {
+  .factory('socket', function(socketFactory,$rootScope) {
     // socket.io now auto-configures its connection when we ommit a connection url
     var ioSocket = io('', {
       // Send auth token on connection, you will need to DI the Auth service above
@@ -25,6 +25,17 @@ angular.module('styleyApp')
        * @param {Array} array
        * @param {Function} cb
        */
+      on(eventName, callback) {
+        socket.on(eventName, function () {  
+          var args = arguments;
+          $rootScope.$apply(function () {
+            callback.apply(socket, args);
+          });
+        });
+      },
+      removeAllListeners(){
+        socket.removeAllListeners();
+      },
       emit(msg,param){
         socket.emit(msg,param)
       },
