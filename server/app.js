@@ -42,4 +42,5 @@ function startServer() {
 setImmediate(startServer);
 
 // Expose app
+exports.socketio=socketio
 exports = module.exports = app;

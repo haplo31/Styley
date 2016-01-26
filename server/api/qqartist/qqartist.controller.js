@@ -1,18 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/qqrequests              ->  index
- * POST    /api/qqrequests              ->  create
- * GET     /api/qqrequests/:id          ->  show
- * PUT     /api/qqrequests/:id          ->  update
- * DELETE  /api/qqrequests/:id          ->  destroy
+ * GET     /api/qqartists              ->  index
+ * POST    /api/qqartists              ->  create
+ * GET     /api/qqartists/:id          ->  show
+ * PUT     /api/qqartists/:id          ->  update
+ * DELETE  /api/qqartists/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import Qqrequest from './qqrequest.model';
-import User from './../user/user.model';
-import QqSystem from './../qqsystem';
+import Qqartist from './qqartist.model';
+
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -60,50 +59,43 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Qqrequests
+// Gets a list of Qqartists
 export function index(req, res) {
-  Qqrequest.findAsync()
+  Qqartist.findAsync()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Qqrequest from the DB
+// Gets a single Qqartist from the DB
 export function show(req, res) {
-  Qqrequest.findByIdAsync(req.params.id)
+  Qqartist.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Creates a new Qqrequest in the DB
+// Creates a new Qqartist in the DB
 export function create(req, res) {
-  Qqrequest.createAsync(req.body)
-    .then(function (resp){
-      User.findOne({name: resp.owner}).exec(function (err, user) {
-        user.pendingqqrequest.push(resp._id);
-        user.save();
-        QqSystem.QQNewRequest(req.body)
-      })
-    })
+  Qqartist.createAsync(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Updates an existing Qqrequest in the DB
+// Updates an existing Qqartist in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Qqrequest.findByIdAsync(req.params.id)
+  Qqartist.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Qqrequest from the DB
+// Deletes a Qqartist from the DB
 export function destroy(req, res) {
-  Qqrequest.findByIdAsync(req.params.id)
+  Qqartist.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

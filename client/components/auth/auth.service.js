@@ -2,7 +2,7 @@
 
 (function() {
 
-function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
+function AuthService($location, $http, $cookies, $q, appConfig, Util, User,socket) {
   var safeCb = Util.safeCb;
   var currentUser = {};
   var userRoles = appConfig.userRoles || [];
@@ -32,6 +32,14 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
         })
         .then(user => {
           safeCb(callback)(null, user);
+          return user;
+        })
+        .then(user =>{
+          if (user.qqautolog){
+            socket.emit("sendSocketQQ",{name:Auth.getCurrentUser().name,gskills:Auth.getCurrentUser().gskills,date:new Date().getTime(),socket:socket.id})
+          } else if(user.pendingqqrequest.length>0){
+            socket.emit("sendSocket",{name:Auth.getCurrentUser().name,socket:socket.id})
+          }
           return user;
         })
         .catch(err => {

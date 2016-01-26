@@ -25,6 +25,9 @@ angular.module('styleyApp')
        * @param {Array} array
        * @param {Function} cb
        */
+      emit(msg,param){
+        socket.emit(msg,param)
+      },
       syncUpdates(modelName, array, cb) {
         cb = cb || angular.noop;
 
