@@ -11,7 +11,7 @@
 
 import _ from 'lodash';
 import Qqrequest from './qqrequest.model';
-
+import User from './../user/user.model';
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -77,6 +77,12 @@ export function show(req, res) {
 // Creates a new Qqrequest in the DB
 export function create(req, res) {
   Qqrequest.createAsync(req.body)
+    .then(function (resp){
+      User.findOne({name: resp.owner}).exec(function (err, user) {
+        user.pending.push(resp._id);
+        user.save();
+      })
+    })
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }

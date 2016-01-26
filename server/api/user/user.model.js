@@ -24,6 +24,7 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
+  pending:[],
   password: String,
   provider: String,
   salt: String,
