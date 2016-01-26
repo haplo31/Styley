@@ -5,6 +5,7 @@
 class MainController {
 
   constructor($http, $scope, socket) {
+
     this.$http = $http;
     this.awesomeThings = [];
 
@@ -12,9 +13,12 @@ class MainController {
       this.awesomeThings = response.data;
       socket.syncUpdates('thing', this.awesomeThings);
     });
-
+    socket.on('qqartistprop', function (data) {
+      console.log("QQArtistProp")
+    })
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
+      socket.removeAllListeners();
     });
   }
 
