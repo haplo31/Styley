@@ -1,6 +1,6 @@
 <div class="modal-complete">
 	<div class="modal-header">
-		Remove a person
+		Remove an object
 	</div>
 	<div class="modal-body">
     <div ng-show="step==1">
@@ -13,14 +13,14 @@
         <span>Select the separator on the left on the picture and drag it to see an example of realisation</span> 
         </div>
       </div>
-  		<div class="explanation">
-  			<h3 class="titleRequest">How it works</h3>
-  			<span class="explanationStage">1<br />In the next steps, you will choose what element(s) you want to remove on your picture, the desired quality and every additional information.</span>
-  			<span class="explanationStage">2<br />A price will be automatically calculated and, if you finalize the request, a graphic artist matching your criteria will be suggested.</span>
-  			<span class="explanationStage">3<br />You can refuse the suggested artist as many times as you want. In this case, an other artist will be suggested.</span>
-  			<span class="explanationStage">4<br />Once you have accepted an artist, your photo will be sent to him and you will receive the result of your request in the next 48 hours.</span>
-  			<span class="explanationFinal">In any case, nothing is sent until you finalize your request on the last step by clicking on the very distinctive button "Finalize" :)</span>
-  		</div>
+      <div class="explanation">
+        <h3 class="titleRequest">How it works</h3>
+        <span class="explanationStage">1<br />In the next steps, you will choose which object(s) you want to remove on your picture, the desired quality as well as every additional information.</span>
+        <span class="explanationStage">2<br />A price will be automatically calculated. If you finalize the request, a graphic artist matching your criteria will be suggested.</span>
+        <span class="explanationStage">3<br />You can refuse the suggested artists as many times as you want. In this case, an other artist will be suggested.</span>
+        <span class="explanationStage">4<br />Once you have accepted an artist, your photo will be sent to him and you will receive the modified picture in the next 48 hours.</span>
+        <span class="explanationFinal">In any case, no artist will see your request while it is not finalized at the last step by clicking on the very distinctive button <span class="orange"> "Finalize" :) </span> </span>
+      </div>
     </div>
 
 <!-- step 2 -->
@@ -38,7 +38,7 @@
 					 <label class="buttons redbtn" for="redbtn"></label>
 				</div>
 				<div class="explanation2" ng-show="file">
-				<span class="explanationStage">Now, you can select the red dot and put it on the person you want to remove</span>
+				<span class="explanationStage">Now, you can select the red dot and put it on the object you want to remove</span>
 				<span class="explAnd"> and </span>
 				<span class="explanationStage" >Add any additionnal information you want to provide about your desires:</span>
 				<textarea class="addInfo" ng-model="infos">

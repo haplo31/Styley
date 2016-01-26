@@ -81,7 +81,7 @@ span[class^="explanationStage"]::first-letter{
 }
 
 .explanationFinal{
-	margin-top:5%;
+	margin-top:4%;
 	margin-bottom:-3%;
 	font-family: 'Arvo';
 	font-size: 170%;
@@ -301,6 +301,11 @@ div.placedbuttons input {
 	border-radius: 3%;
 	width: 60%;
 
+}
+
+.orange{
+	font-size: 120%;
+	color: #fd9001;
 }
 
 .paymentZone{

@@ -4,7 +4,7 @@ angular.module('styleyApp')
   .controller('RequestRemovePersonCtrl', function ($scope,) {
     $scope.message = 'Hello';
   })
-  .controller('CreaInstanceCtrl', function ($scope,$timeout,$http,Auth,Upload,$modalInstance) {
+  .controller('remPersonCtrl', function ($scope,$timeout,$http,Auth,Upload,$modalInstance) {
     $scope.isLoggedIn = Auth.isLoggedIn
 		console.log(Auth.isLoggedIn())
     $scope.step=1;
