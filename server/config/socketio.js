@@ -5,9 +5,15 @@
 
 import config from './environment';
 import User from './../api/user/user.model';
-
+import QQArtist from './../api/qqartist/qqartist.model';
 // When the user disconnects.. perform this
 function onDisconnect(socket) {
+  QQArtist.findOne({socket:socket.id},function(err,qqartist){
+    if (qqartist){
+    qqartist.removeAsync()
+    qqartist.save();      
+    }
+  })      
 }
 
 // When the user connects.. perform this
@@ -16,8 +22,8 @@ function onConnect(socket) {
   socket.on('info', data => {
     socket.log(JSON.stringify(data, null, 2));
   });
-
   // Insert sockets below
+  require('../api/qqartist/qqartist.socket').register(socket);
   require('../api/qqrequest/qqrequest.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 
@@ -57,18 +63,26 @@ export default function(socketio) {
       })
     });
 
-
+    socket.on('sendSocketQQ', function(data){
+      data.socket=socket.id
+      User.findOne({name:data.name},function(err,user){
+        user.socket=data.socket;
+        user.save();
+        QQArtist.createAsync(data)
+      })
+    });
 
 
 
     // Call onDisconnect.
     socket.on('disconnect', () => {
       onDisconnect(socket);
-      socket.log('DISCONNECTED');
+      socket.log('DISCONNECTED');  
     });
 
     // Call onConnect.
     onConnect(socket);
     socket.log('CONNECTED');
+
   });
 }
