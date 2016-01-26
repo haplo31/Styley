@@ -2,19 +2,19 @@
 <div class="container">
 	<div class="row artistSignUpBlock" ng-controller="CreateArtistCtrl as vm">
     <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+      <form class="form" name="form" ng-submit="register(form)" novalidate>
 	      <div ng-show="step==1" class="accountinfo">
 	        <div class="col-sm-12">
 			      <h1>Account Informations</h1>
 			    </div>
 					<div class="col-sm-6">
-		        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
-		                                            'has-error': form.name.$invalid && vm.submitted }">
+		        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+		                                            'has-error': form.name.$invalid && submitted }">
 		          <label>Username</label>
 
 		          <input type="text" name="name" class="form-control" ng-model="vm.user.name"
 		                 required/>
-		          <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+		          <p class="help-block" ng-show="form.name.$error.required && submitted">
 		            A name is required
 		          </p>
 		        </div>
@@ -38,17 +38,17 @@
 						</div>
 					</div>
 					<div class="col-sm-6">
-		        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
-		                                            'has-error': form.email.$invalid && vm.submitted }">
+		        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
+		                                            'has-error': form.email.$invalid && submitted }">
 		          <label>Email</label>
 
 		          <input type="email" name="email" class="form-control" ng-model="vm.user.email"
 		                 required
 		                 mongoose-error/>
-		          <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+		          <p class="help-block" ng-show="form.email.$error.email && submitted">
 		            Doesn't look like a valid email.
 		          </p>
-		          <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
+		          <p class="help-block" ng-show="form.email.$error.required && submitted">
 		            What's your email address?
 		          </p>
 		          <p class="help-block" ng-show="form.email.$error.mongoose">
@@ -56,8 +56,8 @@
 		          </p>
 		        </div>
 
-		        <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
-		                                            'has-error': form.password.$invalid && vm.submitted }">
+		        <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
+		                                            'has-error': form.password.$invalid && submitted }">
 		          <label>Password</label>
 
 		          <input type="password" name="password" class="form-control" ng-model="vm.user.password"
@@ -65,7 +65,7 @@
 		                 required
 		                 mongoose-error/>
 		          <p class="help-block"
-		             ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
+		             ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
 		            Password must be at least 6 characters.
 		          </p>
 		          <p class="help-block" ng-show="form.password.$error.mongoose">
@@ -73,23 +73,18 @@
 		          </p>
 		        </div>
 
-		        <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
-		                                            'has-error': form.confirmPassword.$invalid && vm.submitted }">
+		        <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && submitted,
+		                                            'has-error': form.confirmPassword.$invalid && submitted }">
 		          <label>Confirm Password</label>
 		          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
 		                 match="vm.user.password"
 		                 ng-minlength="6" required/>
 		          <p class="help-block"
-		             ng-show="form.confirmPassword.$error.match && vm.submitted">
+		             ng-show="form.confirmPassword.$error.match && submitted">
 		            Passwords must match.
 		          </p>
 		        </div>
 					</div>
-
-<!-- 	        <div class="col-sm-12">
-	          <button class="btn btn-inverse btn-lg btn-register" type="submit">
-	            Sign Up
-	          </button> -->
 	       </div>
 
 
@@ -101,8 +96,8 @@
           <!-- Faire liste des retouches generiques, avec a coté un bouton qui ouvre une modale,avec les 3exemples de qualité et le cursor zoom -->          
           <div class="exampleblock">
 <!--           <div class="example" image-src="/assets/images/rem1.png" data-template-url="assets/image-zoom.html" image-zoom zoom-factor="2"> -->
-            <div class="col-md-4 col-md-offset-2 compselecting" ng-class="{compselected: addPers}" ng-click="addPers = !addPers;" >
-              <div class="col-md-12 comptitle" >Adding person <i class="fa fa-question-circle"></i> </div>
+            <div class="col-md-4 col-md-offset-2 compselecting" ng-class="{compselected: addPers}" >
+              <div class="col-md-12 comptitle" ng-click="addPers = !addPers;">Adding person <i class="fa fa-question-circle"></i> </div>
                 <div class="quablock">
                   <label class="btn btn-lg quachoice" ng-disabled="!addPers" ng-model="addpers" btn-radio="'Good'" uncheckable value="1">Good</label>
                   <label class="btn btn-lg quachoice" ng-disabled="!addPers" ng-model="addpers" btn-radio="'Excellent'" uncheckable value="2">Excellent</label>
@@ -167,7 +162,7 @@
             <thead>
               <tr tooltip="For every job, the requester can chose to give you an award. When you have enough awards, you win the corresponding badge and your QQ pricing for this type of request is reevaluated." tooltip-placement="right" tooltip-trigger="mouseenter">
                 <td></td>
-                <td></td>
+                <td><img class="ratinglegend" src="/assets/images/reputEmpty.png"></td>
                 <td><img class="ratinglegend" src="/assets/images/reputBronze.png"></td>
                 <td><img class="ratinglegend" src="/assets/images/reputSilver.png"></td>
                 <td><img class="ratinglegend" src="/assets/images/reputGold.png"></td>
@@ -202,7 +197,63 @@
           <checkbox largest class="btn-primary" ng-model="QQAutoLogin"></checkbox>
             <span>Join QQ System on login ?</span> 
           </div>
-	       </div>
+	      </div>
+
+
+
+	      <div ng-show="step==4">
+	      	<div class="col-sm-12">
+			      <h1>Specific Skills</h1>
+			    </div>
+          <p class="explan">If you have other skills you want to share, set them here! <br />
+          									(they will be visible on your profile and in skills search) </p>
+          <div class="specskill">
+            <button type="button" class="btn btn-primary" ng-click="addSkill()">Add new skill</button>
+            <div class="col-md-12 skill" ng-repeat="(key, value) in skills">
+              <span id='remSkill' ng-click='remSkill(key)'>x</span>
+              <div class="col-md-9">
+                <div class="col-md-6 skillattr">
+                  <i class="fa fa-question-circle" tooltip="Chose a descriptive name to help user find your skill." tooltip-placement="top" tooltip-trigger="mouseenter"></i> Name your skill : 
+                </div>
+                <div class="col-md-6 skillinput">
+                	<input type="text" ng-model="value.name" value="{{value.name}}">
+                </div>
+                <div class="col-md-6 skillattr">
+                  <i class="fa fa-question-circle" tooltip="What are the words who describe your skill." tooltip-placement="top" tooltip-trigger="mouseenter"></i> Set its tags : 
+                </div>
+                <div class="col-md-6 skillinput">
+                	<input type="text" ng-model="value.tags" value="{{value.tags}}">
+                </div>
+                <div class="col-md-6 skillattr">
+                  <i class="fa fa-question-circle" tooltip="Your fee for this skill, this is only indicative" tooltip-placement="top" tooltip-trigger="mouseenter"></i> Price Range :
+                </div>
+                <div class="col-md-6 skillinput">
+                	<input type="text" ng-model="value.price" value="{{value.price}}">
+                </div>
+              </div>
+              <div class="col-md-3 skillimgBlock">
+                <img class="skillimg" ngf-thumbnail="value.file || '/assets/images/white.png'">
+                <button class="btn btn-primary" type="file" ngf-select="loadFiles(key, $file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Add an example</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+				<div ng-show="step==5">
+					<div class="col-sm-12">
+			      <h1>Skill validation</h1>
+			    </div>
+          <p class="explanSV">The first time you get a job in a given category, your result will be send to our validation team before being transmitted to the requester.<br />
+          If your work corresponds to the user request, your competency will be validated.<br /><br/>
+          <b>All the following jobs of this category then you will accept will be paid 100% of the calculated price.</b></p>
+          <div class="formvalid">      
+            <button class="btn btn-primary btn-register btn-lg" type="submit">
+              Sign up
+            </button>
+          </div>
+        </div>
+
+
       </form>
     </div>
     <div class="navigationBlock col-sm-12">
@@ -211,7 +262,7 @@
 	      <button type="button" class="btn btn-lg " ng-click="previousStep()" ng-show="step!=1">Previous</button>
 	    </div>
 	    <div class="next">
-	      <button type="button" class="btn btn-lg" ng-click="nextStep()">Next</button>
+	      <button type="button" class="btn btn-lg" ng-click="nextStep()" ng-show="step<5">Next</button>
 	  	</div>
 		</div>
     

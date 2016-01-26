@@ -112,6 +112,11 @@
 .pricingtable td{
 	color:white;
 	font-size: 120%;
+	font-family: 'Arvo';
+	cursor: default;
+}
+.pricingtable tr:hover td{
+	color:#fb6e04;
 }
 .ratinglegend{
 	height: 10%;
@@ -130,4 +135,60 @@
 	font-weight: bold;	
 	font-size: 150%;
 	margin-top: 4%;
+}
+.specskill{
+	display:inline-block;
+	text-align: center;
+	margin-top: 1%;
+	padding-bottom: 5%;
+	height: 100%;
+	width: 100%;
+}
+.skill{
+	margin-top: 1%;
+	border: white 5px solid;
+	font-size: 200%;
+	padding: 1%;
+}
+.skillattr{
+	text-align:right;
+	color: white;
+	font-family: 'Arvo';
+	font-weight: bold;
+	margin-top: 3%;
+}
+.skillinput{
+	margin-top: 3%;
+	text-align: left;
+}
+.skillinput input{
+	width: 100%;
+}
+
+.skillimg{
+	margin-top: 3%;
+	width: 100%;
+	border: #008dd7 4px solid; 
+}
+#remSkill{
+	cursor: default;
+	text-align: center;
+	display: inline;
+	right: 0;
+	top:-5%;
+	position: absolute;
+}
+.explanSV{
+	color:white;
+	font-size: 140%;
+	line-height: 200%;
+	font-family: 'Arvo';
+	width: 80%;
+	margin: auto;
+}
+.formvalid{
+	margin-top: 5%;
+}
+.formvalid button{
+	font-size: 200%;
 }
