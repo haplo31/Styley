@@ -6,6 +6,7 @@
 import config from './environment';
 import User from './../api/user/user.model';
 import QQArtist from './../api/qqartist/qqartist.model';
+import QqSystem from './../api/qqsystem';
 // When the user disconnects.. perform this
 function onDisconnect(socket) {
   QQArtist.findOne({socket:socket.id},function(err,qqartist){
@@ -69,6 +70,7 @@ export default function(socketio) {
         user.socket=data.socket;
         user.save();
         QQArtist.createAsync(data)
+        QqSystem.QQNewArtist(user)
       })
     });
 
