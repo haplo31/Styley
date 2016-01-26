@@ -51,51 +51,85 @@ angular.module('styleyApp')
     $scope.register = function(form) {
       $scope.submitted = true;
       if(form.$valid) {
-        for (var i = 0; i < $scope.skills.length; i++) {
-          if ($scope.skills[i].file){
-          	var nbUpload=0;
-            Upload.upload({
-              url: 'api/updatefile/artistskillimage',
-              data: {file: $scope.skills[i].file, pos:i}
-            }).then(function (resp) {
-            	nbUpload++
-            	$scope.skills[resp.data.pos].src=resp.data.filename;
-            	if (nbUpload==$scope.skills.length){
-            		Auth.createUser({
-				          name: $scope.user.name,
-				          firstname: $scope.user.firstname,
-				          lastname: $scope.user.lastname,
-				          email: $scope.user.email,
-				          password: $scope.user.password,
-				          type: "artist",
-				          qqautolog: $scope.QQAutoLogin,
-				          gskills: {addPers: {value: $scope.addpers || '0', rating:0},
-				                    remPers: {value: $scope.rempers || '0', rating:0},
-				                    addObj:  {value: $scope.addobj  || '0', rating:0},
-				                    remObj:  {value: $scope.addobj  || '0', rating:0},
-				                    enh:     {value: $scope.enh     || '0', rating:0},
-				                    incr:    {value: $scope.incr    || '0', rating:0}},
-				          sskills: $scope.skills
-				        })
-				        .then( function() {
-				          // Account created, redirect to designer home
-				          $location.path('main');
-				        })
-				        .catch( function(err) {
-				          err = err.data;
-				          $scope.errors = {};
-				          $scope.step=1;
-				          $scope.progressBarStep=[{value:"20",text:"Account Informations"}];
-				          // Update validity of form fields that match the mongoose errors
-				          angular.forEach(err.errors, function(error, field) {
-				            form[field].$setValidity('mongoose', false);
-				            $scope.errors[field] = error.message;
-				          });
-				        });
-            	}
-            })
-          }
-        };
+        if ($scope.skills.length>0){
+          for (var i = 0; i < $scope.skills.length; i++) {
+            if ($scope.skills[i].file){
+            	var nbUpload=0;
+              Upload.upload({
+                url: 'api/updatefile/artistskillimage',
+                data: {file: $scope.skills[i].file, pos:i}
+              }).then(function (resp) {
+              	nbUpload++
+              	$scope.skills[resp.data.pos].src=resp.data.filename;
+              	if (nbUpload==$scope.skills.length){
+              		Auth.createUser({
+  				          name: $scope.user.name,
+  				          firstname: $scope.user.firstname,
+  				          lastname: $scope.user.lastname,
+  				          email: $scope.user.email,
+  				          password: $scope.user.password,
+  				          type: "artist",
+  				          qqautolog: $scope.QQAutoLogin,
+  				          gskills: {addPers: {value: $scope.addpers || '0', rating:0},
+  				                    remPers: {value: $scope.rempers || '0', rating:0},
+  				                    addObj:  {value: $scope.addobj  || '0', rating:0},
+  				                    remObj:  {value: $scope.addobj  || '0', rating:0},
+  				                    enh:     {value: $scope.enh     || '0', rating:0},
+  				                    incr:    {value: $scope.incr    || '0', rating:0}},
+  				          sskills: $scope.skills
+  				        })
+  				        .then( function() {
+  				          // Account created, redirect to designer home
+  				          $location.path('main');
+  				        })
+  				        .catch( function(err) {
+  				          err = err.data;
+  				          $scope.errors = {};
+  				          $scope.step=1;
+  				          $scope.progressBarStep=[{value:"20",text:"Account Informations"}];
+  				          // Update validity of form fields that match the mongoose errors
+  				          angular.forEach(err.errors, function(error, field) {
+  				            form[field].$setValidity('mongoose', false);
+  				            $scope.errors[field] = error.message;
+  				          });
+  				        });
+              	}
+              })
+            }
+          };
+        }
+        else{
+          Auth.createUser({
+            name: $scope.user.name,
+            firstname: $scope.user.firstname,
+            lastname: $scope.user.lastname,
+            email: $scope.user.email,
+            password: $scope.user.password,
+            type: "artist",
+            qqautolog: $scope.QQAutoLogin,
+            gskills: {addPers: {value: $scope.addpers || '0', rating:0},
+                      remPers: {value: $scope.rempers || '0', rating:0},
+                      addObj:  {value: $scope.addobj  || '0', rating:0},
+                      remObj:  {value: $scope.addobj  || '0', rating:0},
+                      enh:     {value: $scope.enh     || '0', rating:0},
+                      incr:    {value: $scope.incr    || '0', rating:0}}
+          })
+          .then( function() {
+            // Account created, redirect to designer home
+            $location.path('main');
+          })
+          .catch( function(err) {
+            err = err.data;
+            $scope.errors = {};
+            $scope.step=1;
+            $scope.progressBarStep=[{value:"20",text:"Account Informations"}];
+            // Update validity of form fields that match the mongoose errors
+            angular.forEach(err.errors, function(error, field) {
+              form[field].$setValidity('mongoose', false);
+              $scope.errors[field] = error.message;
+            });
+          });
+        }
       }
       else{
         $scope.step=1;
