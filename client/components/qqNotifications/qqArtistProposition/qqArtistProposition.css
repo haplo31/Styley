@@ -1,0 +1,42 @@
+.qqArtistProposition{
+	text-align: center;
+	font-family: 'Arvo';
+	font-size: 200%;
+}
+.qqArtistProposition .imageblock{
+	margin: auto;
+}
+.qqArtistProposition .image{
+	max-width: 40%;
+	border: 2px solid black;
+	position: relative;
+}
+.qqArtistProposition .infos{
+ margin-top: 3%;
+}
+.qqArtistProposition .infos span{
+ 	margin-top: 3%;
+ 	color:#008dd7;
+ 	font-weight: bold;
+}
+.qqArtistProposition .reput{
+	margin-top: 2%;
+	margin-bottom: 0%;
+	width: 5%;
+}
+.qqArtistProposition .infotext{
+	margin-top: 3%;
+	font-weight: bold;
+	font-size: 60%;
+	color:#008dd7;
+}
+.qqArtistPropositionfooter .decline{
+	float:right;
+	background-color: #fd9001;
+	border-color: #fb6e04;
+}
+.qqArtistPropositionfooter{
+	width: 50%;
+	margin: auto;
+	margin-bottom: 3%;
+}
