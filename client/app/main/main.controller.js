@@ -4,7 +4,7 @@
 
 class MainController {
 
-  constructor($http, $scope, socket) {
+  constructor($http, $scope, socket,notifications) {
 
     this.$http = $http;
     this.awesomeThings = [];
@@ -14,7 +14,8 @@ class MainController {
       socket.syncUpdates('thing', this.awesomeThings);
     });
     socket.on('qqartistprop', function (data) {
-      console.log("QQArtistProp")
+      notifications.showSuccess({message: 'A new request corresponding your profile has been found !'});
+
     })
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
@@ -22,6 +23,9 @@ class MainController {
     });
   }
 
+  clickOnNotif(notifications){
+
+  }
   addThing() {
     if (this.newThing) {
       this.$http.post('/api/things', { name: this.newThing });
