@@ -16,7 +16,6 @@ exports.QQNewRequest = function (newrequest) {
           data.rating=designer[0].gskills[newrequest.modtype].rating
           data.artist=designer[0].socket;
           data.request = newrequest;
-          console.log("newrequest")
           main.socketio.sockets.to(designer[0].socket).emit('qqartistprop', data);
           QqRequest.findOne({ src: newrequest.src },function(err,request){
           	request.available=false;
@@ -30,13 +29,11 @@ exports.QQNewArtist = function(newartist) {
 	//Need optimizing
 	QqRequest.find().sort({ date : 'asc'}).limit(100).exec(function (err, requests) {
 		for (var i = 0; i < requests.length; i++) {
-			console.log(requests)
 			if ((requests[i].quality===newartist.gskills[requests[i].modtype].value)&&(requests[i].rating.indexOf(newartist.gskills[requests[i].modtype].rating)>0)){
 	          var data={};
 	          data.rating=newartist.gskills[requests[i].modtype].rating
 	          data.request=requests[i];
 	          data.artist = newartist.socket;
-	          console.log("newartist")
 	          main.socketio.sockets.to(newartist.socket).emit('qqartistprop', data);
 	          requests[i].available=false;
 	          requests[i].save()
@@ -49,5 +46,14 @@ exports.router = router
 
 function responseArtist(req, res) {
   console.log("response received")
+  var socketList = Object.keys(main.socketio.engine.clients)
+  console.log(socketList)
+  if (socketList.indexOf(req.body.data.artist.slice(2))>=0){
+  	console.log("socketfind")
+  }
+  else{
+  	// SEND MAIL
+  }
+
   return res.status(200).json({});
 }
