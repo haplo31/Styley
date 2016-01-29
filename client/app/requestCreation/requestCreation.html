@@ -8,7 +8,7 @@
 <div class="container actiongrid">
   <div class="col-md-8">
     <h2 class="title"> Chose a Generic Modification...</h2>
-    <div class="dashboard col-md-6" ng-init="imgsrc0='/assets/images/addPerson.png'" ng-mouseover="imgsrc0='/assets/images/addPerson.gif'" ng-mouseout="imgsrc0='/assets/images/addPerson.png'" ui-sref="requestAddPerson">
+    <div class="dashboard col-md-6" ng-init="imgsrc0='/assets/images/addPerson.png'" ng-mouseover="imgsrc0='/assets/images/addPerson.gif'" ng-mouseout="imgsrc0='/assets/images/addPerson.png'" ng-click="addPerson()">
       <img class="buttonimages" ng-src="{{imgsrc0}}">
       <span class="buttontitles">Add  <br /> a Person</span>
     </div>
@@ -16,19 +16,19 @@
       <img class="buttonimages" ng-src="{{imgsrc}}">
       <span class="buttontitles">Remove  <br /> a Person</span>
     </div>
-    <div class="dashboard col-md-6" ng-init="imgsrc1='/assets/images/drawing.png'" ng-mouseover="imgsrc1='/assets/images/drawing.gif'" ng-mouseout="imgsrc1='/assets/images/drawing.png'" ui-sref="requestDrawing">
+    <div class="dashboard col-md-6" ng-init="imgsrc1='/assets/images/drawing.png'" ng-mouseover="imgsrc1='/assets/images/drawing.gif'" ng-mouseout="imgsrc1='/assets/images/drawing.png'" ng-click="drawing()">
       <img class="buttonimages" ng-src="{{imgsrc1}}">
       <span class="buttontitles" >Drawing</span>
     </div>
-    <div class="dashboard col-md-6" ng-init="imgsrc01='/assets/images/removeObject.png'" ng-mouseover="imgsrc01='/assets/images/removeObject.gif'" ng-mouseout="imgsrc01='/assets/images/removeObject.png'" ui-sref="requestRemoveObject">
+    <div class="dashboard col-md-6" ng-init="imgsrc01='/assets/images/removeObject.png'" ng-mouseover="imgsrc01='/assets/images/removeObject.gif'" ng-mouseout="imgsrc01='/assets/images/removeObject.png'" ng-click="removeObject()">
       <img class="buttonimages" ng-src="{{imgsrc01}}">
       <span class="buttontitles">Remove  <br /> an Object</span>
     </div>
-    <div class="dashboard col-md-6" ng-init="imgsrc2='/assets/images/landscapebrut.png'" ng-mouseover="imgsrc2='/assets/images/landscape.gif'" ng-mouseout="imgsrc2='/assets/images/landscapebrut.png'" ui-sref="requestImprove">
+    <div class="dashboard col-md-6" ng-init="imgsrc2='/assets/images/landscapebrut.png'" ng-mouseover="imgsrc2='/assets/images/landscape.gif'" ng-mouseout="imgsrc2='/assets/images/landscapebrut.png'" ng-click="improve()">
       <img class="buttonimages" ng-src="{{imgsrc2}}">
       <span class="buttontitles">Improvements</span>
     </div>
-    <div class="dashboard col-md-6" ng-init="imgsrc3='/assets/images/incrustation.png'" ng-mouseover="imgsrc3='/assets/images/incrustation.gif'" ng-mouseout="imgsrc3='/assets/images/incrustation.png'" ui-sref="requestIncrustation">
+    <div class="dashboard col-md-6" ng-init="imgsrc3='/assets/images/incrustation.png'" ng-mouseover="imgsrc3='/assets/images/incrustation.gif'" ng-mouseout="imgsrc3='/assets/images/incrustation.png'" ng-click="incrustation()">
       <img class="buttonimages" ng-src="{{imgsrc3}}">
       <span class="buttontitles">Incrustation</span>
     </div>

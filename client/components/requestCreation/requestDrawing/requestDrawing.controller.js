@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('styleyApp')
-  .controller('RequestDrawingCtrl', function ($scope) {
+  .controller('drawCtrl', function ($scope) {
     $scope.message = 'Hello';
   });

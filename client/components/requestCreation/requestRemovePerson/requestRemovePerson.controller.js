@@ -4,14 +4,14 @@ angular.module('styleyApp')
   .controller('RequestRemovePersonCtrl', function ($scope,) {
     $scope.message = 'Hello';
   })
-  .controller('CreaInstanceCtrl', function ($scope,$timeout,$http,Auth,Upload,$modalInstance) {
+  .controller('remPersonCtrl', function ($scope,$timeout,$http,Auth,Upload,$modalInstance) {
     $scope.isLoggedIn = Auth.isLoggedIn
 		console.log(Auth.isLoggedIn())
     $scope.step=1;
     $scope.completedStep=1;
 		$scope.sliderSrc1 = '../../../assets/images/rem1.png';
   	$scope.sliderSrc2 = '../../../assets/images/rem2.png';	
-  	$timeout(function(){$('.slider').slider(); }, 100);
+  	$timeout(function(){$('.slider').slider(); }, 200);
 		
     $scope.nextStep = function(){
       $scope.step++;
