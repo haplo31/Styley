@@ -36,7 +36,7 @@ angular.module('styleyApp')
     var modalRequest = $modal.open({
 	    animation: true,
 	    templateUrl: '../../../components/requestCreation/requestIncrustation/requestIncrustation.html',
-	    controller: 'remObjCtrl',
+	    controller: 'incrustCtrl',
 	    size: "lg",
 	    resolve: {
 	    }
@@ -51,7 +51,7 @@ angular.module('styleyApp')
     var modalRequest = $modal.open({
 	    animation: true,
 	    templateUrl: '../../../components/requestCreation/requestImprove/requestImprove.html',
-	    controller: 'remObjCtrl',
+	    controller: 'imprCtrl',
 	    size: "lg",
 	    resolve: {
 	    }
@@ -66,7 +66,7 @@ angular.module('styleyApp')
     var modalRequest = $modal.open({
 	    animation: true,
 	    templateUrl: '../../../components/requestCreation/requestDrawing/requestDrawing.html',
-	    controller: 'remObjCtrl',
+	    controller: 'drawCtrl',
 	    size: "lg",
 	    resolve: {
 	    }
@@ -82,7 +82,7 @@ angular.module('styleyApp')
     var modalRequest = $modal.open({
 	    animation: true,
 	    templateUrl: '../../../components/requestCreation/requestAddPerson/requestAddPerson.html',
-	    controller: 'remObjCtrl',
+	    controller: 'addPersCtrl',
 	    size: "lg",
 	    resolve: {
 	    }

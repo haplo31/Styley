@@ -1,0 +1,33 @@
+.exampleImages{
+	display: inline-block;
+	max-width: 300%;
+}
+
+.bgImg{
+	max-width: 49.5%;
+}
+
+.imageLegendIncrust{
+	text-align: center;
+	font-size: 150%;
+	font-weight: bold;
+	line-height: 120%;
+	margin-top: 5%;
+	color: white;
+  	font-family: 'Arvo';
+}
+
+.explanationStageIncrust{
+  	font-family: 'Arvo';
+	font-size: 140%;
+	display: block;
+	line-height: 100%;
+	margin-bottom:2%;
+	margin-top: 2%;
+}
+
+span[class^="explanationStageIncrust"]::first-letter{
+	font-weight: bold;
+	font-size: 170%;
+	color: #008dd7;
+}

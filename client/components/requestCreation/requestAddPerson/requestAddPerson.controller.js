@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('styleyApp')
-  .controller('RequestAddPersonCtrl', function ($scope) {
+  .controller('addPersCtrl', function ($scope) {
     $scope.message = 'Hello';
   });

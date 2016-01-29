@@ -31,7 +31,7 @@
 }
 
 .slider{
-	max-width:50%;
+	max-width: 40%;
 	margin-left: 2%;
 }
 
@@ -40,8 +40,8 @@
 	font-size: 150%;
 	font-weight: bold;
 	line-height: 120%;
-	margin-top: 8%;
-	margin-left: 3%;
+	margin-top: 5%;
+	margin-left: 8%;
 	color: white;
   font-family: 'Arvo';
 }

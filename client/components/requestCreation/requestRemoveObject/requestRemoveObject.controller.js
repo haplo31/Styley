@@ -10,7 +10,7 @@ angular.module('styleyApp')
     $scope.completedStep=1;
 	$scope.sliderSrc1 = '../../../assets/images/remObj1.png';
   	$scope.sliderSrc2 = '../../../assets/images/remObj2.png';	
-  	$timeout(function(){$('.slider').slider(); }, 100);
+  	$timeout(function(){$('.slider').slider(); }, 200);
 		
     $scope.nextStep = function(){
       $scope.step++;
