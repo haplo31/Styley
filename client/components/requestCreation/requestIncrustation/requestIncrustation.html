@@ -1,6 +1,6 @@
 <!-- <div> This is the requestIncrustation view: 2 photos are needed, one for the background, and one containing the persons/objects to be incrusted: these items have to be selected using the red circle (OU PAS) </div> -->
 
-<div class="modal-complete">
+<div class="modal-complete request-incrustation">
 	<div class="modal-header">
 		Incrustation
 	</div>
@@ -33,7 +33,7 @@
 <!-- step 2 -->
     <div ng-show="step==2" class="step2">
       	<span class="explanationStage" ng-hide="imageAsk">First, choose the background picture you want to use:</span>
-        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*" ng-hide="imageAsk">Upload</button>
+        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Upload</button>
       <div>
 				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'">
 				<div class="explanation2" ng-show="file">
@@ -47,25 +47,29 @@
     <div ng-show="step==3" class="step2">
         <span class="explanationStage" ng-hide="imageAsk2">Now, choose the picture whose items will be used:</span>
         <!-- voir si le loadFiles2 fait qqch, help ngf-select -->
-        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles2($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*" ng-hide="imageAsk2">Upload</button>
+        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles2($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Upload</button>
       <div>
         <img class="picturezone" id="picturezone" ngf-thumbnail="file2 || '/assets/images/white.png'">
         <div class="explanation2" ng-show="file2">
         <span class="explanationStageIncrust" >Add any additionnal information you want to provide about this picture:</span>
-        <textarea class="addInfo" ng-model="infos">
+        <textarea class="addInfo" ng-model="infos2">
         </textarea>
         </div>
       </div>
     </div>
 
 
-     <!-- intercaler le load de la deuxieme image 
+     <!-- intercaler le load de la deuxieme image -->
     
     <div ng-show="step==4">
       <div class="recapdiv" id="recapdiv">
-        <img class="picturerecap" id="picturerecap" ngf-thumbnail="file">
-        <div class="placedbuttons" ng-repeat='(index,btn) in btnRecap'>
-         <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
+        <div class="imagescol col-lg-6">
+          <img class="picturerecap" id="picturerecap" ngf-thumbnail="file">
+          <span> background image</span>
+        </div>
+        <div class="imagescol col-lg-6">
+          <img class="picturerecap" id="picturerecap" ngf-thumbnail="file2">
+          <span> source image</span>
         </div>
       </div> 
       <div class="recap">
@@ -87,8 +91,9 @@
         </div>
       </div>
     </div>
--->
-    <div ng-show="step==4">
+
+
+    <div ng-show="step==5">
       <div>
         <span class="explanationStage">Choose the artist reputation:</span>
         <div class="reputBlock">

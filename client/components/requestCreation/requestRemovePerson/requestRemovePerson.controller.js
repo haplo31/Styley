@@ -155,7 +155,7 @@ angular.module('styleyApp')
                                         vote:0,
                                         src:resp.data.filename,
                                         modinfos:$scope.btnPlaced,
-                                        addinfos:$scope.addInfos,
+                                        addinfos:[$scope.infos],
                                         quality:$scope.radioModel,
                                         rating:ratingSelected,
                                         price: finalPrices,

@@ -26,7 +26,7 @@
 <!-- step 2 -->
     <div ng-show="step==2" class="step2">
       	<span class="explanationStage" ng-hide="imageAsk">First, choose the picture you want to use:</span>
-        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*" ng-hide="imageAsk">Upload</button>
+        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Upload</button>
       <div ng-class="{redpointer:redPointer}">
 				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
 				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
@@ -55,7 +55,7 @@
         </div>
       </div> 
       <div class="recap">
-        <span class="explanationStage">Modifications Number : <span class="numbermod">{{btnPlaced.length}}</span> </span>
+        <span class="explanationStage">Number of Modifications : <span class="numbermod">{{btnPlaced.length}}</span> </span>
         <div  class="quality">
           <span class="explanationStage">Desired Quality :</span>
           <div class="quachoice" ng-click="quaselect(radioModel);" ng-class="{'shake shake-chunk shake-constant': radioModel == 0}">

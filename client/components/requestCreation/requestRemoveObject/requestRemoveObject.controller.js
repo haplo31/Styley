@@ -83,7 +83,7 @@ angular.module('styleyApp')
     var unitModPrice;
     var quaPrice=[];
     var reputPrice=[];
-    $http.get('/api/getprice/remPers').success(function(price) {
+    $http.get('/api/getprice/remObj').success(function(price) {
         basePrice = price.basePrice;
         unitModPrice = price.unitModPrice;
         quaPrice = price.quaPrice;
@@ -159,7 +159,7 @@ angular.module('styleyApp')
                                         vote:0,
                                         src:resp.data.filename,
                                         modinfos:$scope.btnPlaced,
-                                        addinfos:$scope.addInfos,
+                                        addinfos:[$scope.infos],
                                         quality:$scope.radioModel,
                                         rating:ratingSelected,
                                         price: finalPrices,

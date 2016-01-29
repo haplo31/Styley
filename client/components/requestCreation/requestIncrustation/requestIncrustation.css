@@ -31,3 +31,19 @@ span[class^="explanationStageIncrust"]::first-letter{
 	font-size: 170%;
 	color: #008dd7;
 }
+
+.request-incrustation .recapdiv .picturerecap{
+	max-width: 100%;
+}
+
+.request-incrustation .recapdiv{
+		text-align: center;
+}
+
+
+.imagescol{
+	font-family: 'Arvo';
+	text-align: center;
+	font-size: 130%;
+	color: #008dd7;
+}

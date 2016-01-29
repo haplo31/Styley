@@ -9,7 +9,7 @@ var QqrequestSchema = new mongoose.Schema({
 	vote : Number,
 	src : String,
 	modinfos: [],
-	addinfos: String,
+	addinfos: [],
 	quality: String,
 	rating: [],
 	price:[],
