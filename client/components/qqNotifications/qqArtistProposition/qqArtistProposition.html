@@ -1,0 +1,30 @@
+<div class="modal-header" ng-switch on="data.request.modtype">
+  <h1 ng-switch-when="remPers">Remove a person</h1>
+  <h1 ng-switch-when="addPers">Add a person</h1>
+  <h1 ng-switch-when="remObj">Remove an object</h1>
+  <h1 ng-switch-when="incrust">Incrustation</h1>
+  <h1 ng-switch-when="enhance">Enhancements</h1>
+  <h1 ng-switch-when="drawing">Drawing</h1>
+</div>
+<div class="modal-body qqArtistProposition" ng-switch on="reput">
+  <div class="imageblock" id="imageblock">
+  	<img class="image" id="image" ng-src="/qqrequest/samples/{{data.request.src}}">
+	<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
+		<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
+	</div> 
+  </div>
+  <p class="infos">Number of modifications: <span>{{nbmods}}</span></p>
+  <p class="infos">Quality: <span>{{quality}}</span></p>
+  <p ng-switch-when="0"><img class="reput" src="/assets/images/reputEmpty.png"></p>
+  <p ng-switch-when="1"><img class="reput" src="/assets/images/reputBronze.png"></p>
+  <p ng-switch-when="2"><img class="reput" src="/assets/images/reputSilver.png"></p>
+  <p ng-switch-when="3"><img class="reput" src="/assets/images/reputGold.png"></p>
+  <p class="infos">Price: <span>{{price}}€</span></p>
+  <p class="infotext"> If you accept the request, your profile will be send to the requester for his validation.<br/>
+  									You will receive the original file after that.
+  </p>
+</div>
+<div class="qqArtistPropositionfooter">
+	<button class="btn btn-success btn-lg" ng-click="acceptRequest()">Accept Request</button>
+	<button class="btn btn-danger btn-xs" ng-click="declineRequest()">Decline Request</button>
+</div>

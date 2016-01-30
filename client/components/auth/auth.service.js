@@ -37,7 +37,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User,socke
         .then(user =>{
           if (user.qqautolog){
             socket.emit("sendSocketQQ",{name:Auth.getCurrentUser().name,gskills:Auth.getCurrentUser().gskills,date:new Date().getTime(),socket:socket.id})
-          } else if(user.pendingqqrequest.length>0){
+          } else{
             socket.emit("sendSocket",{name:Auth.getCurrentUser().name,socket:socket.id})
           }
           return user;

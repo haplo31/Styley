@@ -6,6 +6,7 @@ angular.module('styleyApp', [
   'styleyApp.constants',
   'ngCookies',
   'ngResource',
+  'ngNotificationsBar',
   'ngSanitize',
   'ngAnimate',
   'btford.socket-io',
@@ -20,4 +21,4 @@ angular.module('styleyApp', [
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
-  });
+  })

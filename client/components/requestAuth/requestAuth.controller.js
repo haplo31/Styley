@@ -11,7 +11,6 @@ class RequestAuthLoginController {
   }
 
   login(form) {
-    console.log("RequestAuthController")
     this.submitted = true;
 
     if (form.$valid) {

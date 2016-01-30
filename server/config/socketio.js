@@ -23,6 +23,25 @@ function onConnect(socket) {
   socket.on('info', data => {
     socket.log(JSON.stringify(data, null, 2));
   });
+  socket.on('sendSocket', function(data){
+    console.log('sendSocket')
+    data.socket=socket.id
+    User.findOne({name:data.name},function(err,user){
+      user.socket=data.socket;
+      user.save();
+    })
+  })
+
+  socket.on('sendSocketQQ', function(data){
+    data.socket=socket.id
+    User.findOne({name:data.name},function(err,user){
+      user.socket=data.socket;
+      user.save();
+      //QQArtist.createAsync(data)
+      QqSystem.QQNewArtist(data)
+    })
+  });
+
   // Insert sockets below
   require('../api/qqartist/qqartist.socket').register(socket);
   require('../api/qqrequest/qqrequest.socket').register(socket);
@@ -54,25 +73,8 @@ export default function(socketio) {
 
     socket.log = function(...data) {
       console.log(`SocketIO ${socket.nsp.name} [${socket.address}]`, ...data);
-    };
+    }
 
-    socket.on('sendSocket', function(data){
-      data.socket=socket.id
-      User.findOne({name:data.name},function(err,user){
-        user.socket=data.socket;
-        user.save();
-      })
-    });
-
-    socket.on('sendSocketQQ', function(data){
-      data.socket=socket.id
-      User.findOne({name:data.name},function(err,user){
-        user.socket=data.socket;
-        user.save();
-        QQArtist.createAsync(data)
-        QqSystem.QQNewArtist(user)
-      })
-    });
 
 
 

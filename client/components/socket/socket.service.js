@@ -2,16 +2,28 @@
 'use strict';
 
 angular.module('styleyApp')
-  .factory('socket', function(socketFactory,$rootScope) {
+  .factory('socket', function(socketFactory,$rootScope,notifications) {
     // socket.io now auto-configures its connection when we ommit a connection url
     var ioSocket = io('', {
       // Send auth token on connection, you will need to DI the Auth service above
       // 'query': 'token=' + Auth.getToken()
       path: '/socket.io-client'
     });
-
+    console.log("initsocket")
     var socket = socketFactory({ ioSocket });
+    socket.on('qqclientvalidation', function (data) {
+      console.log("received socket client")
+      notifications.showSuccess({message: 'An artist has been found for your request !'});
+      $rootScope.qqclientvalidationData=data;
+      $rootScope.qqartistpropData=null;
+    })
 
+    socket.on('qqartistprop', function (data) {
+      console.log("received socket artist")
+      notifications.showSuccess({message: 'A new request corresponding your profile has been found !'});
+      $rootScope.qqartistpropData=data;
+      $rootScope.qqclientvalidationData=null;
+    })
     return {
       socket,
 
@@ -70,6 +82,9 @@ angular.module('styleyApp')
           _.remove(array, {_id: item._id});
           cb(event, item, array);
         });
+
+
+
       },
 
       /**
@@ -82,4 +97,5 @@ angular.module('styleyApp')
         socket.removeAllListeners(modelName + ':remove');
       }
     };
+
   });

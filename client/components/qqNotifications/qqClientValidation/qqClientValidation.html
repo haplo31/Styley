@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h1>Corresponding Artist found !</h1>
+</div>
+<div class="modal-body qqClientValidation" ng-switch on="reput">
+	<div class='artistBlock'>
+		<p class="infos">Artist: <span>{{artist}}</span></p>
+		<p class="infos">Quality: <span>{{quality}}</span></p>
+	  <p ng-switch-when="0"><img class="reput" src="/assets/images/reputEmpty.png"></p>
+	  <p ng-switch-when="1"><img class="reput" src="/assets/images/reputBronze.png"></p>
+	  <p ng-switch-when="2"><img class="reput" src="/assets/images/reputSilver.png"></p>
+	  <p ng-switch-when="3"><img class="reput" src="/assets/images/reputGold.png"></p>
+	</div>
+	<div class='requestBlock'>
+		  <div class="imageblock" id="imageblock">
+		  	<img class="image" id="image" ng-src="/qqrequest/samples/{{data.request.src}}">
+				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
+					<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
+				</div> 
+		  </div>
+	  <p class="infos">Number of modifications: <span>{{nbmods}}</span></p>
+	  <p class="infos">Price: <span>{{price}}€</span></p>
+  </div>
+  <p class="infotext"> If you validate the request, your image will be sent to the artist and you will receive his work before 48 hours.</p>
+</div>
+<div class="qqClientValidationfooter">
+	<button class="btn btn-success btn-lg" ng-click="acceptRequest()">Validate Artist</button>
+	<button class="btn btn-danger btn-xs" ng-click="decline()">Decline Artist</button>
+</div>
