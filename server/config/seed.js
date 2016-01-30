@@ -28,50 +28,39 @@ User.find({}).removeAsync()
 
 
 Qqrequest.find({}).remove(function() {
-  Qqrequest.create({ 
-  owner : "Test User",
-  artist : "",
-  modtype : "remPers",
-  vote : 0,
-  src : "1452283833465.jpg",
-  quality : "Excellent",
-  available : true,
-  price : [14, 16, 18],
-  rating : [0, 1, 2],
-  modinfos : [{height: 447,width: 798,posLeft: 335,posTop: 165},
-              {height: 447,width: 798,posLeft: 629,posTop: 193}]
-  },
-  { 
-  owner : "Test User",
-  artist : "",
-  modtype : "remPers",
-  vote : 0,
-  src : "1452283833465.jpg",
-  quality : "Excellent",
-  available : true,
-  price : [18],
-  rating : [2],
-  modinfos : [{height: 447,width: 798,posLeft: 335,posTop: 165},
-              {height: 447,width: 798,posLeft: 635,posTop: 193}]
-  },function() {
-      console.log('finished populating qqueries');
-    }
-  );
+  // Qqrequest.create({ 
+  // owner : "Test User",
+  // artist : "",
+  // modtype : "remPers",
+  // vote : 0,
+  // src : "1452283833465.jpg",
+  // quality : "Excellent",
+  // available : true,
+  // price : [14, 16, 18],
+  // rating : [0, 1, 2],
+  // modinfos : [{height: 447,width: 798,posLeft: 335,posTop: 165},
+  //             {height: 447,width: 798,posLeft: 629,posTop: 193}]
+  // },
+  // { 
+  // owner : "Test User",
+  // artist : "",
+  // modtype : "remPers",
+  // vote : 0,
+  // src : "1452283833465.jpg",
+  // quality : "Excellent",
+  // available : true,
+  // price : [18],
+  // rating : [2],
+  // modinfos : [{height: 447,width: 798,posLeft: 335,posTop: 165},
+  //             {height: 447,width: 798,posLeft: 635,posTop: 193}]
+  // },function() {
+  //     console.log('finished populating qqueries');
+  //   }
+  // );
 });
 
 User.find({}).remove(function() {
   User.create({
-    provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
-  }, {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
-  },{
     provider: 'local',
     name: 'Designer',
     email: 'des@igner.com',

@@ -21,4 +21,4 @@ angular.module('styleyApp', [
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
-  });
+  })

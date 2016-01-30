@@ -30,13 +30,14 @@
 	font-size: 60%;
 	color:#008dd7;
 }
-.qqArtistPropositionfooter .decline{
-	float:right;
-	background-color: #fd9001;
-	border-color: #fb6e04;
-}
 .qqArtistPropositionfooter{
-	width: 50%;
+	text-align: center;
 	margin: auto;
-	margin-bottom: 3%;
+	margin-top: 2%;
+}
+.qqArtistPropositionfooter button{
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 0.5%;
 }

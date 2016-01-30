@@ -1,0 +1,61 @@
+.qqClientValidation{
+	text-align: center;
+	font-family: 'Arvo';
+	font-size: 250%;
+/*	width: 80%;
+	margin: auto;*/
+}
+.qqClientValidation .requestBlock{
+	background-color: #008dd7;
+	color: white;
+	padding: 5%;
+	border: 3px solid #006FD7;
+	border-radius:1%;
+}
+.qqClientValidation .artistBlock{
+	background-color: #fd9001;
+	color: white;
+	padding: 5%;
+	margin-bottom: 3%;
+	border : 3px solid #fb6e04;
+	border-radius:1%;
+
+}
+.qqClientValidation .imageblock{
+	margin: auto;
+	
+}
+
+}
+.qqClientValidation .image{
+	max-width: 40%;
+	border: 2px solid black;
+}
+.qqClientValidation .infos{
+ 	margin-top: 3%;
+}
+.qqClientValidation .infos span{
+ 	margin-top: 3%;
+ 	font-weight: bold;
+}
+.qqClientValidation .reput{
+	margin-top: 2%;
+	margin-bottom: 0%;
+	width: 10%;
+}
+.qqClientValidation .infotext{
+	margin-top: 3%;
+	font-weight: bold;
+	font-size: 60%;
+	color:#008dd7;
+}
+.qqClientValidationfooter{
+	text-align: center;
+	margin: auto;
+}
+.qqClientValidationfooter button{
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 0.5%;
+}

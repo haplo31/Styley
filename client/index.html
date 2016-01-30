@@ -48,6 +48,7 @@
       <link rel="stylesheet" href="components/modal/modal.css">
       <link rel="stylesheet" href="components/oauth-buttons/oauth-buttons.css">
       <link rel="stylesheet" href="components/qqNotifications/qqArtistProposition/qqArtistProposition.css">
+      <link rel="stylesheet" href="components/qqNotifications/qqClientValidation/qqClientValidation.css">
       <link rel="stylesheet" href="components/requestAuth/requestAuth.css">
       <link rel="stylesheet" href="components/requestCreation/requestAddPerson/requestAddPerson.css">
       <link rel="stylesheet" href="components/requestCreation/requestCustom/requestCustom.css">
@@ -65,9 +66,12 @@
     <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    <navbar></navbar>
+    <notifications-bar class="notifications" ng-click="main.clickOnNotif();close($index)" ng-controller="MainController as main"></notifications-bar>
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+    <div ui-view="">
+      
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -109,7 +113,7 @@
       <script src="app/user/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/user/customer/createCustomer/createCustomer.controller.js"></script>
+      <script src="app/user/customer/createCustomer/createCustomer.js"></script>
       <script src="app/explore/exploreCreations/exploreCreations.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
@@ -140,8 +144,8 @@
       <script src="app/user/customer/account/archivedRequests/archivedRequests.js"></script>
       <script src="app/user/customer/account/currentRequests/currentRequests.controller.js"></script>
       <script src="app/user/customer/account/currentRequests/currentRequests.js"></script>
+      <script src="app/user/customer/createCustomer/createCustomer.controller.js"></script>
       <script src="app/explore/exploreArtists/exploreArtists.controller.js"></script>
-      <script src="app/user/customer/createCustomer/createCustomer.js"></script>
       <script src="app/user/customer/homeCustomer/homeCustomer.controller.js"></script>
       <script src="app/user/customer/homeCustomer/homeCustomer.js"></script>
       <script src="app/user/login/login.controller.js"></script>
@@ -162,6 +166,7 @@
       <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
       <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
       <script src="components/qqNotifications/qqArtistProposition/qqArtistProposition.controller.js"></script>
+      <script src="components/qqNotifications/qqClientValidation/qqClientValidation.controller.js"></script>
       <script src="components/requestAuth/requestAuth.controller.js"></script>
       <script src="components/requestAuth/requestAuth.js"></script>
       <script src="components/requestCreation/requestAddPerson/requestAddPerson.controller.js"></script>
