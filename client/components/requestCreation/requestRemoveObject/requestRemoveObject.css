@@ -119,10 +119,12 @@ span[class^="explanationStage"]::first-letter{
 	margin-left: 25%;
 }
 .redbtn{
-	background-image:url(./../../../assets/images/red_round_button.png);
+	background-image:url(./../../../assets/images/logo_button.png);
+	/*background-image:url(./../../../assets/images/red_round_button.png);*/
 }
 .redpointer{
-	cursor: url("./../../../assets/images/red_round_button.png") 24 24, auto;
+	cursor: url("./../../../assets/images/logo_button.png") 24 24, auto;
+	/*cursor: url("./../../../assets/images/red_round_button.png") 24 24, auto;*/
 }
 
 .dragbtn{
