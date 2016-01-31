@@ -7,9 +7,9 @@ var router = express.Router();
 var tabprices={ remPers:{basePrice:10, unitModPrice:0.2, quaPrice: [0,0.2,0.4],reputPrice: [0.15,0.25,0.40]},
 				remObj:{basePrice:11, unitModPrice:0.3, quaPrice: [0,0.3,0.4],reputPrice: [0.1,0.2,0.30]},
 				incr:{basePrice:9, quaPrice: [0,0.1,0.3],reputPrice: [0.2,0.3,0.5]},
-				impr:{basePrice:10, unitModPrice:0.2, quaPrice: [0,0.2,0.4],reputPrice: [0.15,0.25,0.40]},
-				draw:{basePrice:11, unitModPrice:0.3, quaPrice: [0,0.3,0.4],reputPrice: [0.1,0.2,0.30]},
-				addPers:{basePrice:9, quaPrice: [0,0.1,0.3],reputPrice: [0.2,0.3,0.5]}
+				impr:{basePrice:10, unitModPrice:0.1, quaPrice: [0,0.2,0.4],reputPrice: [0.15,0.25,0.40]},
+				draw:{basePrice:11, unitModPrice:0.1, quaPrice: [0,0.3,0.4],reputPrice: [0.1,0.2,0.30]},
+				addPers:{basePrice:9, unitModPrice:0.5, quaPrice: [0,0.1,0.3],reputPrice: [0.2,0.3,0.5]}
 			}
 
 router.get('/:modtype', returnPrice);
