@@ -30,7 +30,10 @@
       <div ng-class="{redpointer:redPointer}">
 				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
 				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
-				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
+          <!--
+				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" > -->
+        <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/logo_button.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
+        
 				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft-16, 'top': btn.posTop-16}" ng-click="removePlaced(index)" class="noselect"/>
 				</div> 
 				<div class="symbolstodrag" ng-show="file">
@@ -51,7 +54,9 @@
       <div class="recapdiv" id="recapdiv">
         <img class="picturerecap" id="picturerecap" ngf-thumbnail="file">
         <div class="placedbuttons" ng-repeat='(index,btn) in btnRecap'>
-         <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
+          <!--
+         <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" > -->
+         <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/logo_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
         </div>
       </div> 
       <div class="recap">

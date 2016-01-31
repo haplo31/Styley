@@ -11,7 +11,7 @@ angular.module('styleyApp')
     $scope.backgroundImg = '../../../assets/images/incrust2.png';
 	  $scope.sliderSrc1 = '../../../assets/images/incrust3.png';
   	$scope.sliderSrc2 = '../../../assets/images/incrust1.png';	
-  	$timeout(function(){$('.slider').slider(); }, 200);
+  	$timeout(function(){$('.slider').slider(); }, 500);
 		
     $scope.nextStep = function(){
       $scope.step++;

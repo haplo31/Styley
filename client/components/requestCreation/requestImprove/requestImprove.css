@@ -1,0 +1,30 @@
+.request-improvement .explanation2{
+	margin-top:2%;
+}
+
+.imprchange{
+	display: inline-block;
+	width: 30%;
+	background-color: #008dd7;
+	border-radius: 30px;
+	border: 5px solid black;
+	font-size: 'Arvo';
+	margin-bottom: 1%;
+	margin-left: 1%;
+	min-height: 200%;
+}
+
+.checkdiv{
+	margin-top: 1%;
+}
+
+.margincheckbox{
+	margin-top: 5%;
+	margin-bottom: 10%;
+	border: 1px white solid;
+}
+
+.iconchange{
+	max-width: 500%;
+	margin-top: 250%;
+}
