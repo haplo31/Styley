@@ -83,9 +83,8 @@ export function create(req, res) {
         user.pendingqqrequest.push(resp._id);
         user.save();
         QqSystem.QQNewRequest(req.body)
-      })
+      }).then(respondWithResult(res, 201))
     })
-    .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
