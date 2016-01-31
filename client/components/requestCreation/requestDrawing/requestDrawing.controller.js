@@ -9,8 +9,8 @@ angular.module('styleyApp')
 		console.log(Auth.isLoggedIn())
     $scope.step=1;
     $scope.completedStep=1;
-		$scope.sliderSrc1 = '../../../assets/images/imp2.png';
-  	$scope.sliderSrc2 = '../../../assets/images/imp1.png';	
+		$scope.sliderSrc1 = '../../../assets/images/avatar2.png';
+  	$scope.sliderSrc2 = '../../../assets/images/avatar1.png';	
   	$timeout(function(){$('.slider').slider(); }, 500);
 
     $scope.exPainting = '../../../assets/images/brush_white.png';  
