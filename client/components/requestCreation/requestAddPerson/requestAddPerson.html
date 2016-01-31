@@ -1,9 +1,8 @@
-<div>This is the requestAddPerson view. Two photos are needed, and persons to be gathered have to be pointed out using the red circle </div>
-<div class="modal-complete">
+<div class="modal-complete request-addperson">
 	<div class="modal-header">
-		Remove a person
+		Add a person
 	</div>
-	<div class="modal-body">
+	<div class="modal-body ">
     <div ng-show="step==1">
       <div class="imageBlock">		
         <div class="exampleImages col-lg-6">
@@ -19,7 +18,7 @@
       </div>
       <div class="explanation">
         <h3 class="titleRequest">How it works</h3>
-        <span class="explanationStage">1<br />In the next steps, you will choose which person(s) you want to remove on your picture, the desired quality as well as every additional information.</span>
+        <span class="explanationStage">1<br />In the next steps, you will upload a base picture, and an other picture containing the persons you want to add to the base picture. After the selection of the persons in question, you will set the desired quality, and add necessary information.</span>
         <span class="explanationStage">2<br />A price will be automatically calculated. If you finalize the request, a graphic artist matching your criteria will be suggested.</span>
         <span class="explanationStage">3<br />You can refuse the suggested artists as many times as you want. In this case, an other artist will be suggested.</span>
         <span class="explanationStage">4<br />Once you have accepted an artist, your photo will be sent to him and you will receive the modified picture in the next 48 hours.</span>
@@ -27,35 +26,55 @@
       </div>
     </div>
 
-<!-- step 2 -->
     <div ng-show="step==2" class="step2">
-      	<span class="explanationStage" ng-hide="imageAsk">First, choose the picture you want to use:</span>
+        <span class="explanationStage" ng-hide="imageAsk">First, choose the base picture you want to use:</span>
         <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Upload</button>
+      <div>
+        <img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'">
+        <div class="explanation2" ng-show="file">
+        <span class="explanationStageIncrust" >Add any additionnal information you want to provide about this base picture:</span>
+        <textarea class="addInfo" ng-model="infos">
+        </textarea>
+        </div>
+      </div>
+    </div>
+
+<!-- step 2 -->
+    <div ng-show="step==3" class="step2">
+      	<span class="explanationStage" ng-hide="imageAsk2">Now, choose the picture whose persons will be used:</span>
+        <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles2($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Upload</button>
       <div ng-class="{redpointer:redPointer}">
-				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
+				<img class="picturezone" id="picturezone" ngf-thumbnail="file2 || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
 				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
           <!--
 				<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" > -->
         <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/logo_button.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
 				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft-16, 'top': btn.posTop-16}" ng-click="removePlaced(index)" class="noselect"/>
 				</div> 
-				<div class="symbolstodrag" ng-show="file">
+				<div class="symbolstodrag" ng-show="file2">
 					 <input id="redbtn" type="radio" name="buttons" value="redbtn" ng-click="select(red)" ng-checked="redPointer"/>
 					 <label class="buttons redbtn" for="redbtn"></label>
 				</div>
-				<div class="explanation2" ng-show="file">
-				<span class="explanationStage">Now, you can select the red dot and put it on the person you want to remove</span>
+				<div class="explanation2" ng-show="file2">
+				<span class="explanationStage">Now, you can select the styley icon and put it on the persons that you want to see on the previously uploaded picture</span>
 				<span class="explAnd"> and </span>
 				<span class="explanationStage" >Add any additionnal information you want to provide about your desires:</span>
-				<textarea class="addInfo" ng-model="infos">
+				<textarea class="addInfo" ng-model="infos2">
         </textarea>
 				</div>
 			</div>
     </div>
     
-    <div ng-show="step==3">
+    <div ng-show="step==4">
       <div class="recapdiv" id="recapdiv">
-        <img class="picturerecap" id="picturerecap" ngf-thumbnail="file">
+        <div class="imagescol col-lg-6">
+          <img class="picturerecap" id="picturerecap" ngf-thumbnail="file">
+          <span> base image</span>
+        </div>
+        <div class="imagescol col-lg-6">
+          <img class="picturerecap" id="picturerecap" ngf-thumbnail="file2">
+          <span> source image</span>
+        </div>
         <div class="placedbuttons" ng-repeat='(index,btn) in btnRecap'>
           <!--
          <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" > -->
@@ -82,7 +101,7 @@
       </div>
     </div>
 
-    <div ng-show="step==4">
+    <div ng-show="step==5">
       <div>
         <span class="explanationStage">Choose the artist reputation:</span>
         <div class="reputBlock">

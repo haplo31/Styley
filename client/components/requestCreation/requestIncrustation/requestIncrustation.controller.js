@@ -119,9 +119,14 @@ angular.module('styleyApp')
       if ($scope.goldratingSelected){
         ratingSelected.push(3)
       }
+      $scope.files = [$scope.file, $scope.file2];
       Upload.upload({
           url: 'api/updatefile',
           data: {file:$scope.file}
+      });
+      Upload.upload({
+          url: 'api/updatefile',
+          data: {file:$scope.file2}
       }).then(function (resp) {
           $http.post('/api/qqrequests/',{ owner:Auth.getCurrentUser().name,
                                         artist:"",
@@ -135,7 +140,7 @@ angular.module('styleyApp')
                                         available:"true"})
           .success(function(){
             $modalInstance.close();
-          });      
+          });  
       }, function (resp) {
           console.log('Error status: ' + resp.status);
       }, function (evt) {
