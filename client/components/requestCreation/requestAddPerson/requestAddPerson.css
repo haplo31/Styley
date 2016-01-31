@@ -6,3 +6,22 @@
 .request-addperson .recapdiv{
         text-align: center;
 }
+
+.request-addperson .srcpicturezone{
+	display: block;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	max-width: 100%;
+	border: 2px solid black;
+}
+.request-addperson .basepicturezone{
+	display: block;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	max-width: 100%;
+	border: 2px solid black;
+}

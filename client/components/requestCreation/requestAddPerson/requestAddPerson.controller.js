@@ -50,12 +50,12 @@ angular.module('styleyApp')
       if ($scope.redPointer === true){
         posTop = event.offsetY;
         posLeft =  event.offsetX;
-        imgWidth = angular.element(document.querySelector('#picturezone')).prop('width');
-        imgHeight = angular.element(document.querySelector('#picturezone')).prop('height');
+        imgWidth = angular.element(document.querySelector('#srcpicturezone')).prop('width');
+        imgHeight = angular.element(document.querySelector('#srcpicturezone')).prop('height');
         $scope.btnPlaced.push({'posTop': posTop,'posLeft': posLeft,'width': imgWidth, 'height': imgHeight});
         
-        $scope.btnCurrent.push({'posTop': angular.element(document.querySelector('#picturezone')).prop('offsetTop') + posTop, 
-          'posLeft': angular.element(document.querySelector('#picturezone')).prop('offsetLeft') + posLeft});
+        $scope.btnCurrent.push({'posTop': angular.element(document.querySelector('#srcpicturezone')).prop('offsetTop') + posTop, 
+          'posLeft': angular.element(document.querySelector('#srcpicturezone')).prop('offsetLeft') + posLeft});
 
         $scope.redPointer = false;
         if ($scope.completedStep<3)
