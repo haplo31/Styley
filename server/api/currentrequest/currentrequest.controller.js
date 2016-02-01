@@ -1,18 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/qqrequests              ->  index
- * POST    /api/qqrequests              ->  create
- * GET     /api/qqrequests/:id          ->  show
- * PUT     /api/qqrequests/:id          ->  update
- * DELETE  /api/qqrequests/:id          ->  destroy
+ * GET     /api/currentrequests              ->  index
+ * POST    /api/currentrequests              ->  create
+ * GET     /api/currentrequests/:id          ->  show
+ * PUT     /api/currentrequests/:id          ->  update
+ * DELETE  /api/currentrequests/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import Qqrequest from './qqrequest.model';
-import User from './../user/user.model';
-import QqSystem from './../qqsystem';
+import Currentrequest from './currentrequest.model';
+
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -60,46 +59,43 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Qqrequests
+// Gets a list of Currentrequests
 export function index(req, res) {
-  Qqrequest.findAsync()
+  Currentrequest.findAsync()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Qqrequest from the DB
+// Gets a single Currentrequest from the DB
 export function show(req, res) {
-  Qqrequest.findByIdAsync(req.params.id)
+  Currentrequest.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Creates a new Qqrequest in the DB
+// Creates a new Currentrequest in the DB
 export function create(req, res) {
-  Qqrequest.createAsync(req.body)
+  Currentrequest.createAsync(req.body)
     .then(respondWithResult(res, 201))
-    .then(function (resp){
-      QqSystem.QQNewRequest(req.body)     
-    })
     .catch(handleError(res));
 }
 
-// Updates an existing Qqrequest in the DB
+// Updates an existing Currentrequest in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Qqrequest.findByIdAsync(req.params.id)
+  Currentrequest.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Qqrequest from the DB
+// Deletes a Currentrequest from the DB
 export function destroy(req, res) {
-  Qqrequest.findByIdAsync(req.params.id)
+  Currentrequest.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

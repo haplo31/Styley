@@ -41,6 +41,17 @@ class MainController {
           size: "md"
         });         
       }
+      else if ($rootScope.qqrequestvalidatedData){
+        var modalRequest = $modal.open({
+          animation: true,
+          templateUrl: '../../../components/qqNotifications/qqRequestValidated/qqRequestValidated.html',
+          controller: 'qqRequestValidated',
+          size: "lg",
+          resolve: {
+            data: function(){return $rootScope.qqrequestvalidatedData}
+          }
+        });         
+      }
     }
   }
   addThing() {
