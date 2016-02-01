@@ -1,0 +1,70 @@
+.qqRequestValidated{
+	text-align: center;
+	font-family: 'Arvo';
+	font-size: 200%;
+	color:white;
+	background-color: #008dd7;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 3%;
+	border : 3px solid #006FD7;
+	border-radius:1%;
+}
+.qqRequestValidated span{
+	padding-bottom: 3%;
+}
+.qqRequestValidated .imageblock{
+	margin: auto;
+	margin-top: 2%;
+}
+.qqRequestValidated .image{
+	max-width: 40%;
+	border: 2px solid black;
+	position: relative;
+}
+.qqRequestValidated .infos{
+ 	margin-top: 1%;
+}
+.qqRequestValidated .infos span{
+ 	margin-top: 1%;
+ 	font-weight: bold;
+}
+.qqRequestValidated .reput{
+	margin-top: 1%;
+	margin-bottom: 0%;
+	width: 5%;
+}
+.qqRequestValidated .infotext{
+	margin-top: 3%;
+	font-weight: bold;
+	font-size: 60%;
+}
+.downloadFile{
+	background-color: #fd9001;
+	color: white;
+	padding: 5%;	
+	border : 3px solid #fb6e04;
+	border-radius:1%;
+	text-align: center;
+	font-family: 'Arvo';
+	font-size: 200%;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 3%;
+	margin-top:3%;
+}
+.downloadFile span{
+	font-weight: bold;
+
+}
+.downloadFile a{
+	padding:2%;
+	font-size: 150%;
+	font-weight: bold;
+	color:white;
+	border : 6px solid white;
+	border-radius: 100%;
+	margin-top: 2%;
+	display:inline-block;
+	background-color: #fb6e04;
+}

@@ -18,7 +18,7 @@ angular.module('styleyApp')
       $rootScope.qqartistpropData=data;
       $rootScope.qqclientvalidationData=null;
       $rootScope.qqrequestrefused=null;
-      $rootScope.qqrequestvalidated=null;
+      $rootScope.qqrequestvalidatedData=null;
     })
 
     socket.on('qqclientvalidation', function (data) {
@@ -27,7 +27,7 @@ angular.module('styleyApp')
       $rootScope.qqclientvalidationData=data;
       $rootScope.qqartistpropData=null;
       $rootScope.qqrequestrefused=null;
-      $rootScope.qqrequestvalidated=null;
+      $rootScope.qqrequestvalidatedData=null;
     })
 
     socket.on('qqclientartistoffline', function (data) {
@@ -36,7 +36,7 @@ angular.module('styleyApp')
       $rootScope.qqartistpropData=null;
       $rootScope.qqclientvalidationData=null;
       $rootScope.qqrequestrefused=null;
-      $rootScope.qqrequestvalidated=null;
+      $rootScope.qqrequestvalidatedData=null;
     })
 
     socket.on('qqrequestrefused', function () {
@@ -45,7 +45,7 @@ angular.module('styleyApp')
       $rootScope.qqartistpropData=null;
       $rootScope.qqclientvalidationData=null;
       $rootScope.qqrequestrefused=true;
-      $rootScope.qqrequestvalidated=null;
+      $rootScope.qqrequestvalidatedData=null;
     })
 
     socket.on('qqrequestvalidated', function (data) {
@@ -54,7 +54,7 @@ angular.module('styleyApp')
       $rootScope.qqartistpropData=null;
       $rootScope.qqclientvalidationData=null;
       $rootScope.qqrequestrefused=null;
-      $rootScope.qqrequestvalidated=data;
+      $rootScope.qqrequestvalidatedData=data;
     })
     return {
       socket,

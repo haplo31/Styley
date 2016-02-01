@@ -6,6 +6,7 @@ router.post('/responseartist', responseArtist);
 router.post('/responseclient', responseClient);
 import Qqartist from './../qqartist/qqartist.model';
 import QqRequest from './../qqrequest/qqrequest.model';
+import currentRequest from './../currentrequest/currentrequest.model'
 import User from './../user/user.model'
 import main from './../../app.js';
 var QQNewRequest = exports.QQNewRequest = function (newrequest) {
@@ -24,8 +25,10 @@ var QQNewRequest = exports.QQNewRequest = function (newrequest) {
           QqRequest.findOne({ src: newrequest.src },function(err,request){
           	request.available=false;
           	request.save()
+          	return;
           })
         }
+        return;
     });  
 }
 var QQNewArtist = exports.QQNewArtist = function(newartist) {
@@ -44,19 +47,20 @@ var QQNewArtist = exports.QQNewArtist = function(newartist) {
           main.socketio.sockets.to(newartist.socket).emit('qqartistprop', data);
           requests[i].available=false;
           requests[i].save()
-		          return;
+		      return;
 				} else if (i == requests.length-1){
 					Qqartist.createAsync(newartist)
+					return;
 				}
 			};
 		}else{
 			Qqartist.createAsync(newartist)
+			return;
 		}
   });  
 }
 function responseArtist(req, res) {
   console.log("client response received")
-  console.log(req.body.data)
   if (req.body.response == 'accept'){
 	  var socketList = Object.keys(main.socketio.engine.clients)
 	  User.findOne().where('name').equals(req.body.data.request.owner).exec(function(err,owner){
@@ -91,9 +95,27 @@ function responseClient(req,res){
   if (req.body.response == 'accept'){
 	  var socketList = Object.keys(main.socketio.engine.clients)
 	  console.log("response accept")
-	  console.log(socketList)
   	if (socketList.indexOf(req.body.data.artistsocket.slice(2))>=0){
 		  main.socketio.sockets.to(req.body.data.artistsocket).emit('qqrequestvalidated',req.body.data);
+	  	QqRequest.findOne({src:req.body.data.request.src},function(err,request){
+	  		request.artist=req.body.data.artistname
+	  		request.rating=req.body.data.rating
+	  		request.price=req.body.data.request.price[req.body.data.request.rating.indexOf(req.body.data.rating)]
+	  		currentRequest.createAsync(request)
+	  		.then(function (resp){
+		      User.findOne().where('name').equals(request.owner).exec(function (err, user) {
+		        user.currentrequest.push(request._id);
+		        user.save();
+		      })
+		      .then(function (resp){
+		        User.findOne().where('name').equals(request.artist).exec(function (err, user) {
+		          user.currentrequest.push(request._id);
+		        	user.save();
+		        })
+      		})
+    		})
+				request.remove();
+			})		  
   	}
   	else{
   		console.log("artist disconnected")

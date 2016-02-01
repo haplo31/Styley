@@ -9,6 +9,7 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/currentrequests', require('./api/currentrequest'));
   app.use('/api/qqartists', require('./api/qqartist'));
   app.use('/api/qqrequests', require('./api/qqrequest'));
   app.use('/api/things', require('./api/thing'));

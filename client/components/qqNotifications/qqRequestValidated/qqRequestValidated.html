@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h1>Your profile has been validated by the customer !</h1>
+</div>
+<div class="downloadFile">
+    <span>Nom you can download the original file:</span>
+    <a target="_self" href="/qqrequest/originals/{{data.request.src}}" download="{{namefile}}">Download</a>
+</div>
+<div class="modal-body qqRequestValidated">
+  <span>Request Reminder:</span>
+  <div class="imageblock" id="imageblock">
+  	<img class="image" id="image" ng-src="/qqrequest/samples/{{data.request.src}}">
+	<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
+		<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
+	</div> 
+  </div>
+  <div ng-switch on="reput">
+    <p class="infos">Number of modifications: <span>{{nbmods}}</span></p>
+    <p class="infos">Quality: <span>{{quality}}</span></p>
+    <p ng-switch-when="0"><img class="reput" src="/assets/images/reputEmpty.png"></p>
+    <p ng-switch-when="1"><img class="reput" src="/assets/images/reputBronze.png"></p>
+    <p ng-switch-when="2"><img class="reput" src="/assets/images/reputSilver.png"></p>
+    <p ng-switch-when="3"><img class="reput" src="/assets/images/reputGold.png"></p>
+    <p class="infos">Price: <span>{{price}}€</span></p>
+  </div>
+
+
+  <p class="infotext"> You have 48 hours to send back the request result, good work.<br/><i class="fa fa-smile-o"></i>
+  </p>
+</div>

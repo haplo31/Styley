@@ -24,7 +24,7 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
-  pendingqqrequest:[],
+  currentrequest:[],
   socket:String,
   password: String,
   provider: String,

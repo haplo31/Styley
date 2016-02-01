@@ -43,6 +43,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/currentrequest/currentrequest.socket').register(socket);
   require('../api/qqartist/qqartist.socket').register(socket);
   require('../api/qqrequest/qqrequest.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
