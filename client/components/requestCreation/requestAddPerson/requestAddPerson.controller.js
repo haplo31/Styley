@@ -192,12 +192,12 @@ angular.module('styleyApp')
     $scope.$watch('step', function (value) {
       $timeout(function(){
         if (value==4){
-          var ratioImg=angular.element(document.querySelector('#picturerecap')).prop('width')/$scope.btnPlaced[0].width;   
+          var ratioImg=angular.element(document.querySelector('#picturerecap2')).prop('width')/$scope.btnPlaced[0].width;   
           $scope.btnRecap = [];
           for (var i = 0; i < $scope.btnPlaced.length; i++) {
             // TODO: pbm to catch the left position...
-            posTop = angular.element(document.querySelector('#picturerecap')).prop('offsetTop') + $scope.btnPlaced[i].posTop*ratioImg-24;
-            posLeft = angular.element(document.querySelector('#picturerecap')).prop('offsetLeft') + $scope.btnPlaced[i].posLeft*ratioImg-24;
+            posTop = angular.element(document.querySelector('#divrecapimg')).prop('offsetTop')+angular.element(document.querySelector('#picturerecap2')).prop('offsetTop') + $scope.btnPlaced[i].posTop*ratioImg-24;
+            posLeft = angular.element(document.querySelector('#divrecapimg')).prop('offsetLeft')+angular.element(document.querySelector('#picturerecap2')).prop('offsetLeft') + $scope.btnPlaced[i].posLeft*ratioImg-24;
             $scope.btnRecap.push( {'posTop': posTop, 'posLeft':posLeft});
           };
         }}, 100);  
