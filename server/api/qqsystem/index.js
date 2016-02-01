@@ -3,12 +3,12 @@
 var express = require('express');
 var router = express.Router();
 router.post('/responseartist', responseArtist);
-
+router.post('/responseclient', responseClient);
 import Qqartist from './../qqartist/qqartist.model';
 import QqRequest from './../qqrequest/qqrequest.model';
 import User from './../user/user.model'
 import main from './../../app.js';
-exports.QQNewRequest = function (newrequest) {
+var QQNewRequest = exports.QQNewRequest = function (newrequest) {
 	console.log('newrequest')
 	var modvalue='gskills.'+newrequest.modtype+'.value'
     var modrating='gskills.'+newrequest.modtype+'.rating'
@@ -28,7 +28,7 @@ exports.QQNewRequest = function (newrequest) {
         }
     });  
 }
-exports.QQNewArtist = function(newartist) {
+var QQNewArtist = exports.QQNewArtist = function(newartist) {
 	console.log(newartist)
 	//Need optimizing
 	QqRequest.find().where('available').equals(true).sort({ date : 'asc'}).limit(100).exec(function (err, requests) {
@@ -54,10 +54,8 @@ exports.QQNewArtist = function(newartist) {
 		}
   });  
 }
-exports.router = router
-
 function responseArtist(req, res) {
-  console.log("response received")
+  console.log("client response received")
   console.log(req.body.data)
   if (req.body.response == 'accept'){
 	  var socketList = Object.keys(main.socketio.engine.clients)
@@ -82,7 +80,52 @@ function responseArtist(req, res) {
 		QqRequest.findOne({src:req.body.data.request.src},function(err,request){
 			request.available=true;
 			request.save();
+			QQNewRequest(req.body.data.request)
 		})
 	}
   return res.status(200).json({});
 }
+
+function responseClient(req,res){
+  console.log("client response received")
+  if (req.body.response == 'accept'){
+	  var socketList = Object.keys(main.socketio.engine.clients)
+	  console.log("response accept")
+	  console.log(socketList)
+  	if (socketList.indexOf(req.body.data.artistsocket.slice(2))>=0){
+		  main.socketio.sockets.to(req.body.data.artistsocket).emit('qqrequestvalidated',req.body.data);
+  	}
+  	else{
+  		console.log("artist disconnected")
+  		User.findOne().where('name').equals(req.body.data.request.owner).exec(function(err,owner){
+		  	if (owner.socket){
+				  if (socketList.indexOf(owner.socket.slice(2))>=0){
+				  	main.socketio.sockets.to(owner.socket).emit('qqclientartistoffline',req.body.data);
+				  	QqRequest.findOne({src:req.body.data.request.src},function(err,request){
+							request.available=true;
+							request.save();
+							QQNewRequest(req.body.data.request)
+						})
+				  }
+				  else{
+				  	//SEND MAIL
+				  }  			
+		  	}
+		  	else{
+		  		//SEND MAIL
+		  	}
+		  })
+  	}
+	}
+	else if (req.body.response == 'refuse'){
+		main.socketio.sockets.to(req.body.data.artistsocket).emit('qqrequestrefused');
+  	QqRequest.findOne({src:req.body.data.request.src},function(err,request){
+			request.available=true;
+			request.save();
+			QQNewRequest(req.body.data.request)
+		})
+
+	}
+	return res.status(200).json({});
+}
+exports.router = router

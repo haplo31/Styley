@@ -11,18 +11,50 @@ angular.module('styleyApp')
     });
     console.log("initsocket")
     var socket = socketFactory({ ioSocket });
-    socket.on('qqclientvalidation', function (data) {
-      console.log("received socket client")
-      notifications.showSuccess({message: 'An artist has been found for your request !'});
-      $rootScope.qqclientvalidationData=data;
-      $rootScope.qqartistpropData=null;
-    })
 
     socket.on('qqartistprop', function (data) {
       console.log("received socket artist")
       notifications.showSuccess({message: 'A new request corresponding your profile has been found !'});
       $rootScope.qqartistpropData=data;
       $rootScope.qqclientvalidationData=null;
+      $rootScope.qqrequestrefused=null;
+      $rootScope.qqrequestvalidated=null;
+    })
+
+    socket.on('qqclientvalidation', function (data) {
+      console.log("received socket client")
+      notifications.showSuccess({message: 'An artist has been found for your request !'});
+      $rootScope.qqclientvalidationData=data;
+      $rootScope.qqartistpropData=null;
+      $rootScope.qqrequestrefused=null;
+      $rootScope.qqrequestvalidated=null;
+    })
+
+    socket.on('qqclientartistoffline', function (data) {
+      console.log("received socket offline")
+      notifications.showError({message: "Your artist is disconnected, we are searching a new one for you."});
+      $rootScope.qqartistpropData=null;
+      $rootScope.qqclientvalidationData=null;
+      $rootScope.qqrequestrefused=null;
+      $rootScope.qqrequestvalidated=null;
+    })
+
+    socket.on('qqrequestrefused', function () {
+      console.log("received request refused")
+      notifications.showError({message: "The client has refused your proposition..."});
+      $rootScope.qqartistpropData=null;
+      $rootScope.qqclientvalidationData=null;
+      $rootScope.qqrequestrefused=true;
+      $rootScope.qqrequestvalidated=null;
+    })
+
+    socket.on('qqrequestvalidated', function (data) {
+      console.log("received request validated")
+      notifications.showSuccess({message: "The client has confirmed, the request is yours !"});
+      $rootScope.qqartistpropData=null;
+      $rootScope.qqclientvalidationData=null;
+      $rootScope.qqrequestrefused=null;
+      $rootScope.qqrequestvalidated=data;
     })
     return {
       socket,

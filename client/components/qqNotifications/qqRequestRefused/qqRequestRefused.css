@@ -1,0 +1,21 @@
+.qqRequestRefused{
+	text-align: center;
+		font-family: 'Arvo';
+	font-size: 200%;
+}
+.qqRequestRefused i{
+	font-size: 400%;
+}
+.qqRequestRefused .infotext{
+	text-align: center;
+}
+.qqRequestRefused .btnchoice{
+	text-align: center;
+	margin: auto;
+}
+.qqRequestRefused .btnchoice button{
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 0.5%;
+}

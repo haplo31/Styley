@@ -10,6 +10,18 @@ angular.module('styleyApp')
     $scope.price = data.request.price[data.request.rating.indexOf(data.rating)]
     $scope.nbmods= data.request.modinfos.length;
     $scope.artist= data.artistname;
+
+	$scope.validateArtist = function(){
+		$http.post('/api/qqsystem/responseclient',{data:data,response:'accept'}).success(function(){
+            $modalInstance.close();
+        });
+	}
+	$scope.declineArtist = function(){
+		$http.post('/api/qqsystem/responseclient',{data:data,response:'refuse'}).success(function(){
+            $modalInstance.close();
+        });
+	}	
+
 	$timeout(function(){
 	$scope.btnCurrent = [];
 	    var imgWidth = angular.element(document.querySelector('#image')).prop('width');
@@ -20,12 +32,6 @@ angular.module('styleyApp')
 	    var posRequestBlockLeft = angular.element(document.querySelector('.requestBlock')).prop('offsetLeft');
 	    var posRequestBlockTop = angular.element(document.querySelector('.requestBlock')).prop('offsetTop');
 	    var ratio = imgWidth / data.request.modinfos[0].width
-	    console.log(posImgLeft)
-	    console.log(posImgTop)
-	    console.log(posBlockLeft)
-	    console.log(posBlockTop)
-	    console.log(posRequestBlockLeft)
-	    console.log(posRequestBlockTop)
 	    for (var i = 0; i < data.request.modinfos.length; i++) {
 	    	$scope.btnCurrent.push({posTop: posImgTop + data.request.modinfos[i].posTop*ratio-24, posLeft: posImgLeft + data.request.modinfos[i].posLeft*ratio-24})
 	    };

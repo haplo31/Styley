@@ -4,10 +4,8 @@
 class MainController {
 
   constructor($http, $scope, $rootScope, socket,notifications, $modal) {
-
     this.$http = $http;
     this.awesomeThings = [];
-var qqartistpropData
     // $scope.$on('$destroy', function() {
     //   socket.unsyncUpdates('thing');
     //   socket.removeAllListeners();
@@ -34,6 +32,14 @@ var qqartistpropData
             data: function(){return $rootScope.qqclientvalidationData}
           }
         });        
+      }
+      else if($rootScope.qqrequestrefused){
+        var modalRequest = $modal.open({
+          animation: true,
+          templateUrl: '../../../components/qqNotifications/qqRequestRefused/qqRequestRefused.html',
+          controller: 'qqRequestRefused',
+          size: "md"
+        });         
       }
     }
   }
