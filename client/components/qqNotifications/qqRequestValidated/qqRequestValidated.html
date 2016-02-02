@@ -8,7 +8,7 @@
 <div class="modal-body qqRequestValidated">
   <span>Request Reminder:</span>
   <div class="imageblock" id="imageblock">
-  	<img class="image" id="image" ng-src="/qqrequest/samples/{{data.request.src}}">
+  	<img class="image" id="image" ng-src="/qqrequest/samples/{{data.request.src[0]}}">
 	<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
 		<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/red_round_button.png" ng-style="{'left':btn.posLeft, 'top': btn.posTop}" >
 	</div> 
