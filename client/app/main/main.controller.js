@@ -52,6 +52,17 @@ class MainController {
           }
         });         
       }
+      else if ($rootScope.qqclientresultvalidation){
+        var modalRequest = $modal.open({
+          animation: true,
+          templateUrl: '../../../components/qqNotifications/qqClientResultValidation/qqClientResultValidation.html',
+          controller: 'qqClientResultValidation',
+          size: "lg",
+          resolve: {
+            data: function(){return $rootScope.qqclientresultvalidation}
+          }
+        });         
+      }
     }
 
 

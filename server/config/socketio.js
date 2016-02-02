@@ -43,9 +43,11 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  //require('../api/privaterequest/privaterequest.socket').register(socket);
+  //require('../api/publicrequest/publicrequest.socket').register(socket);
   require('../api/currentrequest/currentrequest.socket').register(socket);
-  require('../api/qqartist/qqartist.socket').register(socket);
-  require('../api/qqrequest/qqrequest.socket').register(socket);
+  //require('../api/qqartist/qqartist.socket').register(socket);
+  //require('../api/qqrequest/qqrequest.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 
 }

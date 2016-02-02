@@ -1,0 +1,58 @@
+.qqClientResultValidation{
+	text-align: center;
+	font-family: 'Arvo';
+	font-size: 200%;
+}
+.qqClientResultValidation button{
+	display: block;
+	margin: auto;
+}
+.qqClientResultValidation .imageblock{
+	margin: auto;
+	display: inline-block;
+	margin-top: 1%;
+	background-color: black;
+	color: white;
+}
+.qqClientResultValidation .imageblock span{
+	display: block;
+}
+.qqClientResultValidation .image{
+	border: 2px solid black;
+	position: relative;
+}
+.qqClientResultValidation .infos{
+ margin-top: 3%;
+}
+.qqClientResultValidation .infos span{
+ 	margin-top: 3%;
+ 	color:#008dd7;
+ 	font-weight: bold;
+}
+.qqClientResultValidation .infotext{
+	margin-top: 3%;
+	font-weight: bold;
+	font-size: 60%;
+	color:#008dd7;
+}
+.qqClientResultValidation .reput{
+	margin-top: 2%;
+	margin-bottom: 0%;
+	width: 5%;
+}
+.qqClientResultValidation .monthlyBlock{
+	background-color: #008dd7;
+	border: 4px #5cb85c solid;
+	width: 80%;
+	margin: auto;
+	padding: 2%;
+	border-radius: 2%;
+}
+.qqClientResultValidation .monthlyBlock a{
+	color:white;
+	font-size: 50%;
+	display: block;
+	text-decoration: underline;
+	cursor: pointer;
+}
+

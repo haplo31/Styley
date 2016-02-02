@@ -24,7 +24,8 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
-  currentrequest:[],
+  currentrequests:[],
+  archivedrequests:[],
   socket:String,
   password: String,
   provider: String,

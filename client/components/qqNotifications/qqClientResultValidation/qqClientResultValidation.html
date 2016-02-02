@@ -1,0 +1,36 @@
+<div class="modal-header" ng-switch on="data.modtype">
+  <h1 ng-switch-when="remPers">Remove a person</h1>
+  <h1 ng-switch-when="addPers">Add a person</h1>
+  <h1 ng-switch-when="remObj">Remove an object</h1>
+  <h1 ng-switch-when="incrust">Incrustation</h1>
+  <h1 ng-switch-when="enhance">Enhancements</h1>
+  <h1 ng-switch-when="drawing">Drawing</h1>
+</div>
+<div class="modal-body qqClientResultValidation" ng-switch on="reput">
+  <button class="btn btn-primary" ng-click="original=false" ng-show="original">See {{data.artist}}'s work</button>
+  <button class="btn btn-primary" ng-click="original=true" ng-hide="original">See original file</button>
+  <div class="imageblock" ng-show="original">
+    <img class="image" id="image" ng-src="/qqrequest/samples/{{data.src[0]}}">
+    <span> Original </span>
+  </div>
+  <div class="imageblock" ng-hide="original">
+  	<img class="image" id="image" ng-src="/qqrequest/samples/{{data.resultsrc[0]}}">
+    <span> {{data.artist}}'s work</span>
+  </div>
+  <p class="infos">Quality: <span>{{quality}}</span></p>
+  <p ng-switch-when="0"><img class="reput" src="/assets/images/reputEmpty.png"></p>
+  <p ng-switch-when="1"><img class="reput" src="/assets/images/reputBronze.png"></p>
+  <p ng-switch-when="2"><img class="reput" src="/assets/images/reputSilver.png"></p>
+  <p ng-switch-when="3"><img class="reput" src="/assets/images/reputGold.png"></p>
+  <p class="infos">Price: <span>{{price}}€</span></p>
+  <p class="monthlyBlock">
+  <checkbox class="btn-success" ng-model="checkboxModel" larger></checkbox> Take part to Monthly Challenge and win a ton of prizes !
+  <a>more infos</a>
+  </p>
+  <p class="infotext" ng-hide="pay"> If the result is good for you, you can pay the artist.<br/>
+                    You will then be able to download the full sized result.
+  </p>
+  <button class="btn btn-success btn-lg" ng-click="payArtist()" ng-hide="pay">Pay the artist</button>
+  <button class="btn btn-success btn-lg" ng-click="payArtist()" ng-show="pay">Download fullres file</button>
+  <a target="_self" href="/qqrequest/originals/{{data.request.src}}" download="/qqrequest/originals/{{data.src[0]}}" ng-show="pay">Download fullres file</a>
+</div>
