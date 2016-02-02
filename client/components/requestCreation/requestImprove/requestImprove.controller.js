@@ -168,7 +168,7 @@ angular.module('styleyApp')
                                         artist:"",
                                         modtype:"impr",
                                         vote:0,
-                                        src:resp.data.filename,
+                                        src:[resp.data.filename],
                                         modinfos:$scope.changesinvolved,
                                         addinfos:[$scope.infos],
                                         quality:$scope.radioModel,

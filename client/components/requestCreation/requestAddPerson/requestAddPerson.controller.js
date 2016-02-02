@@ -160,31 +160,29 @@ angular.module('styleyApp')
       Upload.upload({
           url: 'api/updatefile',
           data: {file:$scope.file}
-      });
-      Upload.upload({
+      }).then(function (resp){
+        var filename1=resp.data.filename;
+        Upload.upload({
           url: 'api/updatefile',
           data: {file:$scope.file2}
-      }).then(function (resp) {
+        })
+        .then(function (resp) {
           $http.post('/api/qqrequests/',{ owner:Auth.getCurrentUser().name,
-                                        artist:"",
-                                        modtype:"addPers",
-                                        vote:0,
-                                        src:resp.data.filename,
-                                        modinfos:$scope.btnPlaced,
-                                        addinfos:[$scope.infos,$scope.infos2],
-                                        quality:$scope.radioModel,
-                                        rating:ratingSelected,
-                                        price: finalPrices,
-                                        available:"true"})
+                                          artist:"",
+                                          modtype:"addPers",
+                                          vote:0,
+                                          src:[filename1,resp.data.filename],
+                                          modinfos:$scope.btnPlaced,
+                                          addinfos:[$scope.infos,$scope.infos2],
+                                          quality:$scope.radioModel,
+                                          rating:ratingSelected,
+                                          price: finalPrices,
+                                          available:"true"})
           .success(function(){
             $modalInstance.close();
           });      
-      }, function (resp) {
-          console.log('Error status: ' + resp.status);
-      }, function (evt) {
-          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-          console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-      });
+        });
+      })
     }
 
 
