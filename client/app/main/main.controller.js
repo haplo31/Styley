@@ -69,9 +69,9 @@ class MainController {
     {id: 'p10', 'title': 'mec', src: "http://s1.lemde.fr/image/2016/01/21/534x0/4851232_7_b49a_image-extraite-du-documentaire-de-jacques_8044ee22a06f4268f664c6ea1a68b1c7.jpg"},
     {id: 'p11', 'title': 'gadjo', src: "http://blogs.mathworks.com/pick/files/zebrainpastelfield.png"},
     {id: 'p12', 'title': 'minou', src: "http://www.sporting-promotion.fr/v2/wp-content/uploads/Fotolia_10703851_XL.jpg"},
-    {id: 'p13', 'title': 'josiane', src: "http://idata.over-blog.com/3/69/76/43/evenements/Novela-2010/r135_c_toulouse_1280.jpg"}
+    {id: 'p13', 'title': 'josiane', src: "http://idata.over-blog.com/3/69/76/43/evenements/Novela-2010/r135_c_toulouse_1280.jpg"},
+    {id: 'p14', 'title': 'ccado', src: "http://media.paperblog.fr/i/586/5863481/arttitude-graphisme-seulement-L-TO6IeJ.bmp"}
     //,
-    // {id: 'p14', 'title': 'ccado', src: ""},
     // {id: 'p15', 'title': 'gros', src: ""},
     // {id: 'p16', 'title': 'moche', src: ""},
     // {id: 'p17', 'title': 'joli', src: ""},

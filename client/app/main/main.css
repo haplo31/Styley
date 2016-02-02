@@ -77,6 +77,10 @@
     width: 100%;
 }
 
+.deckgrid{
+  margin-top: 3%;
+}
+
 @media screen and (max-width: 480px){
     .deckgrid[deckgrid]::before {
         content: '1 .column.column-1-1';
@@ -84,5 +88,21 @@
 }
 
 .imagegrid{
-  max-width: 80%;
+  max-width: 100%;
+  border: 4px solid black;
+}
+
+.a-card h1{
+  position: absolute;
+  margin: 1%;
+  font-size: 170%;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-style: 'Arvo';
+  font-weight: bold;
+}
+
+.a-card{
+   margin-top: 1%;
+   margin-left: 1%;
 }
