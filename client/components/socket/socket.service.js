@@ -19,6 +19,7 @@ angular.module('styleyApp')
       $rootScope.qqclientvalidationData=null;
       $rootScope.qqrequestrefused=null;
       $rootScope.qqrequestvalidatedData=null;
+      $rootScope.qqclientresultvalidation=null;
     })
 
     socket.on('qqclientvalidation', function (data) {
@@ -28,6 +29,7 @@ angular.module('styleyApp')
       $rootScope.qqartistpropData=null;
       $rootScope.qqrequestrefused=null;
       $rootScope.qqrequestvalidatedData=null;
+      $rootScope.qqclientresultvalidation=null;
     })
 
     socket.on('qqclientartistoffline', function (data) {
@@ -37,6 +39,7 @@ angular.module('styleyApp')
       $rootScope.qqclientvalidationData=null;
       $rootScope.qqrequestrefused=null;
       $rootScope.qqrequestvalidatedData=null;
+      $rootScope.qqclientresultvalidation=null;
     })
 
     socket.on('qqrequestrefused', function () {
@@ -46,6 +49,7 @@ angular.module('styleyApp')
       $rootScope.qqclientvalidationData=null;
       $rootScope.qqrequestrefused=true;
       $rootScope.qqrequestvalidatedData=null;
+      $rootScope.qqclientresultvalidation=null;
     })
 
     socket.on('qqrequestvalidated', function (data) {
@@ -55,6 +59,16 @@ angular.module('styleyApp')
       $rootScope.qqclientvalidationData=null;
       $rootScope.qqrequestrefused=null;
       $rootScope.qqrequestvalidatedData=data;
+      $rootScope.qqclientresultvalidation=null;
+    })
+    socket.on('qqclientresultvalidation', function (data) {
+      console.log("received request validated")
+      notifications.showSuccess({message: "The artist has finalized your request !"});
+      $rootScope.qqartistpropData=null;
+      $rootScope.qqclientvalidationData=null;
+      $rootScope.qqrequestrefused=null;
+      $rootScope.qqrequestvalidatedData=null;
+      $rootScope.qqclientresultvalidation=data;
     })
     return {
       socket,

@@ -1,1 +1,32 @@
-<div>This is the accountArtist view.</div>
+<div class="container accountArtist">
+<div class="currentRequestsBlock">
+	<h1> My current requests </h1>
+	<div class="requests" ng-repeat="(key, value) in currentRequests">
+		<div class="col-md-4" ng-switch on="value.modtype">
+		<p>
+		Date of Creation:<span ng-bind="value.createdAt | date:'MM/dd/yyyy'"></span><br/>
+		Request Type: <span ng-switch-when="remPers">remove person</span>
+									<span ng-switch-when="addPers">add person</span>
+									<span ng-switch-when="remObj">remove object</span>
+									<span ng-switch-when="incr">incrustation</span>
+									<span ng-switch-when="impr">improvements</span>
+									<span ng-switch-when="drawing">drawing</span>
+									<span ng-switch-when="restor">restoration</span>
+									<br/>
+		Customer:<span>{{value.owner}}</span>
+		</p>
+		</div>
+		<div class="col-md-4">
+		<p>
+			Quality :<span>{{value.quality}}</span><br/>
+			Price : <span>{{value.price}}</span><br/>
+			<button class="btn btn-success" type="file" ngf-select="loadFiles($file, $invalidFiles,key)" ngf-max-size="20MB" accept="image/*" ng-hide="value.resultsrc.length>0">Upload Result</button>
+			<span class="waiting" ng-show="value.resultsrc.length>0">Waiting client validation...</span>
+		</p>
+		</div>
+		<div class="col-md-4">
+			<img src="/qqrequest/samples/{{value.src[0]}}">
+		</div>
+	</div>
+</div>
+</div>

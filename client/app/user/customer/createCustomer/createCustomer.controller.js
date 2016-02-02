@@ -21,7 +21,8 @@ class CreateCustomerCtrl {
       this.Auth.createUser({
         name: this.user.name,
         email: this.user.email,
-        password: this.user.password
+        password: this.user.password,
+        type:'customer'
       })
       .then(() => {
         // Account created, redirect to home

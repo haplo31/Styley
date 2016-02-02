@@ -9,6 +9,8 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/privaterequests', require('./api/privaterequest'));
+  app.use('/api/publicrequests', require('./api/publicrequest'));
   app.use('/api/currentrequests', require('./api/currentrequest'));
   app.use('/api/qqartists', require('./api/qqartist'));
   app.use('/api/qqrequests', require('./api/qqrequest'));

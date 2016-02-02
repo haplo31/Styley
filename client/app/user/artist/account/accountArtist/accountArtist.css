@@ -1,0 +1,36 @@
+.currentRequestsBlock{
+	border: 4px solid #fd9001;
+	border-radius:1%;
+	font-family: 'Arvo';
+}
+.currentRequestsBlock h1{
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	background-color: #fd9001;
+	margin-top: 0;
+	padding-bottom: 1%;
+	margin-bottom: 0;
+}
+.currentRequestsBlock .requests{
+	color:#fd9001;
+	border: 4px solid #fb6e04;
+	padding: 1%;
+	display: inline-block;
+	width: 100%;
+	font-size: 160%;
+	text-align: center;
+	line-height: 330%;
+
+}
+.currentRequestsBlock .requests img{
+	max-width: 100%;
+	border: 2px solid #fd9001;
+	border-radius:2%;
+}
+.currentRequestsBlock .requests span{
+	font-weight: bold;
+}
+.currentRequestsBlock .requests .waiting{
+	color:#5cb85c;
+}

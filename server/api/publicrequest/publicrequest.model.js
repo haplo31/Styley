@@ -1,8 +1,8 @@
 'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
-var timestamps = require('mongoose-timestamp');
-var CurrentrequestSchema = new mongoose.Schema({
+
+var PublicrequestSchema = new mongoose.Schema({
 	owner: String,
 	artist: String,
 	modtype: String,
@@ -15,5 +15,5 @@ var CurrentrequestSchema = new mongoose.Schema({
 	price:String,
 	resultsrc:[]
 });
-CurrentrequestSchema.plugin(timestamps);
-export default mongoose.model('Currentrequest', CurrentrequestSchema);
+
+export default mongoose.model('Publicrequest', PublicrequestSchema);
