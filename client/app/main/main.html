@@ -10,9 +10,13 @@
 <div class="container">
   <div deckgrid class="deckgrid" source="photos">
     <div class="a-card">
-        <h1>{{card.title}}</h1>
-
-        <img class="imagegrid" src="" data-ng-src="{{card.src}}">
+      <img class="imagegrid" src="" data-ng-src="{{card.src}}" ng-click="mother.modalPic(card)">
+      <div class="overpic">
+        <div class="nbVote">
+        <span>40</span>
+        </div>
+        <button class="btn btn-circle btn-vote btn-primary addVote" ng-click="mother.vote(card)">❤</button>
+      </div>
     </div>
 </div>
 </div>
