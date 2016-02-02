@@ -18,7 +18,7 @@ angular.module('styleyApp')
 	    var posBlockTop = angular.element(document.querySelector('#imageblock')).prop('offsetTop');
 	    var ratio = imgWidth / data.request.modinfos[0].width
 	    for (var i = 0; i < data.request.modinfos.length; i++) {
-	    	$scope.btnCurrent.push({posTop: posImgTop - posBlockTop + data.request.modinfos[i].posTop*ratio, posLeft: posImgLeft - posBlockLeft + data.request.modinfos[i].posLeft*ratio})
+	    	$scope.btnCurrent.push({posTop: posImgTop + data.request.modinfos[i].posTop*ratio-24, posLeft: posImgLeft + data.request.modinfos[i].posLeft*ratio-24})
 	    };
 	},500)
 
