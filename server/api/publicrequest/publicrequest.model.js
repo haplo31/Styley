@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
-
+var timestamps = require('mongoose-timestamp');
 var PublicrequestSchema = new mongoose.Schema({
 	owner: String,
 	artist: String,
@@ -15,5 +15,5 @@ var PublicrequestSchema = new mongoose.Schema({
 	price:String,
 	resultsrc:[]
 });
-
+PublicrequestSchema.plugin(timestamps);
 export default mongoose.model('Publicrequest', PublicrequestSchema);

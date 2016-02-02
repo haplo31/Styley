@@ -58,7 +58,20 @@ function handleError(res, statusCode) {
     res.status(statusCode).send(err);
   };
 }
-
+//Get Most Voted Pics
+exports.mostVotedPics = function(req, res) {
+  Publicrequest.find().sort({ vote : 'desc'}).limit(50).exec(function (err, pictures) {
+    if(err) { return handleError(res, err); }
+    return res.status(200).json(pictures);
+  });
+};
+//Get last 50 pics
+exports.last50Pics = function(req, res) {
+  Publicrequest.find().sort({ createdAt : 'desc'}).limit(50).exec(function (err, pictures) {
+    if(err) { return handleError(res, err); }
+    return res.status(200).json(pictures);
+  });
+};
 // Gets a list of Publicrequests
 export function index(req, res) {
   Publicrequest.findAsync()
