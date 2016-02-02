@@ -157,7 +157,7 @@ angular.module('styleyApp')
                                         artist:"",
                                         modtype:"remObj",
                                         vote:0,
-                                        src:resp.data.filename,
+                                        src:[resp.data.filename],
                                         modinfos:$scope.btnPlaced,
                                         addinfos:[$scope.infos],
                                         quality:$scope.radioModel,
