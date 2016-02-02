@@ -1,6 +1,6 @@
-<div class="modal-complete request-improvement">
+<div class="modal-complete request-restore">
 	<div class="modal-header">
-		Improve
+		Restore
 	</div>
 	<div class="modal-body">
     <div ng-show="step==1">
@@ -15,8 +15,7 @@
       </div>
       <div class="explanation">
         <h3 class="titleRequest">How it works</h3>
-        <span class="explanationStage">1<br />In the next steps, you will upload an image that you want to improve:
-        kinds of improvements will be proposed to you. Of course, you can provide all the missing information if needed.
+        <span class="explanationStage">1<br />In the next steps, you will upload an image that you want to restore: it will be possible for you to provide all the missing information to the artist if needed.
         Finally you will be asked for the quality you need.</span>
         <span class="explanationStage">2<br />A price will be automatically calculated. If you finalize the request, a graphic artist matching your criteria will be suggested.</span>
         <span class="explanationStage">3<br />You can refuse the suggested artists as many times as you want. In this case, an other artist will be suggested.</span>
@@ -32,63 +31,6 @@
     	<div>
 			   <img class="picturerecap" id="picturerecap" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
   			<div class="explanation2" ng-show="file">
-  				<span class="explanationStage">Check aspects in question in the changes that you request:</span>
-  				<div class="imprchange">
-            <div class="col-lg-2">
-    					<img class="iconchange" src="{{exBlur}}"/>
-            </div>
-            <div class="col-lg-10 checkdiv">
-  					  <span class="imageLegend"> BLUR </br> </span>
-              <checkbox largest class="btn-primary margincheckbox" ng-model="blur_checked"> </checkbox>
-  				  </div>
-          </div>
-          <div class="imprchange">
-            <div class="col-lg-2">
-              <img class="iconchange" src="{{exLights}}"/>
-            </div>
-            <div class="col-lg-10 checkdiv">
-              <span class="imageLegend"> LIGHTS </br> </span>
-              <checkbox largest class="btn-primary margincheckbox" ng-model="lights_checked"> </checkbox>
-            </div>
-          </div>
-          <div class="imprchange">
-            <div class="col-lg-2">
-              <img class="iconchange" src="{{exCropping}}"/>
-            </div>
-            <div class="col-lg-10 checkdiv">
-              <span class="imageLegend"> CROPPING </br> </span>
-              <checkbox largest class="btn-primary margincheckbox" ng-model="cropping_checked"> </checkbox>
-            </div>
-          </div>
-          <div class="imprchange">
-            <div class="col-lg-2">
-              <img class="iconchange" src="{{exColoration}}"/>
-            </div>
-            <div class="col-lg-10 checkdiv">
-              <span class="imageLegend"> COLORATION </br> </span>
-              <checkbox largest class="btn-primary margincheckbox" ng-model="coloration_checked" value="coloration"> </checkbox>
-            </div>
-          </div>
-          <div class="imprchange">
-            <div class="col-lg-2 texticonchange">
-              <i class="fa fa-eye"></i>
-<!--          <img class="iconchange" src="{{exProportion}}"/> -->
-            </div>
-            <div class="col-lg-10 checkdiv">
-              <span class="imageLegend"> RED EYES </br> </span>
-              <checkbox largest class="btn-primary margincheckbox" ng-model="redeyes_checked"> </checkbox>
-            </div>
-          </div>
-          <div class="imprchange">
-            <div class="col-lg-2">
-              <img class="iconchange" src="{{exFraming}}"/>
-            </div>
-            <div class="col-lg-10 checkdiv">
-              <span class="imageLegend"> FRAMING </br> </span>
-              <checkbox largest class="btn-primary margincheckbox" ng-model="framing_checked"> </checkbox>
-            </div>
-          </div>
-				<!-- <span class="explAnd"> blur - lights - cropping - coloration - proportions - framing </span> -->
 				  <span class="explanationStage" >Add information you want to provide about your desires:</span>
 				  <textarea class="addInfo" ng-model="infos">
         	</textarea>

@@ -14,7 +14,8 @@ angular.module('styleyApp', [
   'ui.bootstrap',
   'validation.match',
   'ngFileUpload',
-  'ui.checkbox'
+  'ui.checkbox',
+  'akoenig.deckgrid'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

@@ -35,10 +35,10 @@ angular.module('styleyApp')
 		};
 
     
-
-     $scope.$watchGroup(['blur_checked', 'lights_checked','cropping_checked', 'coloration_checked', 'proportion_checked', 'framing_checked'], function(newValues, oldValues, scope) {
+    $scope.changesinvolved = [];
+     $scope.$watchGroup(['blur_checked', 'lights_checked','cropping_checked', 'coloration_checked', 'redeyes_checked', 'framing_checked'], function(newValues, oldValues, scope) {
       
-      $scope.changesinvolved = [];
+      
       for (var i = 0; i < newValues.length; i++) {
         if (newValues[i] == true)
         { 
@@ -56,7 +56,7 @@ angular.module('styleyApp')
               $scope.changesinvolved.push("coloration");
             break;
             case 4:
-              $scope.changesinvolved.push("proportion");
+              $scope.changesinvolved.push("redeyes");
             break;
             case 5:
               $scope.changesinvolved.push("framing");            
