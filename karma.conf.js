@@ -26,6 +26,7 @@ module.exports = function(config) {
       'client/bower_components/angular-animate/angular-animate.js',
       'client/bower_components/angular-bootstrap-checkbox/angular-bootstrap-checkbox.js',
       'client/bower_components/ng-notifications-bar/dist/ngNotificationsBar.min.js',
+      'client/bower_components/angular-deckgrid/angular-deckgrid.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'node_modules/socket.io-client/socket.io.js',

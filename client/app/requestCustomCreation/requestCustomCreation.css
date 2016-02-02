@@ -1,0 +1,38 @@
+.colorbtn1{
+	margin-top: 1%;
+	padding: 9.1%;
+	width: 43%;
+	background-color: red;
+	margin-bottom: 2%;
+	margin-left: 1.5%;
+}
+
+.colorbtn2{
+	margin-left: 1.3%;
+	padding: 9%;
+	width: 42.3%;
+	background-color: green;
+}
+
+.colorbtn3{
+	margin-left: 8%;
+	padding: 9%;
+	width: 43%;
+	background-color: orange;
+}
+
+.colorbtn4{
+	margin-top: 2%; 
+	margin-left: 1.3%;
+	padding: 9%;
+	width: 42.3%;
+	background-color: blue;
+}
+
+.colorbtn5{
+	margin-top: 2%; 
+	margin-left: 8%;
+	padding: 9%;
+	width: 43%;
+	background-color: yellow;
+}

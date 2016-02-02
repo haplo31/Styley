@@ -62,11 +62,11 @@ angular.module('styleyApp')
 	  });
     }
 
-    $scope.drawing = function(){
+    $scope.restore = function(){
     var modalRequest = $modal.open({
 	    animation: true,
-	    templateUrl: '../../../components/requestCreation/requestDrawing/requestDrawing.html',
-	    controller: 'drawCtrl',
+	    templateUrl: '../../../components/requestCreation/requestRestore/requestRestore.html',
+	    controller: 'restorCtrl',
 	    size: "lg",
 	    resolve: {
 	    }
