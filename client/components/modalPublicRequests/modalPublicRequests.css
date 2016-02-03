@@ -1,6 +1,41 @@
-.major{
-	background-color: #fd9001;
-	
-	padding-top: 50%;
-	font-size: 400%;
+.modalPublicRequests{
+	font-size: 130%;
+	text-align: center;
+	border: 5px #008dd7 solid;
+	border-radius: 0.5%;
+}
+
+.modalPublicRequests h1{
+	font-size: 350%;
+	font-family: 'Arvo';
+	font-weight: bold;
+	margin-bottom: 5%;
+}
+
+.modalPublicRequests .selectedImg{
+	max-width: 100%;
+	border: 4px solid black;
+}
+
+.modalPublicRequests .divImg{
+	width: 90%;
+	margin: auto;
+	margin-top: 3%;
+	padding-bottom: 5%;
+}
+
+.modalPublicRequests .infos{
+ 	font-size: 200%;
+ 	font-family: 'Arvo';
+}
+
+.modalPublicRequests .infos span{
+ 	margin-top: 3%;
+ 	color:#008dd7;
+ 	font-weight: bold;
+}
+.modalPublicRequests .reput{
+	margin-top: 2%;
+	margin-bottom: 0%;
+	width: 5%;
 }

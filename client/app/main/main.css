@@ -13,17 +13,17 @@
 }
 
 #banner h1 {
-  font-size: 1000%;
+  font-size: 1300%;
   line-height: 100%;
   letter-spacing: -1px;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 
 .hero-unit {
   position: relative;
   padding: 2% 2%;
-  color: #F5F5F5;
+  color: white;
   text-align: center;
   background: #4393B9;
 }
@@ -31,6 +31,9 @@
 .lead {
   color: #F5F5F5;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: 'Ruthie';
+  /*font-family: 'Allura';*/
+  font-size: 500%;
 }
 
 .navbar-text {
@@ -56,7 +59,6 @@
 .btn-primary{
   background-color: #008dd7;
 }
-
 
 .deckgrid[deckgrid]::before {
     /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
@@ -102,8 +104,8 @@
 
 .overpic{
   position: absolute;
-  bottom: 10%;
-  left:10%;
+  bottom: 7%;
+  left:5%;
 }
 
 .nbVote{
@@ -117,12 +119,9 @@
 }
 
 .addVote{
-    background-color: #fd9001;;
     border-color: black;
     border: 4px solid black;
-    width: 120%;
-    padding: 10%;
-    font-size: 200%;
+    font-size: 150%;
     border-radius: 20%;
 }
       

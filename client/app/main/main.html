@@ -2,23 +2,20 @@
   <div class="container">
     <h1>Styley</h1>
     <p class="lead">Unleash your imagination!</p>
-    <button class="btn btn-success" ui-sref="requestCreation">Start a request</button>
-    <button class="btn btn-success" ui-sref="exploreCreations">Explore Creations</button>
+    <button class="btn btn-success btn-lg" ui-sref="requestCreation">Start a request</button>
+    <button class="btn btn-success btn-lg" ui-sref="exploreCreations">Explore Creations</button>
   </div>
 </header>
 
 <div class="container">
   <div deckgrid class="deckgrid" source="photos">
     <div class="a-card">
-      <img class="imagegrid" src="" data-ng-src="{{card.src}}" ng-click="mother.modalPic(card)">
+      <img class="imagegrid" src="" data-ng-src="/qqrequest/samples/{{card.src[0]}}" ng-click="mother.modalPic(card)">
       <div class="overpic">
-        <div class="nbVote">
-        <span>40</span>
-        </div>
-        <button class="btn btn-circle btn-vote btn-primary addVote" ng-click="mother.vote(card)">❤</button>
+        <button class="btn btn-circle btn-vote btn-success addVote" ng-click="mother.vote(card)">{{card.vote}} ❤</button>
       </div>
     </div>
-</div>
+  </div>
 </div>
 
 <footer></footer>

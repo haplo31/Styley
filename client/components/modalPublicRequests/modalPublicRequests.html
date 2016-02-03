@@ -1,4 +1,13 @@
-<div class="major"> 
-	<img ng-src="{{item.src}}">
-	Zissiz the modalPublicRequests view.
+<div class="modal-complete modalPublicRequests"> 
+	<div class="modal-body">
+		<h1>{{item.owner}}'s proposition</h1>
+		<p class="infos"> Artist: <span>{{item.artist}}</span></p>
+  		<p class="infos"> Quality: <span>{{item.quality}}</span></p>
+		<div class="divImg">
+			<img class="selectedImg" ng-src="/qqrequest/originals/{{item.src[0]}}">
+		</div>
+		<div class="votesblock">
+			<p class="infos"> Votes: <span>{{item.vote}}</span></p>
+		</div>
+	</div>
 </div>
