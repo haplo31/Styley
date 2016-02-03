@@ -1,9 +1,9 @@
-.currentRequestsBlock{
+.accountArtist .currentRequestsBlock{
 	border: 4px solid #fd9001;
 	border-radius:1%;
 	font-family: 'Arvo';
 }
-.currentRequestsBlock h1{
+.accountArtist .currentRequestsBlock h1{
 	text-align: center;
 	color: white;
 	font-weight: bold;
@@ -12,7 +12,7 @@
 	padding-bottom: 1%;
 	margin-bottom: 0;
 }
-.currentRequestsBlock .requests{
+.accountArtist .currentRequestsBlock .requests{
 	color:#fd9001;
 	border: 4px solid #fb6e04;
 	padding: 1%;
@@ -23,14 +23,14 @@
 	line-height: 330%;
 
 }
-.currentRequestsBlock .requests img{
+.accountArtist .currentRequestsBlock .requests img{
 	max-width: 100%;
 	border: 2px solid #fd9001;
 	border-radius:2%;
 }
-.currentRequestsBlock .requests span{
+.accountArtist .currentRequestsBlock .requests span{
 	font-weight: bold;
 }
-.currentRequestsBlock .requests .waiting{
+.accountArtist .currentRequestsBlock .requests .waiting{
 	color:#5cb85c;
 }
