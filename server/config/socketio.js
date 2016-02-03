@@ -43,6 +43,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/regularrequest/regularrequest.socket').register(socket);
   //require('../api/privaterequest/privaterequest.socket').register(socket);
   //require('../api/publicrequest/publicrequest.socket').register(socket);
   require('../api/currentrequest/currentrequest.socket').register(socket);

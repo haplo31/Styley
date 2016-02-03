@@ -122,7 +122,7 @@ span[class^="explanationStage"]::first-letter{
 	background-image:url(./../../../assets/images/logo_button.png);
 	/*background-image:url(./../../../assets/images/red_round_button.png);*/
 }
-.redpointer{
+.logopointer{
 	cursor: url("./../../../assets/images/logo_button.png") 24 24, auto;
 	/*cursor: url("./../../../assets/images/red_round_button.png") 24 24, auto;*/
 }

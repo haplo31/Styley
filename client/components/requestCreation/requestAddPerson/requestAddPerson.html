@@ -43,7 +43,7 @@
     <div ng-show="step==3" class="step2">
       	<span class="explanationStage" ng-hide="imageAsk2">Now, choose the picture whose persons will be used:</span>
         <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles2($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Upload</button>
-      <div ng-class="{redpointer:redPointer}">
+      <div ng-class="{logopointer:redPointer}">
 				<img class="srcpicturezone" id="srcpicturezone" ngf-thumbnail="file2 || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
 				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
           <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/logo_button.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >

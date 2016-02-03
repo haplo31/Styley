@@ -27,7 +27,7 @@
     <div ng-show="step==2" class="step2">
       	<span class="explanationStage" ng-hide="imageAsk">First, choose the picture you want to use:</span>
         <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Upload</button>
-      <div ng-class="{redpointer:redPointer}">
+      <div ng-class="{logopointer:redPointer}">
 				<img class="picturezone" id="picturezone" ngf-thumbnail="file || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
 				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
           <!--

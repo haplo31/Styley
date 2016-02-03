@@ -1,0 +1,128 @@
+.requestCustom{
+	
+}
+.explanation{
+    margin-bottom: 3%;
+    font-family: 'Arvo';
+    font-size: 150%;
+    display: block;
+    font-weight: bold;
+    line-height: 100%;
+}
+.explanation p{
+	margin-bottom: 4%;
+}
+.explanation span{
+	font-size: 100%
+}
+.picturezone{
+	display: block;
+	margin-top: 2%;
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
+	max-width: 100%;
+	border: 2px solid black;
+}
+.pictureoverviewBlock img{
+	max-width: 100%;
+	display: inline-block;
+}
+.pictureoverview{
+	border: 4px solid black;
+}
+.picselected{
+	border: 4px solid #008dd7;
+}
+.pictureoverviewBlock {
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+.redcustombtn{
+	background-image: url('./../../../assets/images/logo_button_red.png');
+}
+.redpointer{
+	cursor: url("./../../../assets/images/logo_button_red.png") 24 24, auto;
+	/*cursor: url("./../../../assets/images/red_round_button.png") 24 24, auto;*/
+}
+.greencustombtn{
+	background-image: url('./../../../assets/images/logo_button_green.png');
+}
+.greenpointer{
+	cursor: url("./../../../assets/images/logo_button_green.png") 24 24, auto;
+	/*cursor: url("./../../../assets/images/red_round_button.png") 24 24, auto;*/
+}
+.bluecustombtn{
+	background-image: url('./../../../assets/images/logo_button_blue.png');
+}
+.bluepointer{
+	cursor: url("./../../../assets/images/logo_button_blue.png") 24 24, auto;
+	/*cursor: url("./../../../assets/images/red_round_button.png") 24 24, auto;*/
+}
+.purplecustombtn{
+	background-image: url('./../../../assets/images/logo_button_purple.png');
+}
+.purplepointer{
+	cursor: url("./../../../assets/images/logo_button_purple.png") 24 24, auto;
+	/*cursor: url("./../../../assets/images/red_round_button.png") 24 24, auto;*/
+}
+.meaningbuttons{
+	border: 2px solid black;
+	border-radius: 2%;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 1%;
+	padding: 2%;
+    font-family: 'Arvo';
+    font-size: 150%;
+    color: white;
+}
+.meaningbuttons select{
+	color:black;
+}
+.meaningbuttons textarea{
+	color:black;
+	font-size: 70%;
+}
+.meaningred{
+	background-color: #CC0101;
+}
+.meaninggreen{
+	background-color: #07700A;
+}
+.meaningblue{
+	background-color: #014485;
+}
+.meaningpurple{
+	background-color: #B401D0;
+}
+.addInfo{
+	margin-top: 1%;
+}
+.requestCustom .step3{
+	text-align: center;
+	font-family: 'Arvo';
+	font-size:150%;
+}
+.requestCustom .step3 .step3text {
+	margin-top:3%;
+}
+.requestCustom .step3 .step3text p{
+	width: 80%;
+	margin:auto;
+	margin-top:15%;
+	margin-bottom: 5%;
+	color:#008dd7;
+	font-weight: bold;
+	font-size: 120%;
+}
+.requestCustom .step3 .step3text span{
+	color:white;
+	font-weight: bold;
+	font-size: 180%;
+	margin-top: 5%;
+	background-color: #fd9001;
+	border: 3px solid #fb6e04;
+	border-radius: 20%;
+	padding:1%;
+}
