@@ -1,1 +1,123 @@
-<div>This is the requestCustom view.</div>
+<div class="modal-header">
+	Custom Request
+</div>
+<div class="modal-body requestCustom">
+  <div ng-show="step==1">
+    <div class="imageBlock">		
+      <div class="slider col-lg-7">
+        <div class="left image"> <img src="{{sliderSrc1}}"/> </div>
+  	    <div class="right image"> <img src="{{sliderSrc2}}"/> </div>
+  	  </div>
+      <div class="imageLegend col-lg-5">
+      <span>Select the separator on the left of the picture and drag it to see an example of realisation</span> 
+      </div>
+    </div>
+    <div class="explanation">
+      <h3 class="titleRequest">How it works</h3>
+      <p>In the next steps, you will set which modifications you want on your picture, the desired quality as well as every additional information.</p>
+     	<p>Your request will be accessible for the artists for 48h.</p>
+			<p>In this time, the interested artists will be able to propose you their price and specifications for your request .</p>
+      <p>You can chose an artist and launch your request when you want, you don't have to wait for the deadline. </p>
+      <span class="explanationFinal">In any case, no artist will see your request while it is not finalized at the last step by clicking on the very distinctive button <span class="orange"> "Finalize" :) </span> </span>
+    </div>
+  </div>
+
+	<div ng-show="step==2" class="step2">
+    	<span class="explanationStage" ng-hide="imageAsk">First, choose the picture you want to use:</span>
+      <button class="btn btn-primary btn-large" type="file" ngf-select="loadFiles($file, $invalidFiles)" ngf-max-size="20MB" accept="image/*">Upload</button>
+
+    <div ng-class="{redpointer:redPointer,bluepointer:bluePointer,greenpointer:greenPointer,purplepointer:purplePointer}" ng-show="files.length<=1">
+			<img class="picturezone" id="picturezone" ngf-thumbnail="files[imgPos] || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
+			<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent | filter: { imgPos: imgPos }'>
+	      <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/logo_button_{{btn.color}}.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
+				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft-16, 'top': btn.posTop-16}" ng-click="removePlaced(index)" class="noselect"/>
+			</div> 
+			<div class="symbolstodrag" ng-show="files.length>0">
+				 <input id="redbtn" type="radio" name="buttons" value="redbtn" ng-click="select('red')" ng-checked="redPointer"/>
+				 <label class="buttons redcustombtn" for="redbtn"></label>
+				 <input id="greenbtn" type="radio" name="buttons" value="greenbtn" ng-click="select('green')" ng-checked="greenPointer"/>
+				 <label class="buttons greencustombtn" for="greenbtn"></label>
+				 <input id="bluebtn" type="radio" name="buttons" value="bluebtn" ng-click="select('blue')" ng-checked="bluePointer"/>
+				 <label class="buttons bluecustombtn" for="bluebtn"></label>
+				 <input id="purplebtn" type="radio" name="buttons" value="purplebtn" ng-click="select('purple')" ng-checked="purplePointer"/>
+				 <label class="buttons purplecustombtn" for="purplebtn"></label>
+			</div>
+		</div>
+
+		<div ng-class="{redpointer:redPointer,bluepointer:bluePointer,greenpointer:greenPointer,purplepointer:purplePointer}" ng-show="files.length>1">
+			<div class="col-md-3 recapBlock" >
+				<i class="fa fa-arrow-circle-o-up" ng-show="recapPos>0" ng-click="recapPos=recapPos-1"></i>
+				<div class="pictureoverviewBlock"  ng-repeat="key in [recapPos,recapPos+1,recapPos+2]"><img class="pictureoverview" ngf-src="files[key]" ng-click="$parent.imgPos=key;setSelected(key)" ng-class="{picselected: key === keyPicSelected}"></div>
+				<i class="fa fa-arrow-circle-o-down" ng-show="recapPos<files.length-1" ng-click="recapPos=recapPos+1"></i>
+			</div>
+			<div class="col-md-9 pictureBlock">			
+				<img class="picturezone" id="picturezonemult" ngf-src="files[imgPos] || '/assets/images/white.png'" ng-mouseup="clickOnImg($event)">
+				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent | filter: { imgPos: imgPos }'>
+	      <img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/logo_button_{{btn.color}}.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
+				<input type="image" src="/assets/images/round_close_button.png" type="button" ng-style="{'left':btn.posLeft-16, 'top': btn.posTop-16}" ng-click="removePlaced(index)" class="noselect"/>
+				</div> 
+			</div>
+			<div "imgNav" ng-show="files.length>0">
+				{{imgPos+1}}/{{files.length}}
+			</div>
+			<div class="symbolstodrag" ng-show="files">
+				 <input id="redbtn" type="radio" name="buttons" value="redbtn" ng-click="select('red')" ng-checked="redPointer"/>
+				 <label class="buttons redcustombtn" for="redbtn"></label>
+				 <input id="greenbtn" type="radio" name="buttons" value="greenbtn" ng-click="select('green')" ng-checked="greenPointer"/>
+				 <label class="buttons greencustombtn" for="greenbtn"></label>
+				 <input id="bluebtn" type="radio" name="buttons" value="bluebtn" ng-click="select('blue')" ng-checked="bluePointer"/>
+				 <label class="buttons bluecustombtn" for="bluebtn"></label>
+				 <input id="purplebtn" type="radio" name="buttons" value="purplebtn" ng-click="select('purple')" ng-checked="purplePointer"/>
+				 <label class="buttons purplecustombtn" for="purplebtn"></label>
+			</div>
+		</div>
+
+		<div>
+			<div class="explanation2" ng-show="files.length>0">
+			<span class="explanationStage">Now, you can select an icon and put it on the person you want to remove</span>
+			<div ng-show="nbRed>0" class="meaningbuttons meaningred">
+			 	<span> The red buttons are for : <select ng-model="redmeaning" ng-options="mean for mean in meanings"></select></span>
+			 	<textarea class="addInfo infosRed" ng-model="infosRed" ng-show="redmeaning == 'Custom'">
+			 	</textarea>
+			</div>
+			<div ng-show="nbGreen>0" class="meaningbuttons meaninggreen">
+			 	<span> The green buttons are for : <select ng-model="greenmeaning" ng-options="mean for mean in meanings"></select></span>
+			 	<textarea class="addInfo infosGreen" ng-model="infosGreen" ng-show="greenmeaning == 'Custom'">
+      	</textarea>
+			</div>
+			<div ng-show="nbBlue>0" class="meaningbuttons meaningblue">
+			 	<span> The blue buttons are for : <select ng-model="bluemeaning" ng-options="mean for mean in meanings"></select></span>
+				<textarea class="addInfo infosBlue" ng-model="infosBlue" ng-show="bluemeaning == 'Custom'">
+      	</textarea>
+			</div>
+			<div ng-show="nbPurple>0" class="meaningbuttons meaningpurple">
+			 	<span> The purple buttons are for : <select ng-model="purplemeaning" ng-options="mean for mean in meanings"></select></span>
+				<textarea class="addInfo infosPurple" ng-model="infosPurple" ng-show="purplemeaning == 'Custom'">
+      	</textarea>
+			</div>
+<!-- 			<span class="explAnd"> and </span>
+			<span class="explanationStage" >Add any additionnal information you want to provide about your desires:</span>
+			<textarea class="addInfo" ng-model="infos">
+      </textarea> -->
+			</div>
+		</div>
+  </div>
+  <div ng-show="step==3" class="step3">
+  	<div class="step3text" ng-show="isLoggedIn()">
+	  	<span> Your request is almost finalized !</span>
+	  	<p> You will received artists proposition by email as soon as you click on the button below.</p>
+	  </div>
+    <div class="finalize">
+    	<div ng-include="'components/requestAuth/requestAuth.html'" ng-controller="LoginController" ng-hide="isLoggedIn()"></div>
+    	<button class="btn-lg btn btn-finalize" ng-click="submitRequest()" ng-show="isLoggedIn()">Finalize</button>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+	<div class="previous">
+		<button type="button" class="btn btn-primary btn-lg " ng-click="previousStep()" ng-show="step!=1">Previous</button>
+	</div>
+	<div class="next">
+		<button type="button" class="btn btn-primary btn-lg" ng-click="nextStep()" ng-show="completedStep>=step">Next</button>
+	</div>
+</div>
