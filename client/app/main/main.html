@@ -10,9 +10,11 @@
 <div class="container">
   <div deckgrid class="deckgrid" source="photos">
     <div class="a-card">
-      <img class="imagegrid" src="" data-ng-src="/qqrequest/samples/{{card.src[0]}}" ng-click="mother.modalPic(card)">
+      <img class="imagegrid" src="" data-ng-src="/qqrequest/samples/{{card.src[0]}}" ng-click="mother.modalPic(card.$index)">
       <div class="overpic">
-        <button class="btn btn-circle btn-vote btn-success addVote" ng-click="mother.vote(card)">{{card.vote}} ❤</button>
+        <span>♡{{card.vote}}</span>
+        <!-- <div class="mininbVote" ng-click="mother.vote(card)"> <i class="fa fa-trophy"></i> {{card.vote}}   
+        </div>-->
       </div>
     </div>
   </div>
