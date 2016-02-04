@@ -3,7 +3,8 @@
     <h1>Styley</h1>
     <p class="lead">Unleash your imagination!</p>
     <button class="btn btn-success btn-lg" ui-sref="requestCreation">Start a request</button>
-    <button class="btn btn-success btn-lg" ui-sref="exploreCreations">Explore Creations</button>
+    <button class="btn btn-success btn-lg" ng-hide="artist" ui-sref="exploreCreations"> Explore Creations</button>
+    <button class="btn btn-success btn-lg" ng-show="artist" ui-sref="exploreRequests"> Explore Requests</button>
   </div>
 </header>
 

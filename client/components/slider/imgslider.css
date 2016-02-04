@@ -5,6 +5,10 @@
 	position: relative;
 }
 
+.slider:active{
+	cursor: ew-resize;
+}
+
 .slider .right.image{
 	position: absolute;
 	z-index: 1;

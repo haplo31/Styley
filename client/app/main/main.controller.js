@@ -3,7 +3,7 @@
 
 class MainController {
 
-  constructor($http, $scope, $rootScope, socket, notifications, $modal) {
+  constructor($http, $scope, $rootScope, socket, notifications, $modal, Auth) {
 
     this.$http = $http;
     this.awesomeThings = [];
@@ -11,6 +11,11 @@ class MainController {
     //   socket.unsyncUpdates('thing');
     //   socket.removeAllListeners();
     // })
+    
+    if(Auth.getCurrentUser().type == "artist")
+    {
+      $scope.artist = true;
+    }
 
     $http.get("/api/publicrequests/most").success(function(photos){
       $scope.photos = photos;
