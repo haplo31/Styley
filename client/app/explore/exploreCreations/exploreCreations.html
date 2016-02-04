@@ -1,1 +1,23 @@
-<div>This is the exploreCreations view.</div>
+<header class="hero-unit exploreCrea" id="bannerRC">
+    <h1>Styley</h1>
+    <div class="headerBtns">
+	    <div class="col-lg-6 exploreBtn">
+			<button class="btn btn-success btn-lg" ng-click="showMostVoted()"> Most voted </button>
+		</div>
+		<div class="col-lg-6 exploreBtn">
+			<button class="btn btn-success btn-lg" ng-click="showLast()"> Last propositions </button>
+		</div>
+	</div>
+</header>
+<div class="container exploreCrea">
+  <div deckgrid class="deckgrid" source="photos">
+    <div class="a-card">
+      <img class="imagegrid" src="" data-ng-src="/qqrequest/samples/{{card.src[0]}}" ng-click="mother.modalPic(card.$index)">
+      <div class="overpic">
+        <span>♡{{card.vote}}</span>
+        <!-- <div class="mininbVote" ng-click="mother.vote(card)"> <i class="fa fa-trophy"></i> {{card.vote}}   
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

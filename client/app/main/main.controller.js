@@ -3,7 +3,7 @@
 
 class MainController {
 
-  constructor($http, $scope, $rootScope, socket,notifications, $modal) {
+  constructor($http, $scope, $rootScope, socket, notifications, $modal) {
 
     this.$http = $http;
     this.awesomeThings = [];
@@ -88,8 +88,7 @@ class MainController {
 
 
 
-    $scope.modalPic = function(item) {
-      console.log(item);
+    $scope.modalPic = function(key) {
       var modalInstance = $modal.open({
         animation: true,
         templateUrl: '../../../components/modalPublicRequests/modalPublicRequests.html',
@@ -99,10 +98,10 @@ class MainController {
 //        backdrop: true,
         resolve: {
           item: function () {
-            return item;
+            return $scope.photos;
           },
-          vote: function () {
-          return $scope.vote;
+          indexPic: function () {
+          return key;
           }
         }
       });

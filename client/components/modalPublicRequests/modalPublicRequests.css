@@ -39,3 +39,38 @@
 	margin-bottom: 0%;
 	width: 5%;
 }
+
+.modalPublicRequests .transp{
+	background-color: transparent;
+    border-radius: 0;
+}
+
+.modalPublicRequests .btn-switch{
+    vertical-align: middle;
+}
+
+.modalPublicRequests .btn-switch i{
+	font-size: 680%;
+	/*color: #008dd7;
+	text-shadow: 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000, -3px 0 0 #000;*/
+}
+
+.modalPublicRequests .btn-trophy i{
+	color: white;
+	font-size: 700%;
+/*	color: #fd9001;*/
+	text-shadow: 3px 0 0 #000, 0 -3px 0 #000, 0 3px 0 #000, -3px 0 0 #000;
+	margin-left: 13%;
+}
+
+.modalPublicRequests .actionsblock{
+	padding-bottom: 15%;
+}
+
+.modalPublicRequests .btn-add{
+	font-size: 130%;
+	margin-left: 3%;
+}
+
+
+

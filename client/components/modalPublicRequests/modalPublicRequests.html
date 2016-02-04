@@ -1,13 +1,26 @@
 <div class="modal-complete modalPublicRequests"> 
 	<div class="modal-body">
-		<h1>{{item.owner}}'s proposition</h1>
-		<p class="infos"> Artist: <span>{{item.artist}}</span></p>
-  		<p class="infos"> Quality: <span>{{item.quality}}</span></p>
-		<div class="divImg">
-			<img class="selectedImg" ng-src="/qqrequest/originals/{{item.src[0]}}">
+		<h1>{{currentPic.owner}}'s proposition</h1>
+		<p class="infos"> Artist: <span>{{currentPic.artist}}</span></p>
+  		<p class="infos"> Quality: <span>{{currentPic.quality}}</span></p>
+  		<div class="divImg">
+			<img class="selectedImg" ng-src="/qqrequest/originals/{{currentPic.src[0]}}">
 		</div>
 		<div class="votesblock">
-			<p class="infos"> Votes: <span>{{item.vote}}</span></p>
+			<p class="infos"> Votes: <span>{{currentPic.vote}}</span> <i class="fa fa-plus-circle btn-add" ng-click="addHeartBtn()"></i> </p> 
 		</div>
+  		<div class="actionsblock">
+	  		<div class="col-lg-3 btn-switch" >
+	  			<i class="fa fa-arrow-circle-left" ng-click="leftBtn()"></i>
+	  		</div>
+	  		<div class="col-lg-6">
+				<div class="btn-trophy">
+					<i class="fa fa-heart-o"></i>
+				</div> 
+			</div>
+			<div class="col-lg-3 btn-switch" ng-click="rightBtn()">
+				<i class="fa fa-arrow-circle-right"></i>
+	  		</div>
+	  	</div>
 	</div>
 </div>
