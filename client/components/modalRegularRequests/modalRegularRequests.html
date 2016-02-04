@@ -1,0 +1,46 @@
+<div class="modal-complete modalRegularRequests"> 
+	<div class="modal-body">
+		<h1>{{item.owner}}'s Request</h1>
+		<div class="divImg" id="divImg" ng-show="item.src.length<=1">
+			<img class="picturezone" id="picturezone" ng-src="/qqrequest/originals/{{item.src[0].src}}">
+			<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent'>
+      	<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/logo_button_{{btn.color}}.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
+			</div> 
+		</div>
+		<div class="divImg" ng-show="item.src.length>1">
+
+			<div class="col-md-3 recapBlock" >
+				<i class="fa fa-arrow-circle-o-up" ng-show="recapPos>0" ng-click="recapPos=recapPos-1"></i>
+				<div class="pictureoverviewBlock"  ng-repeat="key in [recapPos,recapPos+1,recapPos+2]">
+					<img class="pictureoverview" ng-src="/qqrequest/originals/{{item.src[key].src}}" ng-show="item.src.length>key" ng-class="{picselected: key === keyPicSelected}" ng-click="$parent.imgPos=key;">
+				</div>
+				<i class="fa fa-arrow-circle-o-down" ng-show="recapPos<item.src.length-1" ng-click="recapPos=recapPos+1"></i>
+			</div>
+			<div class="col-md-9 pictureBlock" id="pictureBlock">			
+				<img class="picturezone" id="picturezonemult" ng-src="/qqrequest/originals/{{item.src[imgPos].src}}">
+				<div class="placedbuttons" ng-repeat='(index,btn) in btnCurrent | filter: { imgPos: imgPos }'>
+	      	<img  id="{{ 'btn' + (index+1) }}" class="dragbtn noselect" ng-src="/assets/images/logo_button_{{btn.color}}.png" ng-style="{'left':btn.posLeft-24, 'top': btn.posTop-24}" >
+				</div> 
+			</div>
+		</div>
+		<div class="addinfos">
+			<div ng-show="redtype.length>0" class="meaningbuttons meaningred">
+			 	<span> The red buttons are for : {{redtype}}</span>
+			 	<p ng-show="redInfos.length>0">{{redInfos}}</p>
+			</div>
+			<div ng-show="bluetype.length>0" class="meaningbuttons meaningblue">
+			 	<span> The blue buttons are for : {{bluetype}}</span>
+			 	<p ng-show="blueInfos.length>0">{{blueInfos}}</p>
+			</div>
+			<div ng-show="greentype.length>0" class="meaningbuttons meaninggreen">
+			 	<span> The green buttons are for : {{greentype}}</span>
+			 	<p ng-show="greenInfos.length>0">{{greenInfos}}</p>
+			</div>
+			<div ng-show="purpletype.length>0" class="meaningbuttons meaningpurple">
+			 	<span> The purple buttons are for : {{purpletype}}</span>
+			 	<p ng-show="purpleInfos.length>0">{{purpleInfos}}</p>
+			</div>
+		</div>
+		<button class="btn btn-lg btn-success">Propose yourself for this request!</button>
+	</div>
+</div>

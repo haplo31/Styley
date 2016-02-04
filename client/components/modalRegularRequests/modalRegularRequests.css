@@ -1,0 +1,21 @@
+
+.modalRegularRequests{
+	text-align:center;
+}
+.modalRegularRequests .selectedImg{
+ max-width: 100%;
+}
+.modalRegularRequests .divImg{
+	display: inline-block;
+}
+.modalRegularRequests .addinfos{
+	display: block;
+	position: relative;
+}
+.modalRegularRequests .meaningbuttons{
+	display: block;
+	position: relative;
+}
+.modalRegularRequests button{
+	margin-top:5%;
+}

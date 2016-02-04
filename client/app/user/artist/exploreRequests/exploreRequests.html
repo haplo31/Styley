@@ -1,1 +1,13 @@
-<div>This is the exploreRequests view.</div>
+<div class="container">
+<div deckgrid class="deckgrid" source="requests">
+    <div class="a-card">
+      <img class="imagegrid" src="" data-ng-src="/qqrequest/samples/{{card.src[0].src}}" ng-click="mother.modalPic(card)">
+      <div class="inforequest">
+        <p>{{card.owner}}<br/>
+        	{{card.src.length}} image src
+        </p>
+        <p ng-bind="card.createdAt | date:'MM/dd/yyyy'"></p>
+      </div>
+    </div>
+</div>
+</div>

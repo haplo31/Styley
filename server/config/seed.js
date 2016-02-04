@@ -8,6 +8,7 @@ import User from '../api/user/user.model';
 import Qqrequest from '../api/qqrequest/qqrequest.model';
 import currentRequest from '../api/currentrequest/currentrequest.model'
 import publicRequest from '../api/publicrequest/publicrequest.model'
+import regularRequest from '../api/regularrequest/regularrequest.model'
 User.find({}).removeAsync()
   .then(() => {
     User.createAsync({
@@ -30,7 +31,12 @@ User.find({}).removeAsync()
     });
   });
 
-
+regularRequest.find({}).remove(function(){
+  regularRequest.create({   owner : "Alfred36", modtype : "creation", addinfos : [  {  color : "red",  type : "Colorize" } ], modinfos : [   {   color : "red",  imgPos : 0,   height : 448,   width : 799,  posLeft : 369,  posTop : 233 } ], src : [  {  num : 0,  src : "example1.jpg" } ]},
+                        {   owner : "louloulou", modtype : "creation", addinfos : [   {   color : "blue",   infos : "Only these two buildings",   type : "Custom" } ], modinfos : [   {   color : "blue",   imgPos : 0,   height : 600,   width : 363,  posLeft : 109,  posTop : 223 },   {   color : "blue",   imgPos : 0,   height : 600,   width : 363,  posLeft : 265,  posTop : 373 } ], src : [  {  num : 0,  src : "example12.jpg" } ]},
+                        {   owner : "roxxor", modtype : "creation", addinfos : [   {   color : "red",  infos : "Style like that",  type : "Custom" },  {   color : "purple",   infos : "",   type : "Remove" } ], modinfos : [   {  color : "purple",   imgPos : 0,   height : 343,   width : 610,  posLeft : 563,  posTop : 169 },   {   color : "red",  imgPos : 1,   height : 381,   width : 610,  posLeft : 218,  posTop : 97 } ], src : [ {  "num" : 0,  src : "example11.jpg" },   {   num : 1,  src : "example15.jpg" } ]}
+)
+})
 Qqrequest.find({}).remove(function() {
   // Qqrequest.create({
   //   owner : "Test User",
@@ -294,7 +300,7 @@ User.find({}).remove(function() {
       console.log('finished populating users');
       currentRequest.find({}).remove(function() {
         currentRequest.createAsync({ 
-          src : ["example1.jpg"], 
+          src : ["example1.jpg","example2.jpg"], 
           rating : "1", 
           price : "13",
           available : false,
